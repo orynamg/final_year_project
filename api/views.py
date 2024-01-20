@@ -2,12 +2,28 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import permissions, viewsets, serializers
-from .models import Property, CrimeIncident, Station, StationUnit
+from .models import Property, CrimeIncident, Station, StationUnit, UserQuery
+from .llm import LLMQueryGenerator
+from django.db import connection
 
 
 @api_view(["GET"])
 def hello_world(request):
     return Response({"message": "Hello, Oryna!"})
+
+
+@api_view(["POST"])
+def search(request):
+    print(request.data)
+    llm = LLMQueryGenerator("api/data/prompt.txt", "api/models.py")
+    sql = llm.generate_sql(request.data["text"])
+    print(sql)
+    with connection.cursor() as cursor:
+        cursor.execute(sql)
+        areas = []
+        for row in cursor.fetchall():
+            areas.append(row[0])
+    return Response({"areas": areas})
 
 
 class PropertySerializer(serializers.ModelSerializer):
@@ -71,4 +87,20 @@ class StationUnitViewSet(viewsets.ModelViewSet):
 
     queryset = StationUnit.objects.all()
     serializer_class = StationUnitSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+
+class UserQuerySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserQuery
+        fields = "__all__"
+
+
+class UserQueryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows user queries to be viewed or edited.
+    """
+
+    queryset = UserQuery.objects.all()
+    serializer_class = UserQuerySerializer
     # permission_classes = [permissions.IsAuthenticated]

@@ -10,7 +10,7 @@ Do not explain the code or add comments. Do not return anything apart from actua
 
 Table names have a prefix of "api_" followed by lower case model name
 
-in the api_crimeincdent table, these are the following categories:
+in the api_crimeincdent table, these are the ONLY available categories:
 violence and sexual offences
 anti-social behaviour
 criminal damage and arson
@@ -25,3 +25,7 @@ public order
 shoplifting
 robbery
 bicycle theft
+
+Interpret/filter only using these categories.
+
+

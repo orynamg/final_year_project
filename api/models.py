@@ -31,3 +31,9 @@ class StationUnit(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     postcode = models.CharField(max_length=10)
+
+
+class UserQuery(models.Model):
+    text = models.CharField(max_length=300)
+    sql = models.CharField(max_length=10000)
+    timestamp = models.DateTimeField(auto_now_add=True)
