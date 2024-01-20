@@ -11,6 +11,7 @@ router.register(r"station_units", views.StationUnitViewSet)
 urlpatterns = [
     path("hello-world/", views.hello_world, name="hello_world"),
     path("search", views.search, name="search"),
+    path("query", views.PropertyList.as_view()),
 ]
 
 urlpatterns += router.urls

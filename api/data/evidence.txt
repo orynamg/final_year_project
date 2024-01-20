@@ -1,0 +1,25 @@
+[20/Jan/2024 17:47:54] "GET /api/query?areas=N10,E14 HTTP/1.1" 200 299
+{'text': 'Give me 5 safest areas'}
+SELECT SUBSTR(postcode, 1, 3) AS area, COUNT(*) AS crime_count
+FROM api_crimeincident
+WHERE SUBSTR(postcode, 1, 1) IN ('N', 'S', 'W', 'E')
+GROUP BY area
+ORDER BY crime_count ASC
+LIMIT 5;
+[20/Jan/2024 18:17:49] "POST /api/search HTTP/1.1" 200 41
+{'text': 'Give me 5 areas with the most sexual harrasment'}
+SELECT SUBSTR(postcode, 1, 3) AS area, COUNT(*) AS count
+FROM api_crimeincident
+WHERE category = 'Violence and sexual offences' AND (postcode LIKE 'N%' OR postcode LIKE 'S%' OR postcode LIKE 'W%' OR postcode LIKE 'E%')
+GROUP BY area
+ORDER BY count DESC
+LIMIT 5;
+[20/Jan/2024 18:18:39] "POST /api/search HTTP/1.1" 200 41
+{'text': 'Give me 5 areas with the most theft of all kinds'}
+SELECT SUBSTR(postcode, 1, 3) AS area, COUNT(*) AS theft_count
+FROM api_crimeincident
+WHERE category IN ('Theft from the person', 'Vehicle crime', 'Other theft', 'Shoplifting', 'Bicycle theft')
+AND SUBSTR(postcode, 1, 1) IN ('N', 'S', 'W', 'E')
+GROUP BY area
+ORDER BY theft_count DESC
+LIMIT 5;

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import permissions, viewsets, serializers
+from rest_framework import permissions, viewsets, serializers, generics
 from .models import Property, CrimeIncident, Station, StationUnit, UserQuery
 from .llm import LLMQueryGenerator
 from django.db import connection
@@ -104,3 +104,23 @@ class UserQueryViewSet(viewsets.ModelViewSet):
     queryset = UserQuery.objects.all()
     serializer_class = UserQuerySerializer
     # permission_classes = [permissions.IsAuthenticated]
+
+
+class PropertyList(generics.ListAPIView):
+    serializer_class = PropertySerializer
+
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
+        queryset = Property.objects.all()
+        areas = self.request.query_params.get("areas", None)
+        if areas is not None:
+            areas = areas.split(",")
+            area_placeholders = ",".join(["%s"] * len(areas))
+            queryset = Property.objects.raw(
+                f"SELECT * FROM api_property WHERE SUBSTR(postcode, 1, 3) IN ({area_placeholders}) ",
+                areas,
+            )
+        return queryset
