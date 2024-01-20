@@ -1,0 +1,27 @@
+ Given the following Django Models:
+
+ {} 
+
+Generate SQL query for a sqlite database to answer the question: {} 
+
+Safe is when crimes are minimal. Area means a postcode (use only first 3 letters to identify an area). 
+
+Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
+
+Table names have a prefix of "api_" followed by lower case model name
+
+in the api_crimeincdent table, these are the following categories:
+violence and sexual offences
+anti-social behaviour
+criminal damage and arson
+drugs
+theft from the person
+vehicle crime
+other crime
+other theft
+burglary
+possession of weapons
+public order
+shoplifting
+robbery
+bicycle theft

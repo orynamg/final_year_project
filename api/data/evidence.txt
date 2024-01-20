@@ -1,0 +1,29 @@
+final_year_project on  main [!?] via 🐍 v3.11.7 via 🅒 fyp took 3s 
+❯ python api/llm.py
+SELECT SUBSTR(postcode, 1, 3) AS area, COUNT(*) AS crime_count
+FROM api_crimeincident
+WHERE category = 'violence and sexual offences'
+GROUP BY area
+ORDER BY crime_count ASC
+LIMIT 5;
+
+final_year_project on  main [!?] via 🐍 v3.11.7 via 🅒 fyp took 4s 
+❯ python api/llm.py
+SELECT SUBSTR(postcode, 1, 3) AS area, COUNT(*) AS crime_count
+FROM api_crimeincident
+GROUP BY area
+ORDER BY crime_count ASC
+LIMIT 5;
+
+final_year_project on  main [!?] via 🐍 v3.11.7 via 🅒 fyp took 4s 
+❯ python api/llm.py
+SELECT SUBSTR(postcode, 1, 3) AS area, COUNT(*) AS crime_count
+FROM api_crimeincident
+GROUP BY area
+ORDER BY crime_count ASC
+LIMIT 5;
+('B1 ', 1)
+('B12', 1)
+('B20', 1)
+('B24', 1)
+('B25', 1)
