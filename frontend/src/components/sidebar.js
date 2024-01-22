@@ -11,7 +11,7 @@ function Navbar() {
           <label htmlFor="my-drawer" className="">
             <h4>
               <FontAwesomeIcon
-                className="text-2xl py-12 px-12"
+                className="text-2xl px-7 py-12 "
                 icon={icon({ name: "list" })}
               />
             </h4>
@@ -23,12 +23,12 @@ function Navbar() {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="menu p-4 w-2/5 min-h-full bg-base-content text-white">
+          <div className="menu px-4 w-2/5 min-h-full bg-base-content text-white">
             <div>
               <div>
                 <div className="">
                   <FontAwesomeIcon
-                    className="text-xl p-4 text-slate-400 z-10"
+                    className="text-xl p-4 mt-3 text-slate-400 z-10"
                     s
                     icon={icon({ name: "search" })}
                   />
@@ -53,7 +53,7 @@ function Navbar() {
                   icon={icon({ name: "robot" })}
                 />
               </div>
-              <div className="border border-blue-500 bg-slate-800 rounded-md p-6 mx-9">
+              <div className="border border-gray-500 bg-slate-800 rounded-md p-6 mx-9">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 minima vero officiis ratione nam, provident ab dignissimos et
                 minus necessitatibus! Accusamus voluptatum in neque, eum est,
@@ -61,16 +61,32 @@ function Navbar() {
               </div>
             </div>
 
-            <button className="custom-btn btn btn-active mx-8 bg-blue-950 border-blue-500 mt-9 h-[4rem] text-slate-300  text-lg rounded-xl hover:bg-blue-800 hover:border-blue-400">
+            {/* <button className="custom-btn btn btn-active mx-8 bg-gray-950 border-gray-500 mt-9 h-[4rem] text-slate-300  text-lg rounded-xl hover:bg-gray-800 hover:border-gray-400">
               E14 Limehouse
             </button>
 
-            <button className="btn btn-active mx-8 bg-blue-950 border-blue-600 mt-4 h-[4rem] text-slate-300 text-lg rounded-xl hover:bg-blue-800 hover:border-blue-400">
+            <button className="btn btn-active mx-8 bg-gray-950 border-gray-600 mt-4 h-[4rem] text-slate-300 text-lg rounded-xl hover:bg-gray-800 hover:border-gray-400">
+              E1 Mile End
+            </button> */}
+
+            <button className="btn btn-active mx-[-1rem] bg-gray-800 border-gray-700  mt-8 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400">
+              E14 Limehouse
+            </button>
+
+            <button className="btn btn-active mx-[-1rem] bg-[#111827ac] border-gray-800 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400">
+              E5 Hackney
+            </button>
+
+            <button className="btn btn-active mx-[-1rem] bg-gray-900 border-gray-800 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400">
               E1 Mile End
             </button>
 
-            <button className="btn btn-active mx-8 bg-blue-950 border-blue-700 my-4 h-[4rem] text-slate-300 text-lg rounded-xl hover:bg-blue-800 hover:border-blue-400">
-              E2 Bethnal Blue
+            <button className="btn btn-active mx-[-1rem]  bg-[#030712d3] border-gray-900 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400">
+              EC City of London
+            </button>
+
+            <button className="btn btn-active mx-[-1rem]  bg-gray-950 border-gray-900 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400">
+              E2 Bethnal Green
             </button>
           </div>
         </div>

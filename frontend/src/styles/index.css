@@ -24,3 +24,7 @@ h1 {
   min-height: 5rem /* 64px */;
   padding: 0 3rem;
 }
+
+.menu {
+  padding: 0 1rem;
+}
