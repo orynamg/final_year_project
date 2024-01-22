@@ -3,8 +3,9 @@
 function Navbar() {
   return (
     <div>
-      <h1>Navbar</h1>
-      <p></p>
+      <div className="navbar bg-neutral text-neutral-content h-11 z-10">
+        <button className="btn btn-ghost text-xl">Locaite</button>
+      </div>
     </div>
   );
 }
