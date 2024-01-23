@@ -41,7 +41,7 @@ function Navbar() {
               <div className=" mb-4 rounded-xl px-3 py-5 mx-9 bg-slate-700 text-slate-300 flex mt-1 gap-3 justify-center items-center text-justify border border-slate-800">
                 <div className="w-12">
                   <FontAwesomeIcon
-                    className="text-xl ml-2  text-slate-400 z-10 bg-slate-600 p-3 rounded-full"
+                    className="text-xl ml-2  text-slate-400 z-10 bg-slate-600 p-3 rounded-full nice-turn"
                     s
                     icon={icon({ name: "search" })}
                   />
