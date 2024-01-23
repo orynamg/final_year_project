@@ -1,12 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto+Flex:opsz,wght@8..144,300&display=swap");
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Roboto Flex", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -16,10 +16,6 @@ code {
     monospace;
 }
 
-h1 {
-  color: red;
-}
-
 .navbar {
   min-height: 5rem /* 64px */;
   padding: 0 3rem;
@@ -27,4 +23,18 @@ h1 {
 
 .menu {
   padding: 0 1rem;
+}
+
+.btn-paper-plane {
+  cursor: pointer;
+}
+
+.btn-paper-plane:hover {
+  transform: scale(1.075);
+  -webkit-transition: transform 0.25s ease-in-out;
+}
+
+.btn-paper-plane:active {
+  transform: scale(0.9);
+  -webkit-transition: transform 0.25s ease-in-out;
 }
