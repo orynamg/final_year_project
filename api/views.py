@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import permissions, viewsets, serializers, generics
-from .models import Property, CrimeIncident, Station, StationUnit, UserQuery
+from .models import Property, CrimeIncident, Station, StationUnit, UserQuery, Area
 from .llm import LLMQueryGenerator
 from django.db import connection
 
@@ -22,7 +22,7 @@ def search(request):
         cursor.execute(sql)
         areas = []
         for row in cursor.fetchall():
-            areas.append(row[0])
+            areas.append(row[0].strip())
     return Response({"areas": areas})
 
 
@@ -124,3 +124,19 @@ class PropertyList(generics.ListAPIView):
                 areas,
             )
         return queryset
+
+
+class AreaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Area
+        fields = "__all__"
+
+
+class AreaViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows areas to be viewed or edited.
+    """
+
+    queryset = Area.objects.all()
+    serializer_class = AreaSerializer
+    # permission_classes = [permissions.IsAuthenticated]

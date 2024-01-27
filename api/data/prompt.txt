@@ -8,8 +8,6 @@ Safe is when crimes are minimal.
 
 Area means a postcode (use only first 3 letters to identify an area). 
 
-Only consider postcodes that start with N, S, W, E
-
 Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
 
 Table names have a prefix of "api_" followed by lower case model name

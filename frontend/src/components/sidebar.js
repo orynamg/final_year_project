@@ -75,9 +75,7 @@ function Navbar() {
               </div>
               <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                minima vero officiis ratione nam, provident ab dignissimos et
-                minus necessitatibus! Accusamus voluptatum in neque, eum est,
-                sunt, et fugiat ullam ducimus cumque unde voluptas consequatur!
+                minima vero officiis ratione nam, provident ab dignissimos.
               </div>
             </div>
 

@@ -23,3 +23,6 @@ AND SUBSTR(postcode, 1, 1) IN ('N', 'S', 'W', 'E')
 GROUP BY area
 ORDER BY theft_count DESC
 LIMIT 5;
+
+// cleaning the db to only contain London postcodes
+delete from api_crimeincident where postcode not regexp '^(SW|SE|W|NW|N|E|WC|EC)[0-9]{1,3} [A-Za-z0-9]{3,5}$';
