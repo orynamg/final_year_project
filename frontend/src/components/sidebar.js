@@ -1,7 +1,56 @@
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import useSWR from "swr";
 
-function Navbar() {
+const base_url = "http://localhost:8000";
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+function Sidebar() {
+  const colours = [
+    "bg-gray-800",
+    "!bg-[#111827ac]",
+    "bg-gray-900",
+    "!bg-[#030712d3]",
+    "bg-gray-950",
+  ];
+  const [query, setQuery] = useState("");
+  const [areas, setAreas] = useState([]);
+  const {
+    data: areaTable,
+    error,
+    isLoading,
+  } = useSWR(base_url + "/api/areas", fetcher);
+
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
+
+  const postQuery = (event) => {
+    event.preventDefault();
+    console.log(`text: ${query}`);
+    const areasForTesting = ["E14", "E5", "E1", "SW1", "N10"];
+    const results = areasForTesting.map((area) =>
+      areaTable.find((item) => item.code === area)
+    );
+    setAreas(results);
+    // fetch(base_url + "/api/search", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ text: query }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     const results = data.areas.map((area) =>
+    //       areaTable.find((item) => item.code === area)
+    //     );
+    //     setAreas(results);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
+  };
+
   return (
     <div>
       <div className="drawer">
@@ -29,7 +78,6 @@ function Navbar() {
                 <div>
                   <FontAwesomeIcon
                     className="text-2xl p-4 text-slate-400 flex-1 justify-center items-center"
-                    s
                     icon={icon({ name: "face-laugh-beam" })}
                   />
                 </div>
@@ -42,25 +90,28 @@ function Navbar() {
                 <div className="w-12">
                   <FontAwesomeIcon
                     className="text-xl ml-2  text-slate-400 z-10 bg-slate-600 p-3 rounded-full nice-turn"
-                    s
                     icon={icon({ name: "search" })}
                   />
                 </div>
 
                 <div className="flex">
-                  <p className=" p-2.5 text-start justify-center items-center">
-                    Give me the area with the least amount of theft or
-                    unauthorised. This area should also contain at least 3
-                    grocery stores in a half a mile radius, and a tube station.
-                  </p>
+                  <form action="" onSubmit={postQuery}>
+                    <textarea
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      className="p-2.5 text-start justify-center items-center bg-transparent border-none outline-none"
+                    ></textarea>
 
-                  <div className=" mx-2 items-end flex">
-                    <FontAwesomeIcon
-                      className="text-lg text-slate-400 z-10 bg-slate-900 p-3 rounded-xl btn-paper-plane"
-                      s
-                      icon={icon({ name: "paper-plane" })}
-                    />
-                  </div>
+                    <button
+                      className=" mx-2 items-end flex outline-none border-none"
+                      type="submit"
+                    >
+                      <FontAwesomeIcon
+                        className="text-lg text-slate-400 z-10 bg-slate-900 p-3 rounded-xl btn-paper-plane"
+                        icon={icon({ name: "paper-plane" })}
+                      />
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -69,25 +120,34 @@ function Navbar() {
               <div>
                 <FontAwesomeIcon
                   className="text-2xl p-4 text-slate-400"
-                  s
                   icon={icon({ name: "face-grin-stars" })}
                 />
               </div>
-              <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9">
+              <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9 mb-8">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 minima vero officiis ratione nam, provident ab dignissimos.
               </div>
             </div>
 
-            <button className="btn btn-active mx-[-1rem] bg-gray-800 border-gray-700  mt-8 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
-              E14 Limehouse
-            </button>
+            {areas.map((area, i) => (
+              <button
+                key={area.code}
+                className={`btn btn-active mx-[-1rem] bg-gray-800 border-gray-700 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light 
+                  ${colours[i % colours.length]}`}
+              >
+                {area.code} {area.name}
+              </button>
+            ))}
 
+            {/* <button className="btn btn-active mx-[-1rem] bg-gray-800 border-gray-700  mt-8 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
+              E14 Limehouse
+            </button> */}
+            {/* 
             <button className="btn btn-active mx-[-1rem] bg-[#111827ac] border-gray-800 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
               E5 Hackney
-            </button>
+            </button> */}
 
-            <button className="btn btn-active mx-[-1rem] bg-gray-900 border-gray-800 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
+            {/* <button className="btn btn-active mx-[-1rem] bg-gray-900 border-gray-800 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
               E1 Mile End
             </button>
 
@@ -97,7 +157,7 @@ function Navbar() {
 
             <button className="btn btn-active mx-[-1rem]  bg-gray-950 border-gray-900 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
               E2 Bethnal Green
-            </button>
+            </button>  */}
           </div>
         </div>
       </div>
@@ -105,4 +165,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Sidebar;
