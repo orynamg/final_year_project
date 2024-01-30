@@ -55,9 +55,8 @@ function Sidebar() {
     <div>
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content z-[-1]">
-          {/* Page content here */}
-          <label htmlFor="my-drawer" className="">
+        <div className="drawer-content ">
+          <label htmlFor="my-drawer" className="small-label">
             <div className="w-5 h-5">
               <FontAwesomeIcon
                 className="text-2xl p-8"
@@ -94,12 +93,13 @@ function Sidebar() {
                   />
                 </div>
 
-                <div className="flex">
-                  <form action="" onSubmit={postQuery}>
+                <div>
+                  <form action="" className="flex" onSubmit={postQuery}>
                     <textarea
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      className="p-2.5 text-start justify-center items-center bg-transparent border-none outline-none"
+                      className="p-2.5 text-start justify-center items-center bg-transparent w-80  h-20 mx-4 my-4 outline-none mb-1 "
+                      placeholder="Give me the area with the most amount of transport links and green spaces!"
                     ></textarea>
 
                     <button
@@ -132,7 +132,7 @@ function Sidebar() {
             {areas.map((area, i) => (
               <button
                 key={area.code}
-                className={`btn btn-active mx-[-1rem] bg-gray-800 border-gray-700 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light 
+                className={`btn btn-active mx-[-1rem] bg-gray-800 border-gray-700 h-[4rem] text-slate-300 text-lg  rounded-none hover:!bg-gray-700 hover:border-gray-400 tracking-wider font-light 
                   ${colours[i % colours.length]}`}
               >
                 {area.code} {area.name}

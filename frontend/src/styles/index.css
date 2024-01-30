@@ -49,3 +49,9 @@ code {
   transform: scale(0.8);
   -webkit-transition: transform 0.25s ease-in-out;
 }
+
+.small-label {
+  display: block;
+  width: 0;
+  height: 0;
+}
