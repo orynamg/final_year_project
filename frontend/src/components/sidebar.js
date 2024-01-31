@@ -14,6 +14,7 @@ function Sidebar() {
     "!bg-[#030712d3]",
     "bg-gray-950",
   ];
+  const [isSpinning, setIsSpinning] = useState(false);
   const [query, setQuery] = useState("");
   const [areas, setAreas] = useState([]);
   const {
@@ -27,28 +28,30 @@ function Sidebar() {
 
   const postQuery = (event) => {
     event.preventDefault();
+    setIsSpinning(true);
     console.log(`text: ${query}`);
-    const areasForTesting = ["E14", "E5", "E1", "SW1", "N10"];
-    const results = areasForTesting.map((area) =>
-      areaTable.find((item) => item.code === area)
-    );
-    setAreas(results);
-    // fetch(base_url + "/api/search", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ text: query }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     const results = data.areas.map((area) =>
-    //       areaTable.find((item) => item.code === area)
-    //     );
-    //     setAreas(results);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
+    // const areasForTesting = ["E14", "E5", "E1", "SW1", "N10"];
+    // const results = areasForTesting.map((area) =>
+    //   areaTable.find((item) => item.code === area)
+    // );
+    // setAreas(results);
+    fetch(base_url + "/api/search", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: query }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const results = data.areas.map((area) =>
+          areaTable.find((item) => item.code === area)
+        );
+        setAreas(results);
+        setIsSpinning(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -128,6 +131,8 @@ function Sidebar() {
                 minima vero officiis ratione nam, provident ab dignissimos.
               </div>
             </div>
+
+            {isSpinning ? <p>Loading...</p> : null}
 
             {areas.map((area, i) => (
               <button
