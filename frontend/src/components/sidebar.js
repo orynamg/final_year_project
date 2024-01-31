@@ -8,7 +8,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function Sidebar() {
   const colours = [
-    "bg-gray-800",
+    "!bg-[#1F2936]",
     "!bg-[#111827ac]",
     "bg-gray-900",
     "!bg-[#030712d3]",
@@ -55,12 +55,12 @@ function Sidebar() {
     <div>
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content ">
-          <label htmlFor="my-drawer" className="small-label">
-            <div className="w-5 h-5">
+        <div className="drawer-content z-10">
+          <label htmlFor="my-drawer" className="small-label flex">
+            <div className="w-5 h-5 z-100">
               <FontAwesomeIcon
-                className="text-2xl p-8"
-                icon={icon({ name: "list" })}
+                className="text-md absolute right-0 top-0 mt-8 mx-24 text-slate-300 z-50 text-light"
+                icon={icon({ name: "bars" })}
               />
             </div>
           </label>
@@ -71,7 +71,7 @@ function Sidebar() {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="menu px-4 w-2/5 min-h-full bg-base-content text-white">
+          <div className="menu px-4 w-2/5 min-h-full bg-[#1F2936] text-white">
             <div>
               <div className=" flex pt-3">
                 <div>

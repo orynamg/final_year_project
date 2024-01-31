@@ -11,12 +11,12 @@ const MapStyle = [
   {
     featureType: "administrative.locality",
     elementType: "labels.text.fill",
-    stylers: [{ color: "#d59563" }],
+    stylers: [{ color: "#e5e5e5" }],
   },
   {
     featureType: "poi",
     elementType: "labels.text.fill",
-    stylers: [{ color: "#d59563" }],
+    stylers: [{ color: "#94A2B8" }],
   },
   {
     featureType: "poi.park",
@@ -46,7 +46,7 @@ const MapStyle = [
   {
     featureType: "road.highway",
     elementType: "geometry",
-    stylers: [{ color: "#746855" }],
+    stylers: [{ color: "#111827" }],
   },
   {
     featureType: "road.highway",
@@ -56,7 +56,7 @@ const MapStyle = [
   {
     featureType: "road.highway",
     elementType: "labels.text.fill",
-    stylers: [{ color: "#f3d19c" }],
+    stylers: [{ color: "#94A2B8" }],
   },
   {
     featureType: "transit",
@@ -87,11 +87,11 @@ const MapStyle = [
 
 function MapView() {
   return (
-    <div className="z-[-5]">
+    <div className="z-[-100] !fixed top-0 right-0  left-0">
       <APIProvider apiKey={API_KEY}>
         <Map
-          zoom={13}
-          center={{ lat: 51.5072, lng: -0.1476 }}
+          zoom={12}
+          center={{ lat: 51.5072, lng: -0.1876 }}
           styles={MapStyle}
           gestureHandling={"greedy"}
           disableDefaultUI={true}
