@@ -85,13 +85,15 @@ const MapStyle = [
   },
 ];
 
-function MapView() {
+function MapView({ selectedCoors }) {
+  console.log(selectedCoors);
   return (
     <div className="z-[-100] !fixed top-0 right-0  left-0">
       <APIProvider apiKey={API_KEY}>
         <Map
-          zoom={12}
-          center={{ lat: 51.5072, lng: -0.1876 }}
+          zoom={13}
+          center={selectedCoors}
+          //   center={{ lat: 51.5072, lng: -0.1876 }}
           styles={MapStyle}
           gestureHandling={"greedy"}
           disableDefaultUI={true}

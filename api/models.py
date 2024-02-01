@@ -42,3 +42,5 @@ class UserQuery(models.Model):
 class Area(models.Model):
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
+    centre_lat = models.FloatField()
+    centre_long = models.FloatField()

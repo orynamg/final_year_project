@@ -1,82 +1,82 @@
-code,name
-E1,Whitechapel
-E10,Leyton
-E11,Leytonstone
-E12,Manor Park
-E13,Plaistow
-E14,Canary Wharf
-E15,Stratford
-E16,Canning Town
-E17,Walthamstow
-E18,South Woodford
-E2,Bethnal Green
-E20,Olympic Park
-E3,Bow
-E4,Chingford
-E5,Clapton
-E6,East Ham
-E7,Forest Gate
-E8,Hackney
-E9,Homerton
-N1,Islington
-N10,Muswell Hill
-N11,New Southgate
-N12,North Finchley
-N13,Palmers Green
-N14,Southgate
-N15,Seven Sisters
-N16,Stoke Newington
-N17,Tottenham
-N18,Upper Edmonton
-N19,Upper Holloway
-N2,East Finchley
-N20,Whetstone
-N21,Winchmore Hill
-N22,Wood Green
-N3,Finchley
-N4,Finsbury Park
-N5,Highbury
-N6,Highgate
-N7,Holloway
-N8,Hornsey
-N9,Lower Edmonton
-NW1,Camden Town
-NW2,Cricklewood
-NW3,Hampstead
-NW4,Hendon
-NW5,Kentish Town
-NW6,Kilburn
-NW7,Mill Hill
-NW8,St John's Wood
-NW9,The Hyde
-SE1,Bermondsey
-SE2,Abbey Wood
-SE3,Blackheath
-SE4,Brockley
-SE5,Camberwell
-SE6,Catford
-SE7,Charlton
-SE8,Deptford
-SE9,Eltham
-SW1,Belgravia
-SW2,Brixton
-SW3,Chelsea
-SW4,Clapham
-SW5,Earl's Court
-SW6,Fulham
-SW7,South Kensington
-SW8,South Lambeth
-SW9,Stockwell
-W10,Ladbroke Grove
-W11,Notting Hill
-W12,Shepherd's Bush
-W13,West Ealing
-W14,West Kensington
-W2,Bayswater
-W3,Acton
-W4,Chiswick
-W5,Ealing
-W6,Hammersmith
-W7,Hanwell
-W8,Kensington
-W9,Maida Vale
+code,name,centre_lat,centre_long
+E1,Whitechapel,51.5198,-0.0595
+E10,Leyton,51.5698,0.008
+E11,Leytonstone,51.5688,0.008
+E12,Manor Park,51.5519,0.0469
+E13,Plaistow,51.5273,0.0248
+E14,Canary Wharf,51.5054,-0.0235
+E15,Stratford,51.5445,-0.0059
+E16,Canning Town,51.5077,0.0276
+E17,Walthamstow,51.5908,-0.0134
+E18,South Woodford,51.5918,0.0273
+E2,Bethnal Green,51.5275,-0.0553
+E20,Olympic Park,51.5445,-0.0059
+E3,Bow,51.5275,-0.0248
+E4,Chingford,51.6333,0.0098
+E5,Clapton,51.5588,-0.0532
+E6,East Ham,51.5322,0.0532
+E7,Forest Gate,51.5494,0.0248
+E8,Hackney,51.5445,-0.0553
+E9,Homerton,51.5445,-0.0553
+N1,Islington,51.5384,-0.0999
+N10,Muswell Hill,51.5918,-0.1426
+N11,New Southgate,51.6153,-0.1313
+N12,North Finchley,51.6153,-0.1313
+N13,Palmers Green,51.6153,-0.1313   
+N14,Southgate,51.6153,-0.1313
+N15,Seven Sisters,51.6153,-0.1313
+N16,Stoke Newington,51.6153,-0.1313
+N17,Tottenham,51.6153,-0.1313
+N18,Upper Edmonton,51.6153,-0.1313
+N19,Upper Holloway,51.6153,-0.1313
+N2,East Finchley,51.6153,-0.1313
+N20,Whetstone,51.6153,-0.1313
+N21,Winchmore Hill,51.6153,-0.1313
+N22,Wood Green,51.6153,-0.1313
+N3,Finchley,51.6153,-0.1313
+N4,Finsbury Park,51.6153,-0.1313
+N5,Highbury,51.6153,-0.1313
+N6,Highgate,51.6153,-0.1313
+N7,Holloway,51.6153,-0.1313
+N8,Hornsey,51.6153,-0.1313
+N9,Lower Edmonton,51.6153,-0.1313
+NW1,Camden Town,51.5416,-0.1647
+NW2,Cricklewood,51.5416,-0.1647
+NW3,Hampstead,51.5416,-0.1647
+NW4,Hendon,51.5416,-0.1647
+NW5,Kentish Town,51.5416,-0.1647
+NW6,Kilburn,51.5416,-0.1647
+NW7,Mill Hill,51.5416,-0.1647
+NW8,St John's Wood,51.5416,-0.1647
+NW9,The Hyde,51.5416,-0.1647
+SE1,Bermondsey,51.4975,-0.0805
+SE2,Abbey Wood,51.4975,-0.0805
+SE3,Blackheath,51.4975,-0.0805
+SE4,Brockley,51.4975,-0.0805
+SE5,Camberwell,51.4975,-0.0805
+SE6,Catford,51.4975,-0.0805
+SE7,Charlton,51.4975,-0.0805
+SE8,Deptford,51.4975,-0.0805
+SE9,Eltham,51.4975,-0.0805
+SW1,Belgravia,51.4975,-0.0805
+SW2,Brixton,51.4975,-0.0805
+SW3,Chelsea,51.4975,-0.0805
+SW4,Clapham,51.4975,-0.0805
+SW5,Earl's Court,51.4975,-0.0805
+SW6,Fulham,51.4975,-0.0805
+SW7,South Kensington,51.4975,-0.0805
+SW8,South Lambeth,51.4975,-0.0805
+SW9,Stockwell,51.4975,-0.0805
+W10,Ladbroke Grove,51.5176,-0.2176
+W11,Notting Hill,51.5176,-0.2176
+W12,Shepherd's Bush,51.5176,-0.2176
+W13,West Ealing,51.5176,-0.2176
+W14,West Kensington,51.5176,-0.2176
+W2,Bayswater,51.5176,-0.2176
+W3,Acton,51.5176,-0.2176
+W4,Chiswick,51.5176,-0.2176
+W5,Ealing,51.5176,-0.2176
+W6,Hammersmith,51.5176,-0.2176
+W7,Hanwell,51.5176,-0.2176
+W8,Kensington,51.5176,-0.2176
+W9,Maida Vale,51.5176,-0.2176

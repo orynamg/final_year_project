@@ -27,7 +27,7 @@ with open(csv_file_path, "r") as csv_file:
     # Insert rows from CSV into the table
     for row in reader:
         placeholders = ", ".join("?" * len(row))
-        insert_query = f"INSERT INTO api_area (code, name) VALUES ({placeholders});"
+        insert_query = f"INSERT INTO api_area (code, name, centre_lat, centre_long) VALUES ({placeholders});"
         cursor.execute(insert_query, row)
 
 # Commit changes and close the connection
