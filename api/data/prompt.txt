@@ -30,6 +30,8 @@ Bicycle theft
 
 Interpret/filter only using these categories.
 
+WHen asked for crime instances without specifying "most" or "least" display them in descending order
+
 Always return 5 areas
 
 

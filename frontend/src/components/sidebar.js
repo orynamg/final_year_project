@@ -6,7 +6,7 @@ import useSWR from "swr";
 const base_url = "http://localhost:8000";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function Sidebar({ selectedCoors, setSelectedCoors }) {
+function Sidebar({ selectedCoors, setSelectedCoors, setZoom }) {
   const colours = [
     "!bg-[#1F2936]",
     "!bg-[#111827ac]",
@@ -137,12 +137,13 @@ function Sidebar({ selectedCoors, setSelectedCoors }) {
             {areas.map((area, i) => (
               <button
                 value={selectedCoors}
-                onClick={() =>
+                onClick={() => {
                   setSelectedCoors({
                     lat: area.centre_lat,
                     lng: area.centre_long,
-                  })
-                }
+                  });
+                  setZoom(13);
+                }}
                 key={area.code}
                 className={`btn btn-active mx-[-1rem] bg-gray-800 border-gray-700 h-[4rem] text-slate-300 text-lg  rounded-none hover:!bg-gray-700 hover:border-gray-400 tracking-wider font-light 
                   ${colours[i % colours.length]}`}
@@ -150,26 +151,6 @@ function Sidebar({ selectedCoors, setSelectedCoors }) {
                 {area.code} {area.name}
               </button>
             ))}
-
-            {/* <button className="btn btn-active mx-[-1rem] bg-gray-800 border-gray-700  mt-8 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
-              E14 Limehouse
-            </button> */}
-            {/* 
-            <button className="btn btn-active mx-[-1rem] bg-[#111827ac] border-gray-800 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
-              E5 Hackney
-            </button> */}
-
-            {/* <button className="btn btn-active mx-[-1rem] bg-gray-900 border-gray-800 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
-              E1 Mile End
-            </button>
-
-            <button className="btn btn-active mx-[-1rem]  bg-[#030712d3] border-gray-900 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
-              EC City of London
-            </button>
-
-            <button className="btn btn-active mx-[-1rem]  bg-gray-950 border-gray-900 h-[4rem] text-slate-300 text-lg  rounded-none hover:bg-gray-700 hover:border-gray-400 tracking-wider font-light">
-              E2 Bethnal Green
-            </button>  */}
           </div>
         </div>
       </div>

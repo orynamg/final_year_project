@@ -10,6 +10,7 @@ function App() {
     lat: 51.5072,
     lng: -0.1876,
   });
+  const [zoom, setZoom] = useState(12);
 
   return (
     <div>
@@ -17,8 +18,9 @@ function App() {
       <Sidebar
         selectedCoors={selectedCoors}
         setSelectedCoors={setSelectedCoors}
+        setZoom={setZoom}
       />
-      <MapView selectedCoors={selectedCoors} />
+      <MapView selectedCoors={selectedCoors} zoom={zoom} />
     </div>
   );
 }
