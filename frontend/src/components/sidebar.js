@@ -6,7 +6,7 @@ import useSWR from "swr";
 const base_url = "http://localhost:8000";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function Sidebar({ selectedCoors, setSelectedCoors, setZoom }) {
+function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
   const colours = [
     "!bg-[#1F2936]",
     "!bg-[#111827ac]",
@@ -143,6 +143,7 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom }) {
                     lng: area.centre_long,
                   });
                   setZoom(13);
+                  setAreaCode(area.code);
                 }}
                 key={area.code}
                 className={`btn btn-active mx-[-1rem] bg-gray-800 border-gray-700 h-[4rem] text-slate-300 text-lg  rounded-none hover:!bg-gray-700 hover:border-gray-400 tracking-wider font-light 

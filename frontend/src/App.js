@@ -11,6 +11,7 @@ function App() {
     lng: -0.1876,
   });
   const [zoom, setZoom] = useState(12);
+  const [areaCode, setAreaCode] = useState("");
 
   return (
     <div>
@@ -19,8 +20,9 @@ function App() {
         selectedCoors={selectedCoors}
         setSelectedCoors={setSelectedCoors}
         setZoom={setZoom}
+        setAreaCode={setAreaCode}
       />
-      <MapView selectedCoors={selectedCoors} zoom={zoom} />
+      <MapView selectedCoors={selectedCoors} zoom={zoom} areaCode={areaCode} />
     </div>
   );
 }
