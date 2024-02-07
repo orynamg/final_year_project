@@ -142,21 +142,22 @@ function MapView({ selectedCoors, zoom, areaCode }) {
     const polygonCoords = polygonMap.get(areaCode);
     polygon.current = new mapsLibrary.Polygon({
       paths: polygonCoords,
-      strokeColor: "#FF0000",
+      strokeColor: "#b38600",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: "#FF0000",
-      fillOpacity: 0.35,
+      strokeWeight: 1,
+      fillColor: "#b38600",
+      fillOpacity: 0.25,
     });
 
     polygon.current.setMap(map);
+    map.panTo({ lat: selectedCoors.lat, lng: selectedCoors.lng - 0.04 });
   }, [areaCode]);
 
   return (
     <div className="z-[-100] !fixed top-0 right-0 left-0">
       <GoogleMap
         zoom={zoom}
-        center={{ lat: selectedCoors.lat, lng: selectedCoors.lng - 0.04 }}
+        center={{ lat: 51.5072, lng: -0.1876 }}
         styles={MapStyle}
         gestureHandling={"greedy"}
         disableDefaultUI={true}
