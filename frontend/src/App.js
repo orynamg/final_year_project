@@ -4,6 +4,9 @@ import Navbar from "./components/navbar";
 import Sidebar from "./components/sidebar";
 import MapView from "./components/map";
 import { useState } from "react";
+import { APIProvider } from "@vis.gl/react-google-maps";
+
+const API_KEY = "";
 
 function App() {
   const [selectedCoors, setSelectedCoors] = useState({
@@ -22,7 +25,13 @@ function App() {
         setZoom={setZoom}
         setAreaCode={setAreaCode}
       />
-      <MapView selectedCoors={selectedCoors} zoom={zoom} areaCode={areaCode} />
+      <APIProvider apiKey={API_KEY}>
+        <MapView
+          selectedCoors={selectedCoors}
+          zoom={zoom}
+          areaCode={areaCode}
+        />
+      </APIProvider>
     </div>
   );
 }

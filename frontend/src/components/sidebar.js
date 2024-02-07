@@ -30,28 +30,28 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
     event.preventDefault();
     setIsSpinning(true);
     console.log(`text: ${query}`);
-    // const areasForTesting = ["E14", "E5", "E1", "SW1", "N10"];
-    // const results = areasForTesting.map((area) =>
-    //   areaTable.find((item) => item.code === area)
-    // );
-    // setAreas(results);
-    fetch(base_url + "/api/search", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: query }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        const results = data.areas.map((area) =>
-          areaTable.find((item) => item.code === area)
-        );
-        setAreas(results);
-        setIsSpinning(false);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    const areasForTesting = ["E14", "E5", "E1", "SW1", "N10"];
+    const results = areasForTesting.map((area) =>
+      areaTable.find((item) => item.code === area)
+    );
+    setAreas(results);
+    // fetch(base_url + "/api/search", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ text: query }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     const results = data.areas.map((area) =>
+    //       areaTable.find((item) => item.code === area)
+    //     );
+    //     setAreas(results);
+    //     setIsSpinning(false);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
   };
 
   return (
