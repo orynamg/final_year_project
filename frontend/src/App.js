@@ -26,7 +26,7 @@ function App() {
         setZoom={setZoom}
         setAreaCode={setAreaCode}
       />
-      <Dashboard />
+      {areaCode.length != 0 ? <Dashboard /> : <></>}
       <APIProvider apiKey={API_KEY}>
         <MapView
           selectedCoors={selectedCoors}
