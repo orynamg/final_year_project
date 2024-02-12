@@ -3,6 +3,7 @@ import HelloWorld from "./HelloWorld";
 import Navbar from "./components/navbar";
 import Sidebar from "./components/sidebar";
 import MapView from "./components/map";
+import Dashboard from "./components/dashboard";
 import { useState } from "react";
 import { APIProvider } from "@vis.gl/react-google-maps";
 
@@ -25,6 +26,7 @@ function App() {
         setZoom={setZoom}
         setAreaCode={setAreaCode}
       />
+      <Dashboard />
       <APIProvider apiKey={API_KEY}>
         <MapView
           selectedCoors={selectedCoors}
