@@ -4,22 +4,8 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
-    operations = [
-        migrations.CreateModel(
-            name='Property',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('address', models.CharField(max_length=200)),
-                ('description', models.CharField(max_length=200)),
-                ('published_date', models.DateField()),
-                ('bedrooms', models.IntegerField(default=0)),
-                ('freehold', models.BooleanField(default=False)),
-            ],
-        ),
-    ]
+    operations = []

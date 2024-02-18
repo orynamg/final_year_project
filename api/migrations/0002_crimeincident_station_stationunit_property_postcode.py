@@ -65,10 +65,4 @@ class Migration(migrations.Migration):
                 ("postcode", models.CharField(max_length=10)),
             ],
         ),
-        migrations.AddField(
-            model_name="property",
-            name="postcode",
-            field=models.CharField(max_length=10),
-            preserve_default=False,
-        ),
     ]

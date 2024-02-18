@@ -10,6 +10,8 @@ Area means a postcode (use only first 3 letters to identify an area).
 
 Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
 
+Always return 5 areas
+
 Table names have a prefix of "api_" followed by lower case model name
 
 in the api_crimeincdent table, these are the ONLY available categories:
@@ -32,6 +34,5 @@ Interpret/filter only using these categories.
 
 WHen asked for crime instances without specifying "most" or "least" display them in descending order
 
-Always return 5 areas
 
 

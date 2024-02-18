@@ -29,29 +29,29 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
   const postQuery = (event) => {
     event.preventDefault();
     setIsSpinning(true);
-    console.log(`text: ${query}`);
-    const areasForTesting = ["E14", "E5", "E1", "SE1", "N10"];
-    const results = areasForTesting.map((area) =>
-      areaTable.find((item) => item.code === area)
-    );
-    setAreas(results);
-    // fetch(base_url + "/api/search", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ text: query }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     const results = data.areas.map((area) =>
-    //       areaTable.find((item) => item.code === area)
-    //     );
-    //     setAreas(results);
-    //     setIsSpinning(false);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
+    // console.log(`text: ${query}`);
+    // const areasForTesting = ["E14", "E5", "E1", "SE1", "N10"];
+    // const results = areasForTesting.map((area) =>
+    //   areaTable.find((item) => item.code === area)
+    // );
+    // setAreas(results);
+    fetch(base_url + "/api/search", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: query }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const results = data.areas.map((area) =>
+          areaTable.find((item) => item.code === area)
+        );
+        setAreas(results);
+        setIsSpinning(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -83,8 +83,8 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                     icon={icon({ name: "face-laugh-beam" })}
                   />
                 </div>
-                <div className="rounded-lg py-[1rem] text-base italic tracking-wide font-normal">
-                  Describe your ideal area!
+                <div className="rounded-lg py-[1rem] text-base italic tracking-wide font-normal ">
+                  <p class="">Describe your ideal area!</p>
                 </div>
               </div>
 
@@ -126,13 +126,15 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                   icon={icon({ name: "face-grin-stars" })}
                 />
               </div>
-              <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9 mb-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                minima vero officiis ratione nam, provident ab dignissimos.
+              <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9 mb-8 ">
+                <p className="line-1 anim-typewriter">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
+                  provident.
+                </p>
               </div>
             </div>
 
-            {isSpinning ? <p>Loading...</p> : null}
+            {isSpinning ? <p>Loading...</p> : <p className="pt-4"></p>}
 
             {areas.map((area, i) => (
               <button

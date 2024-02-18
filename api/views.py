@@ -2,7 +2,14 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import permissions, viewsets, serializers, generics
-from .models import Property, CrimeIncident, Station, StationUnit, UserQuery, Area
+from .models import (
+    Property,
+    CrimeIncident,
+    Station,
+    StationUnit,
+    UserQuery,
+    Area,
+)
 from .llm import LLMQueryGenerator
 from django.db import connection
 

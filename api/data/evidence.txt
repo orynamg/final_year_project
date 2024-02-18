@@ -26,3 +26,25 @@ LIMIT 5;
 
 // cleaning the db to only contain London postcodes
 delete from api_crimeincident where postcode not regexp '^(SW|SE|W|NW|N|E|WC|EC)[0-9]{1,3} [A-Za-z0-9]{3,5}$';
+
+
+{'text': 'gime me the area with the cheapest average property cost'}
+SELECT SUBSTR(postcode, 1, 3) AS area, AVG(price) AS avg_price
+FROM api_property
+GROUP BY area
+ORDER BY avg_price ASC
+LIMIT 5;
+
+
+{'text': 'gime me area with the most flats with 3 bedrooms and where the most common crime type is drug related'}
+SELECT area_code, COUNT(*) as flat_count, crime_category
+FROM (
+    SELECT SUBSTR(p.postcode, 1, 3) as area_code, c.category as crime_category
+    FROM api_property p
+    JOIN api_crimeincident c ON SUBSTR(c.postcode, 1, 3) = SUBSTR(p.postcode, 1, 3)
+    WHERE p.bedrooms = 3 AND c.category = 'Drugs'
+) 
+GROUP BY area_code, crime_category
+ORDER BY flat_count DESC, crime_category DESC
+LIMIT 5;
+[18/Feb/2024 16:56:20] "POST /api/search HTTP/1.1" 200 40

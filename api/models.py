@@ -2,12 +2,15 @@ from django.db import models
 
 
 class Property(models.Model):
-    address = models.CharField(max_length=200)
-    postcode = models.CharField(max_length=10)
-    description = models.CharField(max_length=200)
-    published_date = models.DateField()
+    name = models.CharField(max_length=200)
+    price = models.FloatField()
+    house_type = models.CharField(max_length=200)
+    area_sqft = models.FloatField()
     bedrooms = models.IntegerField(default=0)
-    freehold = models.BooleanField(default=False)
+    bathrooms = models.IntegerField(default=0)
+    receptions = models.IntegerField(default=0)
+    postcode = models.CharField(max_length=10)
+    city = models.CharField(max_length=200)
 
 
 class CrimeIncident(models.Model):
