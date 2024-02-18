@@ -6,7 +6,7 @@ Generate SQL query for a sqlite database to answer the question: {}
 
 Safe is when crimes are minimal. 
 
-Area means a postcode (use only first 3 letters to identify an area). 
+Area means area code everything before the space in the postcode 
 
 Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
 

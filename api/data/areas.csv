@@ -49,6 +49,7 @@ NW6,Kilburn,51.5416,-0.1647
 NW7,Mill Hill,51.5416,-0.1647
 NW8,St John's Wood,51.5416,-0.1647
 NW9,The Hyde,51.5416,-0.1647
+NW10,Willesden,51.5416,-0.1647
 SE1,Bermondsey,51.4975,-0.0805
 SE2,Abbey Wood,51.4975,-0.0805
 SE3,Blackheath,51.4975,-0.0805
@@ -58,6 +59,25 @@ SE6,Catford,51.4975,-0.0805
 SE7,Charlton,51.4975,-0.0805
 SE8,Deptford,51.4975,-0.0805
 SE9,Eltham,51.4975,-0.0805
+SE10,Greenwich,51.4975,-0.0805
+SE11,Kennington,51.4975,-0.0805
+SE12,Lee,51.4975,-0.0805
+SE13,Lewisham,51.4975,-0.0805
+SE14,New Cross,51.4975,-0.0805
+SE15,Peckham,51.4975,-0.0805
+SE16,Rotherhithe,51.4975,-0.0805
+SE17,Walworth,51.4975,-0.0805
+SE18,Woolwich,51.4975,-0.0805
+SE19,Upper Norwood,51.4975,-0.0805
+SE20,Anerley,51.4975,-0.0805
+SE21,Dulwich,51.4975,-0.0805
+SE22,East Dulwich,51.4975,-0.0805
+SE23,Forest Hill,51.4975,-0.0805
+SE24,Herne Hill,51.4975,-0.0805
+SE25,South Norwood,51.4975,-0.0805
+SE26,Sydenham,51.4975,-0.0805
+SE27,West Norwood,51.4975,-0.0805
+SE28,Thamesmead,51.4975,-0.0805
 SW1,Belgravia,51.4975,-0.0805
 SW2,Brixton,51.4975,-0.0805
 SW3,Chelsea,51.4975,-0.0805
@@ -67,11 +87,23 @@ SW6,Fulham,51.4975,-0.0805
 SW7,South Kensington,51.4975,-0.0805
 SW8,South Lambeth,51.4975,-0.0805
 SW9,Stockwell,51.4975,-0.0805
+SW10,West Brompton,51.4975,-0.0805
+SW11,Battersea,51.4975,-0.0805
+SW12,Balham,51.4975,-0.0805
+SW13,Barnes,51.4975,-0.0805
+SW14,East Sheen,51.4975,-0.0805
+SW15,Putney,51.4975,-0.0805
+SW16,Streatham,51.4975,-0.0805
+SW17,Tooting,51.4975,-0.0805
+SW18,Wandsworth,51.4975,-0.0805
+SW19,Wimbledon,51.4975,-0.0805
+SW20,West Wimbledon,51.4975,-0.0805
 W10,Ladbroke Grove,51.5176,-0.2176
 W11,Notting Hill,51.5176,-0.2176
 W12,Shepherd's Bush,51.5176,-0.2176
 W13,West Ealing,51.5176,-0.2176
 W14,West Kensington,51.5176,-0.2176
+W1,Mayfair,51.5176,-0.2176
 W2,Bayswater,51.5176,-0.2176
 W3,Acton,51.5176,-0.2176
 W4,Chiswick,51.5176,-0.2176
@@ -80,3 +112,14 @@ W6,Hammersmith,51.5176,-0.2176
 W7,Hanwell,51.5176,-0.2176
 W8,Kensington,51.5176,-0.2176
 W9,Maida Vale,51.5176,-0.2176
+W10,North Kensington,51.5176,-0.2176
+W11,Notting Hill,51.5176,-0.2176
+W12,Shepherd's Bush,51.5176,-0.2176
+W13,West Ealing,51.5176,-0.2176
+W14,West Kensington,51.5176,-0.2176
+WC1,Bloomsbury,51.5246,-0.1229
+WC2,Covent Garden,51.5246,-0.1229
+EC1,Clerkenwell,51.5246,-0.1229
+EC2,Bishopsgate,51.5246,-0.1229
+EC3,Fenchurch Street,51.5246,-0.1229
+EC4,St Pauls,51.5246,-0.1229

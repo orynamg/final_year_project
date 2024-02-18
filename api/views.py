@@ -29,7 +29,10 @@ def search(request):
         cursor.execute(sql)
         areas = []
         for row in cursor.fetchall():
-            areas.append(row[0].strip())
+            area = row[0].strip()
+            area = area.rstrip("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+            if area not in areas:
+                areas.append(area)
     return Response({"areas": areas})
 
 

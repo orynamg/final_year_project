@@ -48,3 +48,13 @@ GROUP BY area_code, crime_category
 ORDER BY flat_count DESC, crime_category DESC
 LIMIT 5;
 [18/Feb/2024 16:56:20] "POST /api/search HTTP/1.1" 200 40
+
+{'text': 'gime meee an the safest areas with 3 bedroom'}
+SELECT area.code, area.name, COUNT(crime.category) as crime_count
+FROM api_area as area
+JOIN api_property as prop ON SUBSTR(prop.postcode, 1, INSTR(prop.postcode, ' ') - 1) = area.code
+LEFT JOIN api_crimeincident as crime ON SUBSTR(crime.postcode, 1, INSTR(crime.postcode, ' ') - 1) = area.code
+WHERE prop.bedrooms = 3
+GROUP BY area.code
+ORDER BY crime_count ASC
+LIMIT 5;
