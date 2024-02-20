@@ -58,3 +58,83 @@ WHERE prop.bedrooms = 3
 GROUP BY area.code
 ORDER BY crime_count ASC
 LIMIT 5;
+
+// fails 
+
+{'text': 'gime the areas with highest property prices'}
+SELECT area_code, AVG(price) as avg_price
+FROM (
+    SELECT SUBSTR(postcode, 1, INSTR(postcode, ' ') - 1) as area_code, price
+    FROM api_property
+) 
+GROUP BY area_code
+ORDER BY avg_price DESC
+LIMIT 5;
+[18/Feb/2024 18:01:21] "POST /api/search HTTP/1.1" 200 22
+{'text': 'gime the areas with highest property prices'}
+SELECT area_code, AVG(price) as avg_price
+FROM (
+    SELECT SUBSTR(postcode, 1, INSTR(postcode, ' ') - 1) as area_code, price
+    FROM api_property
+) 
+WHERE area_code NOT IN (
+    SELECT DISTINCT SUBSTR(postcode, 1, INSTR(postcode, ' ') - 1) as area_code
+    FROM api_crimeincident
+)
+GROUP BY area_code
+ORDER BY avg_price DESC
+LIMIT 5;
+[18/Feb/2024 18:01:25] "POST /api/search HTTP/1.1" 200 22
+[18/Feb/2024 18:01:50] "GET /api/areas/ HTTP/1.1" 200 10765
+[18/Feb/2024 18:02:04] "GET /api/areas/ HTTP/1.1" 200 10765
+{'text': 'gime the areas with highest property prices. do not include anything to do with crimes. ignore crime'}
+SELECT api_area.name, AVG(api_property.price) as average_price
+FROM api_area
+JOIN api_property ON SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) = api_area.code
+GROUP BY api_area.name
+ORDER BY average_price DESC
+LIMIT 5;
+[18/Feb/2024 18:02:34] "POST /api/search HTTP/1.1" 200 31
+[18/Feb/2024 18:05:16] "GET /api/areas/ HTTP/1.1" 200 10765
+[18/Feb/2024 18:06:07] "GET /api/areas/ HTTP/1.1" 200 10765
+{'text': 'gime me expensivre areas'}
+SELECT api_area.code, api_area.name, AVG(api_property.price) as average_price, COUNT(api_crimeincident.id) as crime_count
+FROM api_area
+JOIN api_property ON SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) = api_area.code
+LEFT JOIN api_crimeincident ON SUBSTR(api_crimeincident.postcode, 1, INSTR(api_crimeincident.postcode, ' ') - 1) = api_area.code
+GROUP BY api_area.code
+ORDER BY average_price DESC, crime_count ASC
+LIMIT 5;
+
+
+{'text': 'gime me an area where the average house price is between 500,000-600,000 and it is the 10th safest area out of all london areas. '}
+SELECT area.code, area.name, AVG(property.price) as avg_price, COUNT(crime.postcode) as crime_count
+FROM api_area as area
+JOIN api_property as property ON SUBSTR(property.postcode, 1, INSTR(property.postcode, ' ') - 1) = area.code
+LEFT JOIN api_crimeincident as crime ON SUBSTR(crime.postcode, 1, INSTR(crime.postcode, ' ') - 1) = area.code
+WHERE property.price BETWEEN 500000 AND 600000
+GROUP BY area.code
+ORDER BY crime_count ASC, avg_price DESC
+LIMIT 5 OFFSET 9;
+
+[20/Feb/2024 13:25:04] "GET /api/areas/ HTTP/1.1" 200 10765
+{'text': "Give me an area with most transport links'}"}
+SELECT SUBSTR(api_stationunit.postcode, 1, INSTR(api_stationunit.postcode, ' ') - 1) AS area_code, COUNT(DISTINCT api_station.name) AS station_count
+FROM api_station
+INNER JOIN api_stationunit ON api_station.station_code=SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))
+WHERE area_code LIKE 'SW%' OR area_code LIKE 'SE%' OR area_code LIKE 'W%' OR area_code LIKE 'NW%' OR area_code LIKE 'N%' OR area_code LIKE 'E%' OR area_code LIKE 'WC%' OR area_code LIKE 'EC%'
+GROUP BY area_code
+ORDER BY station_count DESC
+LIMIT 5;
+[20/Feb/2024 13:25:13] "POST /api/search HTTP/1.1" 200 42
+[20/Feb/2024 13:25:15] "GET /api/areas/ HTTP/1.1" 200 10765
+[20/Feb/2024 13:26:21] "GET /api/areas/ HTTP/1.1" 200 10765
+[20/Feb/2024 13:26:29] "GET /api/areas/ HTTP/1.1" 200 10765
+st{'text': 'Give me an area with most bus stops'}
+SELECT SUBSTR(api_stationunit.postcode, 1, INSTR(api_stationunit.postcode, ' ') - 1) AS area_code, COUNT(*) AS bus_stop_count
+FROM api_stationunit
+WHERE api_stationunit.unit_code LIKE '%Bus%'
+AND (area_code LIKE 'SW%' OR area_code LIKE 'SE%' OR area_code LIKE 'W%' OR area_code LIKE 'NW%' OR area_code LIKE 'N%' OR area_code LIKE 'E%' OR area_code LIKE 'WC%' OR area_code LIKE 'EC%')
+GROUP BY area_code
+ORDER BY bus_stop_count DESC
+LIMIT 5;
