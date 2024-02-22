@@ -6,6 +6,10 @@ Generate SQL query for a sqlite database to answer the question: {}
 
 RULES TO FOLLOW:
 
+Do  not SELECT "area_code" before defining it, as it is not a column in any table. Area code needs to be calculated
+
+Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC
+
 Safe is when crimes are minimal. 
 
 Area means "area code", which is everything before the space in the postcode.
@@ -13,8 +17,6 @@ Area means "area code", which is everything before the space in the postcode.
 Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
 
 Always return 5 areas codes.
-
-Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC
 
 Table names have a prefix of "api_" followed by lower case model name
 
@@ -44,10 +46,29 @@ Transport links refers to stations.
 if a query asks about transport_links, GROUP BY station_count 
 
 The station name is the "name" column in the api_station table.
-The station postcode can be found through the api_stationunit table. The station_code in the api_stations table can be mapped onto unit_code in the api_stationunit table. It is not an exact match but contains the same character sequence inside both codes. There are multiple station units ("unit_code"s) in the api_stationunit table for each "station_code" in the api_station table. To define the exact postcode of the each station in api_station table, use the most frequently occurring postcode in the records in api_stationunit table with the corresponding "unit_code".
+The station postcode can be found through the api_stationunit table. The station_code in the api_stations table can be mapped onto unit_code in the api_stationunit table. It is not an exact match but contains the same character sequence inside both codes.
+
+ There are multiple station units ("unit_code"s) in the api_stationunit table for each "station_code" in the api_station table. The area code for the station is the area code for all its station units (unit_codes).
 
 use this: "ON api_station.station_code=SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))" to match station_units to stations in the two tables.
 
 Any unit_code that has the string "Bus" within it, is a bus stop. Use this information when queried about bus stops.
 
 "transport_links" is not a column in api_station or api_stationunit, therefore, you CANNOT "GROUP BY" or "ORDER BY" that column. 
+
+in api_property, house_type categories are:
+House 
+Flat / Apartment
+Studio
+New Development
+Penthouse
+
+City of London only is areas where postcode starts with "EC". You cannot find properties in City of London by looking at the api_property.city column.
+
+West London is is areas where postcode starts with "W" or "WC"
+
+East London is is areas where postcode starts with "E"
+
+North London is is areas where postcode starts with "N" or "NW"
+
+South London is is areas where postcode starts with "SE" or "SW"

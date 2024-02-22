@@ -11,6 +11,8 @@ class Property(models.Model):
     receptions = models.IntegerField(default=0)
     postcode = models.CharField(max_length=10)
     city = models.CharField(max_length=200)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
 
 
 class CrimeIncident(models.Model):

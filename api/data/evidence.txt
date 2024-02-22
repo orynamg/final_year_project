@@ -126,10 +126,8 @@ WHERE area_code LIKE 'SW%' OR area_code LIKE 'SE%' OR area_code LIKE 'W%' OR are
 GROUP BY area_code
 ORDER BY station_count DESC
 LIMIT 5;
-[20/Feb/2024 13:25:13] "POST /api/search HTTP/1.1" 200 42
-[20/Feb/2024 13:25:15] "GET /api/areas/ HTTP/1.1" 200 10765
-[20/Feb/2024 13:26:21] "GET /api/areas/ HTTP/1.1" 200 10765
-[20/Feb/2024 13:26:29] "GET /api/areas/ HTTP/1.1" 200 10765
+
+[ 20/Feb/2024 13:26:29] "GET /api/areas/ HTTP/1.1" 200 10765
 st{'text': 'Give me an area with most bus stops'}
 SELECT SUBSTR(api_stationunit.postcode, 1, INSTR(api_stationunit.postcode, ' ') - 1) AS area_code, COUNT(*) AS bus_stop_count
 FROM api_stationunit
@@ -138,3 +136,58 @@ AND (area_code LIKE 'SW%' OR area_code LIKE 'SE%' OR area_code LIKE 'W%' OR area
 GROUP BY area_code
 ORDER BY bus_stop_count DESC
 LIMIT 5;
+
+{'text': 'Give me an area with most stations within fare zone 2 or lower, the most common crimes are not drug related  and where most houses have more than 1 reception'}
+SELECT area_code, COUNT(station_name) as station_count, COUNT(category) as crime_count, COUNT(receptions) as reception_count
+FROM (
+    SELECT SUBSTR(api_stationunit.postcode, 1, INSTR(api_stationunit.postcode, ' ') - 1) as area_code, api_station.name as station_name, api_crimeincident.category, api_property.receptions
+    FROM api_station
+    INNER JOIN api_stationunit ON api_station.station_code=SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))
+    LEFT JOIN api_crimeincident ON api_stationunit.postcode = api_crimeincident.postcode
+    LEFT JOIN api_property ON api_stationunit.postcode = api_property.postcode
+    WHERE api_station.fare_zone <= 2
+    AND api_crimeincident.category != 'Drugs'
+    AND api_property.receptions > 1
+    AND (area_code LIKE 'SW%' OR area_code LIKE 'SE%' OR area_code LIKE 'W%' OR area_code LIKE 'NW%' OR area_code LIKE 'N%' OR area_code LIKE 'E%' OR area_code LIKE 'WC%' OR area_code LIKE 'EC%')
+)
+GROUP BY area_code
+ORDER BY station_count DESC, crime_count ASC, reception_count DESC
+LIMIT 5;
+
+{'text': 'Show areas where the most properties are new builds, that are closely located to the City Of London \n'}
+SELECT area_code, COUNT(*) as property_count
+FROM (
+    SELECT SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) as area_code, api_property.id
+    FROM api_property
+    WHERE api_property.house_type = 'New Development' AND api_property.city = 'City Of London'
+) as new_build_properties
+GROUP BY area_code
+ORDER BY property_count DESC
+LIMIT 5
+
+{'text': 'give me areas where most properties are 2 bedroom flats that are under 1000m2'}
+SELECT SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) AS area_code, COUNT(*) AS property_count
+FROM api_property
+WHERE api_property.bedrooms = 2 AND api_property.house_type = 'Flat / Apartment' AND api_property.area_sqft < 1000
+GROUP BY area_code
+ORDER BY property_count DESC
+LIMIT 5
+[22/Feb/2024 10:34:29] "POST /api/search HTTP/1.1" 200 42
+{'text': 'give me areas where most properties are 3 bedroom flats that are under 1000m2'}
+SELECT SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) AS area_code, COUNT(*) AS property_count
+FROM api_property
+WHERE api_property.bedrooms = 3 AND api_property.house_type = 'Flat / Apartment' AND api_property.area_sqft < 1000
+GROUP BY area_code
+ORDER BY property_count DESC
+LIMIT 5
+
+{'text': 'give me areas where most properties are 3 bedroom flats that are under 1000m2 and it is close to the city of london'}
+SELECT SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) AS area_code, COUNT(*) AS property_count
+FROM api_property
+WHERE api_property.house_type = 'Flat / Apartment'
+AND api_property.bedrooms = 3
+AND api_property.area_sqft < 1000
+AND SUBSTR(api_property.postcode, 1, 2) = 'EC'
+GROUP BY area_code
+ORDER BY property_count DESC
+LIMIT 5
