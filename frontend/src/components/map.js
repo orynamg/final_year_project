@@ -6,6 +6,7 @@ import {
   GoogleMapsContext,
   useMapsLibrary,
 } from "@vis.gl/react-google-maps";
+import Markers from "./markers.js";
 import jsonEData from "../area_code_polygons/E.json";
 import jsonNData from "../area_code_polygons/N.json";
 import jsonNwData from "../area_code_polygons/NW.json";
@@ -131,8 +132,16 @@ function MapView({ selectedCoors, zoom, areaCode }) {
   const map = useMap();
   const mapsLibrary = useMapsLibrary("maps");
   const polygon = useRef(null);
+  const [properties, setProperties] = useState([]);
+  const [markers, setMarkers] = useState([]);
 
   useEffect(() => {
+    if (areaCode == "") {
+      setMarkers([]);
+      setProperties([]);
+      return;
+    }
+
     if (polygon.current) {
       polygon.current.setMap(null);
     }
@@ -149,20 +158,45 @@ function MapView({ selectedCoors, zoom, areaCode }) {
       fillOpacity: 0.25,
     });
 
+    fetch("http://localhost:8000/api/properties?areas=" + areaCode)
+      .then((response) => response.json())
+      .then((data) => {
+        setMarkers(
+          data.map((point) => ({
+            key: point.id,
+            lat: point.latitude,
+            lng: point.longitude,
+          }))
+        );
+        setProperties(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
     polygon.current.setMap(map);
     map.panTo({ lat: selectedCoors.lat, lng: selectedCoors.lng - 0.04 });
   }, [areaCode]);
 
+  // const p = [
+  //   { key: "Ash, green", lat: 51.521476, lng: -0.076306 },
+  //   { key: "Birch, white", lat: 51.512211, lng: -0.069058 },
+  //   { key: "Maple, Manitoba", lat: 51.520947, lng: -0.074772 },
+  // ];
+
   return (
     <div className="z-[-100] !fixed top-0 right-0 left-0">
       <GoogleMap
+        // mapId={"bf51a910020fa25a"}
         zoom={zoom}
         center={{ lat: 51.5072, lng: -0.1876 }}
         styles={MapStyle}
         gestureHandling={"greedy"}
         disableDefaultUI={true}
         className=" h-screen z-[-5]"
-      />
+      >
+        <Markers points={markers} />
+      </GoogleMap>
     </div>
   );
 }

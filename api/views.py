@@ -128,11 +128,12 @@ class PropertyList(generics.ListAPIView):
         areas = self.request.query_params.get("areas", None)
         if areas is not None:
             areas = areas.split(",")
-            area_placeholders = ",".join(["%s"] * len(areas))
-            queryset = Property.objects.raw(
-                f"SELECT * FROM api_property WHERE SUBSTR(postcode, 1, 3) IN ({area_placeholders}) ",
-                areas,
-            )
+            area_placeholders = "|".join(["%s"] * len(areas))
+            print(area_placeholders, areas)
+            query = f"SELECT * FROM api_property WHERE postcode REGEXP '^({area_placeholders})\D* '"
+            query = query % tuple(areas)
+            queryset = Property.objects.raw(query)
+            # queryset = Property.objects.raw(query, areas)
         return queryset
 
 

@@ -60,7 +60,7 @@ in api_property, house_type categories are:
 House 
 Flat / Apartment
 Studio
-New Development
+New development
 Penthouse
 
 City of London only is areas where postcode starts with "EC". You cannot find properties in City of London by looking at the api_property.city column.

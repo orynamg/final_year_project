@@ -48,6 +48,7 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
         );
         setAreas(results);
         setIsSpinning(false);
+        setAreaCode("");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -84,7 +85,7 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                   />
                 </div>
                 <div className="rounded-lg py-[1rem] text-base italic tracking-wide font-normal ">
-                  <p class="">Describe your ideal area!</p>
+                  <p className="">Describe your ideal area!</p>
                 </div>
               </div>
 
