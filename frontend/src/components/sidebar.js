@@ -69,7 +69,7 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
             </div>
           </label>
         </div>
-        <div className="drawer-side pt-[5rem] z-[-1]">
+        <div className="drawer-side pt-[5rem] z-[-1] min-w-[65rem]">
           <label
             htmlFor="my-drawer"
             aria-label="close sidebar"
@@ -102,12 +102,12 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                     <textarea
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      className="p-2.5 text-start justify-center items-center bg-transparent w-80  h-20 mx-4 my-4 outline-none mb-1 "
+                      className="p-2.5 text-start justify-center items-center  bg-transparent  laptop:w-80   tablet:w-60 phone:w-22  h-20 laptop:mx-4 phone:mx-0 my-4 outline-none mb-1 flex-wrap"
                       placeholder="Give me the area with the most amount of transport links and green spaces!"
                     ></textarea>
 
                     <button
-                      className=" mx-2 items-end flex outline-none border-none"
+                      className=" mx-2 items-end justify-between flex outline-none border-none"
                       type="submit"
                     >
                       <FontAwesomeIcon
@@ -127,8 +127,8 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                   icon={icon({ name: "face-grin-stars" })}
                 />
               </div>
-              <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9 mb-8 ">
-                <p className="line-1 anim-typewriter">
+              <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9 mb-8 flex-wrap">
+                <p className="flex-wrap">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
                   provident.
                 </p>

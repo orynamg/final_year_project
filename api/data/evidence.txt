@@ -191,3 +191,40 @@ AND SUBSTR(api_property.postcode, 1, 2) = 'EC'
 GROUP BY area_code
 ORDER BY property_count DESC
 LIMIT 5
+
+{'text': 'near finsbury park'}
+SELECT SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) AS area_code, COUNT(*) AS property_count
+FROM api_property
+INNER JOIN api_stationunit ON api_property.postcode = api_stationunit.postcode
+INNER JOIN api_station ON api_station.station_code = SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))
+WHERE api_property.city LIKE '%finsbury park%'
+AND (area_code LIKE 'SW%' OR area_code LIKE 'SE%' OR area_code LIKE 'W%' OR area_code LIKE 'NW%' OR area_code LIKE 'N%' OR area_code LIKE 'E%' OR area_code LIKE 'WC%' OR area_code LIKE 'EC%')
+GROUP BY area_code
+ORDER BY property_count DESC
+LIMIT 5;
+[25/Feb/2024 22:05:06] "POST /api/search HTTP/1.1" 200 12
+[25/Feb/2024 22:05:16] "GET /api/areas/ HTTP/1.1" 200 10765
+[25/Feb/2024 22:06:15] "GET /api/areas/ HTTP/1.1" 200 10765
+{'text': 'near finsbury park'}
+SELECT SUBSTR(api_stationunit.postcode, 1, INSTR(api_stationunit.postcode, ' ') - 1) AS area_code, COUNT(DISTINCT api_station.name) AS station_count
+FROM api_station
+INNER JOIN api_stationunit ON api_station.station_code=SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))
+WHERE api_station.name LIKE '%finsbury park%'
+GROUP BY area_code
+HAVING area_code GLOB '[SE|SW|W|NW|N|E|WC|EC]*'
+ORDER BY station_count DESC
+LIMIT 5;
+[25/Feb/2024 22:06:21] "POST /api/search HTTP/1.1" 200 16
+%s ['N4']
+[25/Feb/2024 22:06:23] "GET /api/properties?areas=N4 HTTP/1.1" 200 2279
+[25/Feb/2024 22:06:42] "GET /api/areas/ HTTP/1.1" 200 10765
+{'text': 'near highgate'}
+SELECT SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) AS area_code,
+       COUNT(DISTINCT api_station.name) AS station_count
+FROM api_property
+LEFT JOIN api_stationunit ON api_property.postcode = api_stationunit.postcode
+LEFT JOIN api_station ON api_station.station_code = SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))
+WHERE api_property.postcode LIKE 'N%' OR api_property.postcode LIKE 'NW%'
+GROUP BY area_code
+ORDER BY station_count DESC
+LIMIT 5;
