@@ -195,7 +195,7 @@ function MapView({ selectedCoors, zoom, areaCode }) {
         disableDefaultUI={true}
         className=" h-screen z-[-5]"
       >
-        <Markers points={markers} />
+        <Markers points={markers} properties={properties} />
       </GoogleMap>
     </div>
   );

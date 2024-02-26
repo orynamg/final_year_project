@@ -181,7 +181,7 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                     colours[i % colours.length]
                   }`}
                 >
-                  <p className="flex btn text-center font-light tracking-wider justify-center bg-slate-700 border">
+                  <p className="flex btn text-center font-light tracking-wider justify-center w-11/12 m-auto bg-[#3533b5b3] text-white border-none hover:bg-[#322fe1]  btn-paper-plane ">
                     View Area On Zoopla!
                   </p>
                 </div>

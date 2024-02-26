@@ -99,10 +99,6 @@ code {
   }
 }
 
-.hovering:hover {
-  background-color: #0002;
-}
-
 .collapse-title,
 :where(.collapse > input[type="checkbox"]),
 :where(.collapse > input[type="radio"]) {
