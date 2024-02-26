@@ -228,3 +228,15 @@ WHERE api_property.postcode LIKE 'N%' OR api_property.postcode LIKE 'NW%'
 GROUP BY area_code
 ORDER BY station_count DESC
 LIMIT 5;
+
+{'text': 'give me 5 areas close to the river thames\n'}
+SELECT SUBSTR(api_area.postcode, 1, INSTR(api_area.postcode, ' ') - 1) AS area_code, COUNT(*) AS station_count
+FROM api_area
+JOIN api_stationunit ON api_area.postcode = api_stationunit.postcode
+JOIN api_station ON api_station.station_code = SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))
+WHERE api_area.centre_lat BETWEEN 51.4831 AND 51.6878
+AND api_area.centre_long BETWEEN -0.6044 AND 0.0553
+AND area_code REGEXP '^(SW|SE|W|NW|N|E|WC|EC)'
+GROUP BY area_code
+ORDER BY station_count DESC
+LIMIT 5;

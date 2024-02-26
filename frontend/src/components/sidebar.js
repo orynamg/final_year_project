@@ -8,10 +8,10 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
   const colours = [
-    "!bg-[#1F2936]",
-    "!bg-[#111827ac]",
+    "bg-[#1F2936]",
+    "bg-[#111827ac]",
     "bg-gray-900",
-    "!bg-[#030712d3]",
+    "bg-[#030712d3]",
     "bg-gray-950",
   ];
   const [isSpinning, setIsSpinning] = useState(false);
@@ -76,7 +76,7 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
             className="drawer-overlay"
           ></label>
           <div className="menu px-4 w-2/5 min-h-full bg-[#1F2936] text-white">
-            <div>
+            <div className=" mx-4">
               <div className=" flex pt-3">
                 <div>
                   <FontAwesomeIcon
@@ -102,7 +102,7 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                     <textarea
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      className="p-2.5 text-start justify-center items-center  bg-transparent  laptop:w-80   tablet:w-60 phone:w-22  h-20 laptop:mx-4 phone:mx-0 my-4 outline-none mb-1 flex-wrap"
+                      className=" p-2.5 text-start justify-center items-center  bg-transparent  laptop:w-80   tablet:w-60 phone:w-22  h-20 laptop:mx-4 phone:mx-0 my-4 outline-none mb-1 flex-wrap"
                       placeholder="Give me the area with the most amount of transport links and green spaces!"
                     ></textarea>
 
@@ -120,7 +120,7 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
               </div>
             </div>
 
-            <div className="mb-3">
+            <div className="mb-5 mx-4">
               <div>
                 <FontAwesomeIcon
                   className="text-2xl p-4 text-slate-400"
@@ -138,7 +138,25 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
             {isSpinning ? <p>Loading...</p> : <p className="pt-4"></p>}
 
             {areas.map((area, i) => (
-              <button
+              // <button
+              //   value={selectedCoors}
+              //   onClick={() => {
+              //     setSelectedCoors({
+              //       lat: area.centre_lat,
+              //       lng: area.centre_long,
+              //     });
+              //     setZoom(13);
+              //     setAreaCode(area.code);
+              //   }}
+              //   key={area.code}
+              //   className={`btn btn-active mx-[-1rem] bg-gray-800 border-gray-700 h-[4rem] text-slate-300 text-lg  rounded-none hover:!bg-gray-700 hover:border-gray-400 tracking-wider font-light
+              //     ${colours[i % colours.length]}`}
+              // >
+              //   {area.code} {area.name}
+              // </button>
+
+              <div
+                class="collapse !rounded-none"
                 value={selectedCoors}
                 onClick={() => {
                   setSelectedCoors({
@@ -149,11 +167,25 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                   setAreaCode(area.code);
                 }}
                 key={area.code}
-                className={`btn btn-active mx-[-1rem] bg-gray-800 border-gray-700 h-[4rem] text-slate-300 text-lg  rounded-none hover:!bg-gray-700 hover:border-gray-400 tracking-wider font-light 
-                  ${colours[i % colours.length]}`}
               >
-                {area.code} {area.name}
-              </button>
+                <input type="checkbox" class="peer" />
+                <div
+                  className={` hovering hover:bg-gray-700 hover:border-gray-400 collapse-title border-2 border-t-gray-700 border-b-transparent border-r-transparent h-[4rem] border-l-transparent tracking-wider font-light peer-checked:text-secondary-content text-center text-lg shadow-transparent ${
+                    colours[i % colours.length]
+                  }`}
+                >
+                  {area.code} {area.name}
+                </div>
+                <div
+                  className={`collapse-content border-none border-t-transparent border-b-transparent border-l-gray-700 border-r-gray-700 ${
+                    colours[i % colours.length]
+                  }`}
+                >
+                  <p className="flex btn text-center font-light tracking-wider justify-center bg-slate-700 border">
+                    View Area On Zoopla!
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>

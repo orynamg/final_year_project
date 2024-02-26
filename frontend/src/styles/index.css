@@ -18,12 +18,13 @@ code {
 
 .navbar {
   min-height: 5rem /* 64px */;
-  padding: 0 3rem;
 }
 
 .menu {
-  padding: 0 1rem;
+  padding: 0 0;
   flex-wrap: nowrap !important;
+  padding-bottom: -5rem;
+  margin-bottom: -5rem;
 }
 
 .btn-paper-plane {
@@ -96,4 +97,14 @@ code {
   to {
     border-right-color: transparent;
   }
+}
+
+.hovering:hover {
+  background-color: #0002;
+}
+
+.collapse-title,
+:where(.collapse > input[type="checkbox"]),
+:where(.collapse > input[type="radio"]) {
+  padding-inline-end: 1rem !important;
 }
