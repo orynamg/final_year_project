@@ -104,3 +104,7 @@ code {
 :where(.collapse > input[type="radio"]) {
   padding-inline-end: 1rem !important;
 }
+
+.object-fit {
+  object-position: 60% 30%;
+}
