@@ -6,7 +6,13 @@ import useSWR from "swr";
 const base_url = "http://localhost:8000";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
+function Sidebar({
+  selectedCoors,
+  setSelectedCoors,
+  setZoom,
+  setAreaCode,
+  areaCode,
+}) {
   const colours = [
     "bg-[#1F2936]",
     "bg-[#111827ac]",
@@ -138,23 +144,6 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
             {isSpinning ? <p>Loading...</p> : <p className="pt-4"></p>}
 
             {areas.map((area, i) => (
-              // <button
-              //   value={selectedCoors}
-              //   onClick={() => {
-              //     setSelectedCoors({
-              //       lat: area.centre_lat,
-              //       lng: area.centre_long,
-              //     });
-              //     setZoom(13);
-              //     setAreaCode(area.code);
-              //   }}
-              //   key={area.code}
-              //   className={`btn btn-active mx-[-1rem] bg-gray-800 border-gray-700 h-[4rem] text-slate-300 text-lg  rounded-none hover:!bg-gray-700 hover:border-gray-400 tracking-wider font-light
-              //     ${colours[i % colours.length]}`}
-              // >
-              //   {area.code} {area.name}
-              // </button>
-
               <div
                 class="collapse !rounded-none"
                 value={selectedCoors}
@@ -181,9 +170,14 @@ function Sidebar({ selectedCoors, setSelectedCoors, setZoom, setAreaCode }) {
                     colours[i % colours.length]
                   }`}
                 >
-                  <p className="flex btn text-center font-light tracking-wider justify-center w-11/12 m-auto bg-[#3533b5b3] text-white border-none hover:bg-[#322fe1]  btn-paper-plane ">
-                    View Area On Zoopla!
-                  </p>
+                  <a
+                    target="_blank"
+                    href={`https://www.zoopla.co.uk/for-sale/property/london/${areaCode}/`}
+                  >
+                    <p className="flex btn text-center font-light tracking-wider justify-center w-11/12 m-auto bg-[#3533b5b3] text-white border-none hover:bg-[#322fe1]  btn-paper-plane ">
+                      View Area On Zoopla!
+                    </p>
+                  </a>
                 </div>
               </div>
             ))}

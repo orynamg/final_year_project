@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Dashboard() {
+function Dashboard({ areaCode }) {
   return (
     <div className="z-[100] tablet:w-3/5 sm:w-2/5 p-5 text-white absolute bottom-0 right-0">
       <div className="bg-slate-900 p-5 h-44 opacity-90 rounded-xl shadow sm:h-[20rem] tablet:h-[12rem]">
         <h1 className="text-xl font-bold tracking-wider mb-2 ml-5 text-slate-500 ">
-          DASHBOARD
+          {areaCode}
         </h1>
         <div className="grid tablet:grid-cols-2 sm:grid-col-1 grid-flow-row gap-2 mx-5 font-normal tracking-wider text-sm text-white">
           <div>Annual Crime Incidents:</div>
