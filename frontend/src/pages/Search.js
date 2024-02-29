@@ -6,7 +6,7 @@ import Dashboard from "../components/dashboard";
 import { useState } from "react";
 import { APIProvider } from "@vis.gl/react-google-maps";
 
-const API_KEY = "AIzaSyBYNgh0Dj0UqCCvkqgL65yYIEbE1e92X0c";
+const API_KEY = "";
 
 function Search() {
   const [selectedCoors, setSelectedCoors] = useState({
