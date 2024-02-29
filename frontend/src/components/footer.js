@@ -3,12 +3,9 @@ function Footer() {
     <footer className="footer flex justify-around p-10 bg-[#181818] text-gray-300 fixed bottom-0">
       <nav className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
       </nav>
       <nav>
-        <div className="grid grid-flow-col gap-4 ml-28">
+        <div className="grid grid-flow-col gap-4 ml-56">
           <a>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +42,7 @@ function Footer() {
         </div>
       </nav>
       <aside>
-        <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2024 - All right reserved by Locaite</p>
       </aside>
     </footer>
   );

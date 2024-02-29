@@ -24,7 +24,7 @@ function Stats() {
         </div>
 
         <div className="stat">
-          <div className="stat-figure text-blue-300">
+          <div className="stat-figure text-violet-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -40,7 +40,7 @@ function Stats() {
             </svg>
           </div>
           <div className="stat-title text-slate-400">Page Views</div>
-          <div className="stat-value text-blue-300">20K</div>
+          <div className="stat-value text-violet-400">20K</div>
           <div className="stat-desc text-slate-400">
             21% more than last month
           </div>
@@ -62,7 +62,7 @@ function Stats() {
             />
           </div>
           <div className="stat-title text-neutral-200">Reviews</div>
-          <div className="stat-desc text-blue-300 italic">Zoopla</div>
+          <div className="stat-desc text-violet-400 italic">Zoopla</div>
         </div>
       </div>
     </div>

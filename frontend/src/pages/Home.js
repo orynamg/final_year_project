@@ -1,7 +1,7 @@
 import Navbar from "../components/navbar";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import showcaseImage from "../images/showcase3.jpeg";
+import showcaseImage from "../images/showcase2.jpeg";
 import TrustpilotImg from "../images/trustpilot.png";
 import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/footer";
