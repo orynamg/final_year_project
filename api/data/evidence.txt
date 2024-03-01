@@ -240,3 +240,15 @@ AND area_code REGEXP '^(SW|SE|W|NW|N|E|WC|EC)'
 GROUP BY area_code
 ORDER BY station_count DESC
 LIMIT 5;
+
+{'text': 'give me an area where the avergae property price is above 700 and there are 2 stations in the area'}
+SELECT SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ') - 1) AS area_code,
+       AVG(api_property.price) AS average_price,
+       COUNT(DISTINCT api_station.name) AS station_count
+FROM api_property
+JOIN api_stationunit ON api_property.postcode = api_stationunit.postcode
+JOIN api_station ON api_station.station_code = SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))
+GROUP BY area_code
+HAVING average_price > 700 AND station_count = 2 AND (area_code LIKE 'SW%' OR area_code LIKE 'SE%' OR area_code LIKE 'W%' OR area_code LIKE 'NW%' OR area_code LIKE 'N%' OR area_code LIKE 'E%' OR area_code LIKE 'WC%' OR area_code LIKE 'EC%')
+ORDER BY station_count DESC
+LIMIT 5;

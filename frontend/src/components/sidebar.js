@@ -21,6 +21,8 @@ function Sidebar({
     "bg-gray-950",
   ];
   const [isSpinning, setIsSpinning] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [warningMessage, setWarningMessage] = useState("");
   const [query, setQuery] = useState("");
   const [areas, setAreas] = useState([]);
   const {
@@ -35,6 +37,8 @@ function Sidebar({
   const postQuery = (event) => {
     event.preventDefault();
     setIsSpinning(true);
+    setErrorMessage("");
+    setWarningMessage("");
     // console.log(`text: ${query}`);
     // const areasForTesting = ["E14", "E5", "E1", "SE1", "N10"];
     // const results = areasForTesting.map((area) =>
@@ -46,18 +50,28 @@ function Sidebar({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: query }),
     })
+      .then((response) =>
+        response.status === 200
+          ? response
+          : Promise.reject({ message: response.statusText })
+      )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         const results = data.areas.map((area) =>
           areaTable.find((item) => item.code === area)
         );
+        if (results.length === 0) {
+          setWarningMessage("No results found");
+        }
         setAreas(results);
         setIsSpinning(false);
         setAreaCode("");
       })
       .catch((error) => {
         console.error("Error:", error);
+        setIsSpinning(false);
+        setErrorMessage(error.message);
       });
   };
 
@@ -143,6 +157,45 @@ function Sidebar({
 
             {isSpinning ? <p>Loading...</p> : <p className="pt-4"></p>}
 
+            {/* if errorMessage is True, then display div*/}
+            {errorMessage && (
+              <div role="alert" className="alert alert-error">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-current shrink-0 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>{errorMessage}</span>
+              </div>
+            )}
+
+            {warningMessage && (
+              <div role="alert" class="alert alert-warning">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="stroke-current shrink-0 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  />
+                </svg>
+                <span>{warningMessage}</span>
+              </div>
+            )}
+
             {areas.map((area, i) => (
               <div
                 class="collapse !rounded-none"
@@ -175,7 +228,7 @@ function Sidebar({
                     href={`https://www.zoopla.co.uk/for-sale/property/london/${areaCode}/`}
                   >
                     <p className="flex btn text-center font-light tracking-wider justify-center w-11/12 m-auto bg-[#3533b5b3] text-white border-none hover:bg-[#322fe1]  btn-paper-plane ">
-                      View Area On Zoopla!
+                      View On Zoopla!
                     </p>
                   </a>
                 </div>

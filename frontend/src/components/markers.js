@@ -46,7 +46,10 @@ const Markers = ({ points, properties }) => {
     });
   };
 
+  let activeMarker = useRef(null);
+
   const showPropertyInfo = (e) => {
+    activeMarker.current = e;
     setCurrentProperty(
       properties.find(
         (property) =>
@@ -55,6 +58,7 @@ const Markers = ({ points, properties }) => {
       )
     );
     console.log(currentProperty);
+    setInfowindowOpen(true);
   };
 
   return (
@@ -75,13 +79,20 @@ const Markers = ({ points, properties }) => {
 
       {infowindowOpen && (
         <InfoWindow
-          //   anchor={activeMarker}
+          position={{
+            lat: activeMarker.current?.latLng.lat(),
+            lng: activeMarker.current?.latLng.lng(),
+          }}
           maxWidth={200}
-          onCloseClick={() => setInfowindowOpen(false)}
+          onCloseClick={() => {
+            setInfowindowOpen(false);
+            activeMarker.current = null;
+          }}
         >
-          This is an example for the{" "}
-          <code style={{ whiteSpace: "nowrap" }}>&lt;AdvancedMarker /&gt;</code>{" "}
-          combined with an Infowindow.
+          <h1>{currentProperty?.name}</h1>
+          <p>{currentProperty?.description}</p>
+          <p>{currentProperty?.price}</p>
+          <p>{currentProperty?.bedrooms}</p>
         </InfoWindow>
       )}
     </>

@@ -1,17 +1,18 @@
 import Navbar from "../components/navbar";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import showcaseImage from "../images/showcase2.jpeg";
-import TrustpilotImg from "../images/trustpilot.png";
-import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/footer";
 import Stats from "../components/stats";
+import AboutUs from "../components/aboutus";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
+import showcaseImage from "../images/showcase2.jpeg";
+import TrustpilotImg from "../images/trustpilot.png";
 
 function Home() {
   return (
     <div>
       <div className="bg-slate-700 h-screen w-screen flex">
-        <Navbar isHome={true} className="z-10" />
+        <Navbar isHome={true} />
         <div className="w-7/12 px-4 h-18 z-10 flex items-center justify-between relative m-auto border-2 border-slate-700 bg-[#e5e5e5] p-1 rounded-full">
           <input
             type="text"
@@ -50,7 +51,7 @@ function Home() {
           </h4>
         </div>
       </div>
-
+      {/* <AboutUs /> */}
       <Footer />
     </div>
   );

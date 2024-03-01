@@ -6,8 +6,8 @@ function Navbar({ isHome }) {
   return (
     <div className="relative bg-neutral">
       <div
-        className={`navbar w-full bg-neutral text-neutral-content h-11 fixed top-0 right-0 overflow-visible flex justify-between px-10 z-10 ${
-          isHome ? "bg-[rgb(43,52,64,0.8)]" : "bg-neutral"
+        className={`navbar w-full bg-neutral text-neutral-content h-11 fixed top-0 right-0 overflow-visible flex justify-between px-10 ${
+          isHome ? "bg-[rgb(43,52,64,0.85)]" : "bg-neutral"
         }`}
       >
         <button className="btn btn-ghost text-xl font-light">

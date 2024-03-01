@@ -21,19 +21,25 @@ def hello_world(request):
 
 @api_view(["POST"])
 def search(request):
-    print(request.data)
-    llm = LLMQueryGenerator("api/data/prompt.txt", "api/models.py")
-    sql = llm.generate_sql(request.data["text"])
-    print(sql)
-    with connection.cursor() as cursor:
-        cursor.execute(sql)
-        areas = []
-        for row in cursor.fetchall():
-            area = row[0].strip()
-            area = area.rstrip("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-            if area not in areas:
-                areas.append(area)
-    return Response({"areas": areas})
+    try:
+        print(request.data)
+        llm = LLMQueryGenerator("api/data/prompt.txt", "api/models.py")
+        sql = llm.generate_sql(request.data["text"])
+        print(sql)
+        with connection.cursor() as cursor:
+            cursor.execute(sql)
+            areas = []
+            for row in cursor.fetchall():
+                area = row[0].strip()
+                area = area.rstrip(
+                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                )
+                if area not in areas:
+                    areas.append(area)
+        return Response({"areas": areas})
+    except Exception as e:
+        print(e)
+        return Response(status=500)
 
 
 class PropertySerializer(serializers.ModelSerializer):
