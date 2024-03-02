@@ -2,7 +2,9 @@ function Footer() {
   return (
     <footer className="footer flex justify-around p-10 bg-[#181818] text-gray-300 fixed bottom-0">
       <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
+        <a href="#about" className="link link-hover">
+          About us
+        </a>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4 ml-56">

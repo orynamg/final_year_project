@@ -11,9 +11,9 @@ import TrustpilotImg from "../images/trustpilot.png";
 function Home() {
   return (
     <div>
-      <div className="bg-slate-700 h-screen w-screen flex">
+      <div className="bg-slate-700 h-[90vh] w-screen flex ">
         <Navbar isHome={true} />
-        <div className="w-7/12 px-4 h-18 z-10 flex items-center justify-between relative m-auto border-2 border-slate-700 bg-[#e5e5e5] p-1 rounded-full">
+        <div className="w-7/12 px-4 h-18 z-10 flex mt-[45vh] items-center justify-between relative m-auto border-2 border-slate-700 bg-[#e5e5e5] p-1 rounded-full">
           <input
             type="text"
             className="pl-4 h-14 w-full bg-transparent text-xl text-start outline-none"
@@ -51,7 +51,7 @@ function Home() {
           </h4>
         </div>
       </div>
-      {/* <AboutUs /> */}
+      <AboutUs />
       <Footer />
     </div>
   );
