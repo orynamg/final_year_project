@@ -49,3 +49,22 @@ class Area(models.Model):
     name = models.CharField(max_length=200)
     centre_lat = models.FloatField()
     centre_long = models.FloatField()
+
+
+class School(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.CharField(max_length=200)
+    postcode = models.CharField(max_length=10)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    type = models.CharField(max_length=200)
+    gender = models.CharField(max_length=50)
+
+
+class VehicleChargingPoint(models.Model):
+    site_name = models.CharField(max_length=200)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    postcode = models.CharField(max_length=10)
+    borough = models.CharField(max_length=200)
+    public_use = models.BooleanField()

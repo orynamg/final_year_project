@@ -63,6 +63,9 @@ Studio
 New development
 Penthouse
 
+
+when asked about car parks, look into api_vehiclechargingpoint table, and search for the string "Car Park" in the site_name column.
+
 The column "city" in api_property is always "London". Do not use this as a filter ever.
 
 City of London only is areas where postcode starts with "EC". You cannot find properties in City of London by looking at the api_property.city column.

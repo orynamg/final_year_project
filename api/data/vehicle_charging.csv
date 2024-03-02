@@ -1,0 +1,157 @@
+borough,easting,latitude,longtitude,northing,numberrcpoints,objectid,siteid,sitename,taxipublicuses,url,runtime
+Richmond,520008.8994827288,51.464253,-0.273817,175332.84072642814,1,1,2,Upper Richmond Road west of Coval Rd,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Newham,543605.6261034013,51.523421,0.068574,182528.53009116615,2,2,12,Claps Gate Lane Retail park,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Brent,524592.31514180696,51.546586,-0.204599,184604.23447573709,1,3,63,"1 Christchurch Avenue, Kilburn Station, NW6 7QP ",Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,540514.75320855307,51.591184,0.027028,189983.24549439573,1,35,558,South Woodford Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Greenwich,540531.48913699761,51.476538,0.022182,177225.12555734196,1,4,74,Old Dover Road west of Dornberg Close - car park,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Haringey,530017.97962389176,51.579178,-0.125007,188367.05681860622,2,5,78,Crouch Hall Rd opp Bryanstone Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hammersmith & Fulham,522999.1943170313,51.519975,-0.228609,181604.36517970893,3,6,87,Scrubbs Lane - Wood Lane Car Park,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Richmond,520271.88623687194,51.464093,-0.270037,175321.24338926666,1,7,129,A205 Upper Richmond Road West east of Carlton Road. ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,526373.98381476535,51.511661,-0.180296,180762.05435913772,1,8,169,Lancaster Gate,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,526115.96909061982,51.523033,-0.183562,182021.04071718361,1,9,174,Warwick Avenue by Clifton Villas,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,527027.99389013217,51.531716,-0.170067,183009.95351046475,2,10,175,Wellington Place by Wellington Rd,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+City of London ,532220.83308557211,51.5164379,-0.0958347,181442.36526562384,1,11,181,Noble Street by Oat Lane,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Enfield,530267.4781879544,51.612634,-0.120025,192096.38885271887,1,12,193,A406 North Circular Rd west of Livingstone Rd,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,526070.95160073484,51.585816,-0.181709,189006.01579099649,1,13,194,The Market Place east of Hill Rise (A1 Falloden Way) ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,526055.96215408004,51.585675,-0.181931,188989.95334565075,1,14,195,The Market Place west of Kingsley Way (A1 Falloden Way) ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,531129.92759055598,51.398074,-0.116437,168243.02201043174,1,15,228,London Road south of Heathview Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Camden,529277.13534073834,51.532775,-0.137596,183184.5468070269,1,16,299,"3. Lidlington Place, loading bay on south side of carriageway outside Escape Sports Bar and Restaurant",Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Camden,529234.2065575954,51.524733,-0.138543,182288.57323644881,1,17,300,294 Euston Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Tower Hamlets,536698.82539628597,51.5196855,-0.0311525,181922.26477374579,1,18,395,Burdett Road south of Portia way,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,526191.52326954168,51.501543,-0.183328,179631.66366765497,1,19,431,Kensington Road - Palace Gate (Broadwalk),Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Islington,531457.3658007232,51.563658,-0.104878,186677.12492688576,1,20,446,Prah Road - Rock Street,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Brent,521443.74515972321,51.559222,-0.249524,185933.9372733293,1,21,459,250 Neasden Lane,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Enfield,529400.93541726761,51.616287,-0.132391,192480.6702116481,1,22,535,Arnos Grove Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,523922.83681882382,51.576686,-0.213075,187937.13117677829,1,23,536,Brent Cross Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,527196.37206193805,51.588016,-0.165375,189278.9362409648,1,24,538,East Finchley Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,544930.78224057425,51.596374,0.091021,190685.23859868711,1,25,539,Fairlop Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,545039.18893992831,51.603763,0.092926,191510.68359373411,1,26,542,Hainault Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Harrow,515508.55718523054,51.578431,-0.334445,187932.65393110202,1,27,545,Harrow-On-The-Hill Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Haringey,528584.65563779918,51.577459,-0.145764,188139.21919008036,1,28,547,Highgate Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hounslow,512252.86350278463,51.473372,-0.385153,176170.53166959039,1,29,548,Hounslow-West Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Waltham Forest,539251.19758481695,51.568116,0.007769,187381.20712562901,1,30,550,Leytonstone Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,544970.56057245773,51.575983,0.090659,188417.01308977226,1,31,551,Newbury Park Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Enfield,529401.94324592745,51.647790,-0.131082,195986.29674152471,1,32,553,Oakwood Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hounslow,514573.59088823531,51.481186,-0.351455,177091.63962062064,1,33,554,Osterley Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hillingdon,510248.62467040971,51.560557,-0.410981,185826.90402251692,1,34,556,Ruislip Gardens Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Harrow,514359.25405246066,51.564392,-0.351540,186344.57020874403,1,36,559,South-Harrow Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hillingdon,511067.99625319883,51.556578,-0.399300,185402.06259612483,1,37,560,South-Ruislip Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,526153.37584870844,51.630770,-0.178721,194010.31665147992,1,38,563,Totteridge & Whetstone Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,540669.0525021106,51.575434,0.028554,188234.74042479438,1,39,565,Wanstead Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Brent,519230.77195798641,51.563496,-0.281288,186357.01588249841,1,40,566,Wembley Park Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,544784.32258018234,51.586471,0.088452,189578.92265496874,1,41,571,Barkingside Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Enfield,528201.99874520174,51.651884,-0.148260,196411.3089132522,1,42,580,Cockfosters Station Car Park,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hillingdon,509556.39206395508,51.466218,-0.424226,175315.84573859785,1,43,589,Hatton-Cross Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,523991.85844470962,51.608583,-0.210826,191488.08104221866,1,44,595,Mill Hill East Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Ealing,518802.16874363483,51.517459,-0.289199,181224.5604297407,1,45,598,North-Ealing Station Car Park,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Ealing,516341.39404392458,51.536481,-0.323968,183284.10977238568,1,46,602,Perivale Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Brent,518810.33865303744,51.594685,-0.286181,189817.48716009536,1,47,603,Queensbury Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,541881.84413183725,51.576501,0.046105,188387.28004572616,1,48,605,Redbridge Station Car Park,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Outside London,545527.75099899038,51.671755,0.103125,199091.80974431604,1,49,608,Theydon-Bois Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Outside London,509539.66242729046,51.657108,-0.417856,196553.91553544364,1,50,609,Watford Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,525744.29929351271,51.618187,-0.185134,192599.96485195559,1,51,610,Woodside-Park Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Kingston upon Thames,518139.0712731349,51.374389,-0.304065,165290.49166112987,1,52,641,"A243 TLRN - Ace Parade, side road on the TLRN",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,521529.3654540375,51.437456,-0.252951,172387.27121269156,1,53,645,"A3 TLRN - Northbound parking bays, just south of Asda ",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,533198.77701369766,51.496206,-0.082589,179216.51885216916,1,54,711,76-80 Tower Bridge Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,531840.79632547416,51.506124,-0.101741,180284.78104521544,1,55,714,103 Southwark Street,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,532176.98381901858,51.505130,-0.096938,180182.90120843478,1,56,715,76 Southwark Street,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,532340.22131146002,51.504862,-0.094597,180157.32571193983,1,57,717,48 Southwark Street,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,532396.80515444407,51.504710,-0.093788,180141.88480588834,1,58,719,49 Southwark Street,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,532725.22974705661,51.497241,-0.089368,179319.30970892392,1,59,729,"Great Dover Street northbound,",Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hounslow,520627.89704865468,51.487536,-0.264022,177938.1026651939,1,60,743,"35 Ellesmere Road, parking bay on south side of carriageway",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hammersmith & Fulham,524529.72777076589,51.490698,-0.207697,178383.95717796206,1,61,745,16 Talgarth Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,528422.61785378249,51.475127,-0.152250,176748.10561966978,1,62,774,261 Battersea Park Road east of Forfar Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,527938.03504880192,51.473810,-0.159281,176589.35306909803,1,63,776,Battersea Park Road opp Beechmore Road (Wtnd),Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Havering,555472.35176442889,51.602208,0.243518,191647.15211309819,1,64,791,A12 Colchester Road - East of Geoffrey Avenue (Ebnd),Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,531241.40265334793,51.395458,-0.1149420,167954.79265005141,1,65,800,"797 London Road, Croydon",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,530838.21839538589,51.390059,-0.120959,167343.66951966,2,66,802,"162 Thornton Road, Croydon",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,528361.98497030872,51.441723,-0.154471,173029.59222750511,1,98,978,Outside Block E Du Cane,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Greenwich,542043.32529957255,51.457702,0.043112,175170.90899339889,1,67,816,Westhorne Avenue SE of Kidbrooke Lane,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lewisham,536432.36967909173,51.475891,-0.036876,177041.56346299726,1,68,829,"2-4 Clifton Rise, SE14",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hackney,533655.67728801025,51.567078,-0.073016,187115.14985868323,1,69,852,53 Stamford Hill sth of Lampard Grove,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Haringey,532574.87497450726,51.603498,-0.087082,191139.61077084218,1,70,856,Great Cambridge Road - South of Rivulet Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Haringey,532645.65771157271,51.604826,-0.086004,191289.24459463201,1,71,857,38 Great Cambridge Road ,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Richmond,518211.49767021317,51.464737,-0.299675,175344.64645121171,1,72,879,Richmond Circus - South side ,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Richmond,519356.38383309735,51.467819,-0.283077,175714.27731559193,1,73,882,Lower Richmond Road by Manor Grove ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Richmond,519540.89836725977,51.468443,-0.280397,175788.0365580169,1,74,883,Lower Richmond Road by Bicester Road ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Ealing,516316.80881123256,51.533390,-0.324436,182939.62691052392,1,75,887,Westbound offslip on approach to Argyle Road junction - layby near Old Church Lane ,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hammersmith & Fulham,521647.11898090155,51.514027,-0.248326,180909.98892050498,1,76,888,East of 27/001 there is layby parking ,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,522967.74654830247,51.581229,-0.226682,188419.38700468116,1,77,891,376-395 Hendon Way ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,522883.03908419673,51.583404,-0.227820,188659.34864653862,1,78,893,5 Watford way ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,522772.55027383205,51.584891,-0.229357,188822.13231996755,1,79,895,70 Watford Way - opposite side of the road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,532486.64788130927,51.504720,-0.092493,180145.33830638288,1,80,904,Southwark st east of Redcross way,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Brent,518166.67601759965,51.542085,-0.297440,183949.78825913527,1,81,905,"1-5 Glenmore Parade, Ealing Rd, HA0 4PJ",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Brent,521667.08059024828,51.533963,-0.247273,183128.72813889472,1,82,906,"29 Station Road, Harlesden, NW10 4UP",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,522154.56359072676,51.4595324,-0.2431085,174858.61352613859,1,83,917,"Outside & Opposite Theodore, Jansen and Leight House",Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,522174.89739810873,51.4558215,-0.2429583,174446.1963549779,1,84,919,Outside Electrical Sub Station & Queen Mary's Hospital,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Islington,531057.50132961618,51.562072,-0.110713,186490.29111785296,1,85,923,Outside 180 - 182 Seven Sisters Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Islington,530971.54100219253,51.561618,-0.111972,186437.55085191148,1,86,925,Outside Medina Court Seven Sisters Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Islington,531212.25906444876,51.561716,-0.108495,186454.67632047855,1,87,930,Opposite 167 - 171 Isledon Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,543191.48102615471,51.576650,0.065013,188440.68285086472,1,88,933,Outside 347 - 353 Eastern Avenue,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hounslow,511289.04729896772,51.445784,-0.399996,173079.94916762144,1,89,946,Outside 220 - 246 Uxbridge Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hounslow,512148.0221173609,51.440447,-0.387823,172504.98929333303,1,90,947,Outside 3 - 7 Market Parade,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hounslow,521123.83672257024,51.482727,-0.257062,177414.79919751879,1,91,949,Outside 5 - 13 Grantham Road / Burlington Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Sutton,528200.92929085589,51.365615,-0.159846,164556.82652097009,1,92,954,Outside 35 High Street,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Sutton,523396.04985040502,51.370554,-0.228680,164988.07130844367,1,93,955,Outside 477 - 487 London Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Sutton,523510.32562289445,51.371750,-0.226992,165123.90878454584,1,94,958,Outside 524 - 530 London Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Merton,525601.24407393206,51.400819,-0.195808,168409.38839726115,1,95,967,Outside 91 - 103 London Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Merton,525265.78535466606,51.395486,-0.200840,167807.7419216031,1,96,968,Outside 209 - 219 London Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,528271.75979144848,51.439347,-0.155865,172762.93501980905,1,97,973,266 Balham High Road SW17 7BQ ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lewisham,539048.62774316466,51.421341,-0.001584,171041.87344149256,1,99,983,Outside 7 Bromley Hill,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lewisham,539072.72130776639,51.420893,-0.001257,170992.67590779398,1,100,984,Outside 6 - 26 Bromley Hill,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lewisham,538086.41877251875,51.430613,-0.015022,172047.52784933592,1,101,985,Outside Catford Police Stn Bromley Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Greenwich,543634.45612850797,51.434498,0.064969,172633.22329461516,1,102,1027,Outside 733 - 741 Sidcup Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Greenwich,540299.71068154264,51.473838,0.018725,176918.25898563641,1,103,1028,Outside 30 Shooters Hill Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lambeth,531264.66732795245,51.489028,-0.110750,178367.477572623,1,104,1030,Outside 173 Kennington Lane,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lambeth,530432.11504567193,51.476667,-0.123250,176970.57717181649,1,105,1031,Opposite 195 South Lambeth Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lambeth,531618.34428023559,51.488750,-0.105667,178345.68217794684,1,106,1032,Outside Penryn House Kennington Park Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,526988.16515640146,51.450109,-0.173905,173928.29533698031,1,107,1034,320 Trinity Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Haringey,528837.70820981835,51.574807,-0.142220,187850.5372752166,1,108,1035,254 Archway Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lambeth,529970.0074342445,51.426953,-0.131935,171426.83184785891,1,109,1038,16 Gleneagle Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lambeth,530590.290748036,51.471147,-0.121199,176360.39057832526,1,110,1039,Morant House Stockwell Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hackney,533673.70296618377,51.572230,-0.072538,187688.94425091287,1,111,1044,150 â 154 Stamford Hill,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,532462.54794909351,51.325761,-0.100274,160230.79206529283,1,112,1045,74 Godstone Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,532037.44392454845,51.328179,-0.106276,160488.86404878998,1,113,1046,38 Godstone Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,527574.09769183106,51.526212,-0.162415,182411.18704561895,1,114,1048,Hanover Gate Mansions - Park Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Wandsworth,528593.21027633501,51.461318,-0.150352,175215.83025206981,1,115,1050,Salcombe Gardens Clapham Common North Side,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,530771.21167269803,51.332135,-0.124290,160896.53520698164,1,116,1052,116 Brighton Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,533227.99289637455,51.320621,-0.089501,159678.71363150387,1,117,1054,302 Godstone Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hackney,534568.60699065775,51.564615,-0.059948,186865.20239276462,1,118,1070,156 Upper Clapton Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lambeth,530416.6509696967,51.442172,-0.124887,173131.73243609432,1,119,1081,Outside 2-4 Telford Avenue,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lambeth,530462.63049156498,51.415925,-0.125300,170212.27772738499,1,120,1084,Hepworth Road at junction with Streatham High Road,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,530971.42842466722,51.391335,-0.118992,167489.07200510468,1,121,1085,Thornton Road outside ATS / Sainsburys,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Lewisham,536856.77192082559,51.472046,-0.030930,176625.08156652411,1,122,1087,145 Lewisham Way,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Havering,553898.93611317012,51.553668,0.218431,186196.51091673627,1,123,592,Hornchurch Station Car Park,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,531218.4296241313,51.3394156,-0.1175719,161718.126575314,1,124,1128,"Outside 10, 11 & 12 Russell Parade Russell Hill Road Purley CR8 2LE ",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Enfield,530016.62488535198,51.6136503,-0.1236063,192203.03436226299,1,125,1133,186 Bowes Road opp Warwick Road (A406),Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Merton,526979.01718093839,51.421076,-0.175194,170697.51086353703,1,126,1107,"13 â 27 High Street, Colliers Wood â A24",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,532225.52929260954,51.5049784,-0.0962448,180167.29393642669,1,127,1135,"OUTSIDE 64 SOUTHWARK STREET, LONDON, SE1 ",Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Greenwich,537541.37063379702,51.474525,-0.020965,176919.4073084523,1,128,738,"17A, Greenwich High Road",Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Redbridge,543609.68710165587,51.577799,0.071101,188580.38536239794,2,129,101,Cranbrook Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hillingdon,508541.47842069081,51.479763,-0.438375,176801.09276286978,7,130,108,Heathrow,Taxi,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Brent,519445.71165898745,51.564341,-0.278155,186456.0930629872,1,131,454,"21 Bridge Road, HA9 9AB (north of Chalkhill road)",Public Use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,528839.62016955821,51.489703,-0.145654,178380.58372333657,2,132,462,Qpark: Pimlico,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,528021.4834333621,51.500165,-0.157017,179524.07570122735,2,133,464,Qpark: Knightsbridge,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,528760.94385389867,51.517998,-0.145639,181527.11628826539,2,134,467,Qpark: Harley Street,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,528741.91482352489,51.516281,-0.145983,181335.57456224947,2,135,468,Qpark: Oxford Street,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,526855.44279711077,51.534358,-0.172449,183299.62634522637,2,136,469,Qpark: St Johns Wood,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Southwark,533805.31023341184,51.502605,-0.073581,179944.52068793774,2,137,470,Qpark: Tower Bridge,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Westminster,529895.12216801126,51.512371,-0.129522,180929.83209706307,2,138,473,Qpark: Chinatown,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Bexley,547194.29944490525,51.447846,0.116804,174220.33345249825,1,139,486,Shell Blendon,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Barnet,520922.9699553253,51.643213,-0.253818,195267.19087615883,1,140,487,Shell Stirling Corner,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Outside London,505012.11790215544,51.376647,-0.492598,165255.00043468893,1,141,488,Shell Addlestone,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hillingdon,506324.85252915567,51.492358,-0.469875,178155.57428263436,1,142,489,Shell West Drayton,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Outside London,508071.14685540926,51.566773,-0.442182,186471.65280533937,1,143,490,Shell Ickenham,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Outside London,524207.58354473789,51.306275,-0.219513,157855.5845600591,1,144,491,Shell Burgh Heath,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Islington,531227.98590313387,51.550245,-0.108744,185178.60919483332,1,145,492,Shell Holloway,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Outside London,534136.83399816707,51.304183,-0.077145,157873.30674182859,1,146,493,Shell Whyteleafe,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Croydon,532175.69855091651,51.371468,-0.102504,165309.4063943139,2,147,770,Qpark: Surrey Street,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Greenwich,542506.81747882045,51.462078,0.049980,175670.85332338535,1,148,1026,Outside 141 - 149 Well Hall Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Hillingdon,512109.91687431408,51.558073,-0.384217,185591.30689142982,1,149,1053,Lidl - South Ruislip ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Newham,530016.61796199903,51.6136503,-0.1236064,192203.03418450063,4,150,1134,Olympic Park Copperbox (LLDC),Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Brent,524484.95587622339,51.5465017,-0.2061507,184592.22039097891,1,151,1136,Shell Kilburn High Street,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Islington,531232.80905918404,51.550253,-0.1086741,185179.62413259066,1,152,1137,Shell Holloway High Street ,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Greenwich,540786.44237569685,51.4755422,0.0258094,177121.35537082661,1,153,1138,Shell Shooters Hill Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Ealing,517906.58660078171,51.5045517,-0.3025869,179767.5640773187,1,154,1139,Shell South Ealing Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Islington,532518.77579831751,51.5253163,-0.0911692,182438.10428766685,1,155,1140,Shell Old Street,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019
+Tower Hamlets,534177.69253101584,51.5180181,-0.0675633,181669.50699002889,1,156,1141,Shell Whitechapel Road,Public use,https://tfl.gov.uk/modes/driving/electric-vehicles-and-rapid-charging,08/29/2019

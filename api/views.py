@@ -9,6 +9,8 @@ from .models import (
     StationUnit,
     UserQuery,
     Area,
+    School,
+    VehicleChargingPoint,
 )
 from .llm import LLMQueryGenerator
 from django.db import connection
@@ -43,6 +45,10 @@ def search(request):
 
 
 class PropertySerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
     class Meta:
         model = Property
         fields = "__all__"
@@ -59,6 +65,10 @@ class PropertyViewSet(viewsets.ModelViewSet):
 
 
 class CrimeIncidentSerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
     class Meta:
         model = CrimeIncident
         fields = "__all__"
@@ -75,6 +85,10 @@ class CrimeIncidentViewSet(viewsets.ModelViewSet):
 
 
 class StationSerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
     class Meta:
         model = Station
         fields = "__all__"
@@ -91,6 +105,10 @@ class StationViewSet(viewsets.ModelViewSet):
 
 
 class StationUnitSerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
     class Meta:
         model = StationUnit
         fields = "__all__"
@@ -107,6 +125,10 @@ class StationUnitViewSet(viewsets.ModelViewSet):
 
 
 class UserQuerySerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
     class Meta:
         model = UserQuery
         fields = "__all__"
@@ -144,6 +166,10 @@ class PropertyList(generics.ListAPIView):
 
 
 class AreaSerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
     class Meta:
         model = Area
         fields = "__all__"
@@ -156,4 +182,44 @@ class AreaViewSet(viewsets.ModelViewSet):
 
     queryset = Area.objects.all()
     serializer_class = AreaSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+
+class SchoolSerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
+    class Meta:
+        model = School
+        fields = "__all__"
+
+
+class SchoolViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows schools to be viewed or edited.
+    """
+
+    queryset = School.objects.all()
+    serializer_class = SchoolSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+
+class VehicleChargingPointSerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
+    class Meta:
+        model = VehicleChargingPoint
+        fields = "__all__"
+
+
+class VehicleChargingPointViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows vehicle charging points to be viewed or edited.
+    """
+
+    queryset = VehicleChargingPoint.objects.all()
+    serializer_class = VehicleChargingPointSerializer
     # permission_classes = [permissions.IsAuthenticated]
