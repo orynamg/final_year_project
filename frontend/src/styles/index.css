@@ -72,37 +72,6 @@ code {
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.line-1 {
-  position: relative;
-  top: 50%;
-  width: 24em;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
-  white-space: nowrap;
-  overflow: hidden;
-  transform: translateY(-50%);
-}
-
-.anim-typewriter {
-  animation: typewriter 4s steps(44) 1s 1 normal both,
-    blinkTextCursor 500ms steps(44) infinite normal;
-}
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 32em;
-  }
-}
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: rgba(255, 255, 255, 0.75);
-  }
-  to {
-    border-right-color: transparent;
-  }
-}
-
 .collapse-title,
 :where(.collapse > input[type="checkbox"]),
 :where(.collapse > input[type="radio"]) {
@@ -140,4 +109,116 @@ button.gm-ui-hover-effect {
   border-radius: 0.5rem;
   top: 0.5rem !important;
   right: 0.5rem !important;
+}
+
+@keyframes grow {
+  0% {
+    max-height: var(--lineHeight);
+  }
+  100% {
+    max-height: calc(var(--lineHeight) * var(--lines));
+  }
+}
+
+@keyframes carriageReturn {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: calc(var(--lineHeight) * var(--lines));
+  }
+}
+
+@keyframes type {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes caret {
+  0% {
+    color: var(--bgColor);
+  }
+  100% {
+    color: white;
+  }
+}
+
+.typewriter {
+  --bgColor: #1e293b;
+  --lines: 500;
+  --lineHeight: 1.5rem;
+  --timePerLine: 4s;
+  --widthCh: 22;
+  --width: calc(var(--widthCh) * 1ch);
+  /* do not touch the time property!!! */
+  --time: calc(var(--lines) * var(--timePerLine));
+  animation: grow var(--time) steps(var(--lines));
+  animation-fill-mode: forwards;
+  background: var(--bgColor);
+  line-height: var(--lineHeight);
+  max-height: var(--lineHeight);
+  overflow: hidden;
+  position: relative;
+  //width: var(--width);
+  /* word-break: break-all; */
+}
+
+.typewriter::before {
+  content: "";
+  animation: type var(--timePerLine) linear infinite,
+    carriageReturn var(--time) steps(var(--lines)) var(--lines),
+    caret 0.5s steps(2) infinite;
+  background: var(--bgColor);
+  border-left: 2px solid;
+  bottom: 0;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+.typewriter.no-caret::before {
+  border-left-width: 0;
+}
+
+.typewriter.big-caret::before {
+  border-left-width: 1ch;
+}
+
+.typewriter.monospace {
+  font-family: monospace, monospace;
+}
+
+.typewriter.monospace::before {
+  animation: type var(--timePerLine) steps(var(--widthCh)) infinite,
+    carriageReturn var(--time) steps(var(--lines)) var(--lines),
+    caret 0.5s steps(2) infinite;
+}
+
+/* DEMO */
+section {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+}
+
+section:nth-child(2) {
+  top: 10rem;
+}
+section:nth-child(3) {
+  top: 20rem;
+}
+
+.lorem {
+  --widthCh: 60;
+  --timePerLine: 3s;
 }

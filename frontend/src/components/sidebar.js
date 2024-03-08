@@ -23,6 +23,7 @@ function Sidebar({
   const [isSpinning, setIsSpinning] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [warningMessage, setWarningMessage] = useState("");
+  const [botPanel, setBotPanel] = useState(false);
   const [query, setQuery] = useState("");
   const [areas, setAreas] = useState([]);
   const {
@@ -129,6 +130,9 @@ function Sidebar({
                     <button
                       className=" mx-2 items-end justify-between flex outline-none border-none"
                       type="submit"
+                      onClick={() => {
+                        setBotPanel(true);
+                      }}
                     >
                       <FontAwesomeIcon
                         className="text-lg text-slate-400 z-10 bg-slate-900 p-3 rounded-xl btn-paper-plane"
@@ -140,20 +144,25 @@ function Sidebar({
               </div>
             </div>
 
-            <div className="mb-5 mx-4">
-              <div>
-                <FontAwesomeIcon
-                  className="text-2xl p-4 text-slate-400"
-                  icon={icon({ name: "face-grin-stars" })}
-                />
+            {botPanel ? (
+              <div className="mb-5 mx-4">
+                <div>
+                  <FontAwesomeIcon
+                    className="text-2xl p-4 text-slate-400"
+                    icon={icon({ name: "face-grin-stars" })}
+                  />
+                </div>
+                <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9 mb-8 flex-wrap">
+                  <p className="flex-wrap typewriter monospace caret lorem">
+                    After searching through datasets from the MetPolice, TfL,
+                    Gov.uk, Kaggle, Google Maps and more, I have found the
+                    following areas that match your criteria:
+                  </p>
+                </div>
               </div>
-              <div className="border border-gray-500 bg-slate-800 rounded-xl p-6 mx-9 mb-8 flex-wrap">
-                <p className="flex-wrap">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-                  provident.
-                </p>
-              </div>
-            </div>
+            ) : (
+              <></>
+            )}
 
             {isSpinning ? <p>Loading...</p> : <p className="pt-4"></p>}
 
