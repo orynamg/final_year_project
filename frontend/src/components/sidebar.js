@@ -164,7 +164,11 @@ function Sidebar({
               <></>
             )}
 
-            {isSpinning ? <p>Loading...</p> : <p className="pt-4"></p>}
+            {isSpinning ? (
+              <span className="loading loading-bars loading-lg mx-auto mb-10"></span>
+            ) : (
+              <p className="pt-4"></p>
+            )}
 
             {/* if errorMessage is True, then display div*/}
             {errorMessage && (
