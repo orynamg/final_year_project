@@ -14,7 +14,7 @@ const Markers = ({ points, properties }) => {
   const [markers, setMarkers] = useState({});
   const clusterer = useRef(null);
   const [currentProperty, setCurrentProperty] = useState(null);
-  const [infowindowOpen, setInfowindowOpen] = useState(true);
+  const [infowindowOpen, setInfowindowOpen] = useState(false);
   //   const [activeMarker, setActiveMarker] = useState(null);
 
   // Initialize MarkerClusterer
@@ -88,11 +88,19 @@ const Markers = ({ points, properties }) => {
             setInfowindowOpen(false);
             activeMarker.current = null;
           }}
+          className="!bg-black"
         >
-          <h1>{currentProperty?.name}</h1>
-          <p>{currentProperty?.description}</p>
-          <p>{currentProperty?.price}</p>
-          <p>{currentProperty?.bedrooms}</p>
+          <div className="p-3 font-normal tracking-wider mr-2 mb-1">
+            <h1 className="p-0.5 font-bold mb-1 mt-[-0.5rem] max-w-[7.5rem]">
+              {currentProperty?.name}
+            </h1>
+            <p className="p-0.5">Price: £{currentProperty?.price}</p>
+            <p className="p-0.5">House Type: {currentProperty?.house_type}</p>
+            <p className="p-0.5">Area: {currentProperty?.area_sqft} sq.ft.</p>
+            <p className="p-0.5">Bedrooms: {currentProperty?.bedrooms}</p>
+            <p className="p-0.5">Bathrooms: {currentProperty?.bathrooms}</p>
+            <p className="p-0.5">Postcode: {currentProperty?.postcode}</p>
+          </div>
         </InfoWindow>
       )}
     </>

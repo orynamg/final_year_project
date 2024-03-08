@@ -83,7 +83,7 @@ function Sidebar({
           <label htmlFor="my-drawer" className="small-label flex">
             <div className="w-5 h-5 z-100">
               <FontAwesomeIcon
-                className="text-md absolute right-0 top-0 mt-8 mx-24 text-slate-300 z-50 text-light"
+                className="text-md absolute right-0 top-0 mt-8 mx-24 text-slate-300 z-[20] text-light"
                 icon={icon({ name: "bars" })}
               />
             </div>
@@ -159,7 +159,7 @@ function Sidebar({
 
             {/* if errorMessage is True, then display div*/}
             {errorMessage && (
-              <div role="alert" className="alert alert-error">
+              <div role="alert" className="alert alert-error w-[95%] mx-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="stroke-current shrink-0 h-6 w-6"
@@ -178,7 +178,7 @@ function Sidebar({
             )}
 
             {warningMessage && (
-              <div role="alert" class="alert alert-warning">
+              <div role="alert" class="alert alert-warning  w-[95%] mx-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="stroke-current shrink-0 h-6 w-6"

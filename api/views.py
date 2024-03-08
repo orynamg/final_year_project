@@ -11,6 +11,7 @@ from .models import (
     Area,
     School,
     VehicleChargingPoint,
+    GroceryShop,
 )
 from .llm import LLMQueryGenerator
 from django.db import connection
@@ -222,4 +223,24 @@ class VehicleChargingPointViewSet(viewsets.ModelViewSet):
 
     queryset = VehicleChargingPoint.objects.all()
     serializer_class = VehicleChargingPointSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+
+class GroceryShopSerializer(serializers.ModelSerializer):
+    """
+    Transforms Django model into API representation
+    """
+
+    class Meta:
+        model = GroceryShop
+        fields = "__all__"
+
+
+class GroceryShopViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows grocery shops to be viewed or edited.
+    """
+
+    queryset = GroceryShop.objects.all()
+    serializer_class = GroceryShopSerializer
     # permission_classes = [permissions.IsAuthenticated]

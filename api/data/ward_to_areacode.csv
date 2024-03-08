@@ -1,0 +1,593 @@
+ward_name, area_code
+Kilburn,NW6
+Mapesbury,NW2
+Northwick Park,HA1
+Preston,HA9
+Queens Park,NW6
+Queensbury,HA3
+Stonebridge,NW10
+Sudbury,HA0
+Tokyngton,HA9
+Welsh Harp,NW9
+Wembley Central,HA9
+Willesden Green,NW10
+Bickley, BR1
+Biggin Hill,BR2
+Bromley Common and Keston,BR2
+Bromley Town,BR1
+Chelsfield and Pratts Bottom,BR6
+Chislehurst,BR7
+Clock House,BR3
+Copers Cope,BR3
+Cray Valley East,BR5
+Cray Valley West,BR5
+Crystal Palace,BR3
+Darwin,BR5
+Farnborough and Crofton,BR6
+Hayes and Coney Hal,BR2   
+Kelsey and Eden Park,BR3
+Mottingham and Chislehurst North,BR7
+Orpington,BR6
+Penge and Cator,BR3
+Petts Wood and Knoll,BR5
+Plaistow and Sundridge,BR1
+Shortlands,BR2  
+West Wickham,BR4
+Belsize,NW3
+Bloomsbury,WC1
+Camden Town with Primrose Hill,NW1
+Cantelowes,NW1
+Fortune Green,NW6
+Frognal and Fitzjohns,NW3
+Gospel Oak,NW5
+Hampstead Town,NW3
+Haverstock,NW3
+Highgate,N6
+Holborn and Covent Garden,WC1
+Kentish Town,NW5
+Kilburn,NW6
+King's Cross,WC1
+Regent's Park,NW1
+St. Pancras and Somers Town,NW1
+Swiss Cottage,NW3
+West Hampstead,NW6
+Aldersgate,EC1
+Aldgate,EC3
+Bassishaw,EC2
+Billingsgate,EC3
+Bishopsgate,EC2
+Bread Street,EC4
+Bridge,EC3
+Broad Street,EC2
+Candlewick,EC4
+Castle Baynard,EC4
+Cheap,EC2
+Coleman Street,EC2
+Cordwainer,EC4
+Cornhill,EC3
+Cripplegate,EC2
+Dowgate,EC4
+Farringdon Within,EC4
+Farringdon Without,EC1
+Langbourn,EC3
+Lime Street,EC3
+Portsoken,EC3
+Queenhithe,EC4
+Tower,EC3
+Vintry,EC4
+Walbrook,EC4
+Abbey Road,NW8
+Bayswater,W2
+Bryanston and Dorset Square,NW1
+Churchill,W1
+Church Street,NW8
+Harrow Road,W9
+Hyde Park,W2
+Knightsbridge and Belgravia,SW1
+Lancaster Gate,W2
+Little Venice,W9
+Maida Vale,W9
+Marylebone High Street,W1
+Queen's Park,W9
+Regent's Park,NW1
+St. James's,SW1
+Tachbrook,SW1
+Vincent Square,SW1
+Warwick,SW1
+Westbourne,W9
+West End,SW1
+Addiscombe East,CR0
+Addiscombe West,CR0
+Bensham Manor,CR0
+Broad Green,CR0
+Coulsdon Town,CR5
+Crystal Palace & Upper Norwood,SE19
+Fairfield,CR0
+Kenley,CR8
+New Addington North,CR0
+New Addington South,CR0
+Norbury & Pollards Hill,SW16
+Norbury Park,SW16
+Old Coulsdon,CR5
+Park Hill & Whitgift,CR0
+Purley & Woodcote,CR8
+Purley Oaks & Riddlesdown,CR8
+Sanderstead,CR2
+Selhurst,CR0
+Selsdon & Addington Village,CR0
+Selsdon Vale & Forestdale,CR0
+Shirley North,CR0
+Shirly South,CR0
+South Croydon,CR2
+South Norwood,SE25
+Thornton Heath,CR7
+Waddon,CR0
+West Thornton,CR0
+Woodside,CR0
+Acton Central,W3
+Cleveland,W13
+Dormers Wells,UB1
+Ealing Broadway,W5
+Ealing Common,W5
+East Acton,W3
+Elthorne,W7
+Greenford Broadway,UB6
+Greenford Greenm,UB6
+Hanger Hill,W5
+Hobbayne,W7
+Lady Margaret,W7
+Northfield,W13
+North Greenford,UB6
+Northolt Mandeville,UB5
+Northolt West End,UB5
+Norwood Green,UB2
+Perivale,UB6
+South Acton,W3
+Southall Broadway,UB1
+Southall Green,UB2
+Southfield,W4
+Walpole,W13
+Bowes,N22
+Bush Hill Park,EN1
+Chase,EN2
+Cockfosters,EN4
+Edmonton Green,N9
+Enfield Highway,EN3
+Enfield Lock,EN3
+Grange,EN1
+Haselbury,N18
+Highlands,EN2
+Jubilee,EN1
+Lower Edmonton,N9
+Palmers Green,N13
+Ponders End,EN3
+Southbury,EN1
+Southgate,EN4
+Southgate Green,N14
+Town,EN1
+Turkey Street,EN3
+Upper Edmonton,N18
+Winchmore Hill,N21
+Abbey Wood,SE2
+Blackheath Westcombe,SE3
+Charlton,SE7
+Coldharbour and New Eltham,SE9
+Eltham North,SE9
+Eltham South,SE9
+Eltham West,SE9
+Glyndon,SE18
+Greenwich West,SE10
+Kidbrooke with Hornfair,SE3
+Middle Park and Sutcliffe,SE9
+Peninsula,SE10
+Plumstead,SE18
+Shooters Hill,SE18
+Thamesmead Moorings,SE28
+Woolwich Common,SE18
+Woolwich Riverside,SE18
+Brownswood,N4
+Cazenove,N16
+Clissold,N16
+Dalston,E8
+De Beauvoir,N1
+Hackney Central,E8
+Hackney Downs,E5
+Hackney Wick,E9
+Haggerston,E2
+Homerton,E9
+Hoxton East & Shoreditch,E2
+Hoxton West,E2
+King's Park,E9
+Lea Bridge,E10
+London Fields,E8
+Shacklewell,E8
+Springfield,E5
+Stamford Hill West,N16 
+Stoke Newington,E5
+Victoria,SW1
+Woodberry Down,N4
+Addison,WM6
+Askew,W12
+Avonmore and Brook Green,W14
+College Park and Old Oak,W3
+Fulham Broadway,SW6
+Fulham Reach,SW6
+Hammersmith Broadway,W6
+Munster,W14
+North End,W14
+Palace Riverside,SW6
+Parsons Green and Walham,SW6
+Ravenscourt Park,W6
+Sands End,SW6
+Shepherd's Bush Green,W12
+Town,SW6
+Wormholt and White City,W12
+Alexandra,SW19
+Bounds Green,N11
+Bruce Grove,N17
+Crouch End,N8
+Fortis Green,N10
+Harringay,N4
+Hornsey,N8
+Muswell Hill,N10
+Noel Park,N22
+Northumberland Park,N17
+St. Ann's,N15
+Seven Sisters,N15
+Stroud Green,N4
+Tottenham Green,N15
+Tottenham Hale,N17
+West Green,N15
+White Hart Lane,N17
+Woodside,N22
+Belmont,SM2
+Canons,HA8
+Edgware,HA8
+Greenhill,HA1
+Harrow on the Hill,HA1
+Harrow Weald,HA3
+Hatch End,HA5
+Headstone North,HA2
+Headstone South,HA2
+Kenton East,HA3
+Kenton West,HA3
+Marlborough,HA1
+Pinner,HA5
+Pinner South,HA5
+Queensbury,HA3
+Rayners Lane,HA5
+Roxbourne,HA2
+Roxeth,HA2
+Stanmore Park,HA7
+Wealdstone,HA3
+West Harrow,HA1
+Brooklands,KT13
+Cranham,RM14
+Elm Park,RM12
+Emerson Park,RM11
+Gooshays,RM3
+Hacton,RM14
+Harold Wood,RM3
+Havering Park,RM5
+Heaton,RM3
+Hylands,RM11
+Mawneys,RM7
+Pettits,RM1
+Rainham and Wennington,RM13
+Romford Town,RM1
+St. Andrew's,RM12
+South Hornchurch,RM13
+Squirrel's Heath,RM2
+Upminster,RM14
+Barnhill,UB4
+Botwell,UB3
+Brunel,UB3
+Cavendish,UB3
+Charville,UB4
+Eastcote and East Ruislip,HA4
+Harefield,UB9
+Heathrow Villages,UB7
+Hillingdon East,UB10
+Ickenham,UB10
+Manor,UB3
+Northwood,HA6
+Northwood Hills,HA6
+Pinkwell,UB3
+South Ruislip,HA4
+Townfield,UB3
+Uxbridge North,UB8
+Uxbridge South,UB8
+West Drayton,UB7
+West Ruislip,HA4
+Yeading,UB4
+Yiewsley,UB7
+Bedfont,TW14
+Brentford,TW8
+Chiswick Homefields,W4
+Chiswick Riverside,W4
+Cranford,TW5
+Feltham North,TW13
+Feltham West,TW13
+Hanworth,TW13
+Hanworth Park,TW13
+Heston Central,TW5
+Heston East,TW5
+Heston West,TW5
+Hounslow Central,TW3
+Hounslow Heath,TW4
+Hounslow South,TW3
+Hounslow West,TW4
+Isleworth,TW7
+Osterley and Spring Grove,TW7
+Syon,TW7
+Turnham Green,W4
+Barnsbury,N1
+Bunhill,EC1
+Caledonian,N7
+Canonbury,N1
+Clerkenwell,EC1
+Finsbury Park,N4
+Highbury East,N5
+Highbury West,N5
+Hillrise,N19
+Holloway,N7
+Junction,N19
+Mildmay,N1
+St. George's,N7
+St. Mary's,N1
+St. Peter's,N1
+Tollington,N4
+Abingdon,W8
+Brompton & Hans Town,SW3
+Campden,SW7
+Chelsea Riverside,SW3
+Colville,W11
+Courtfield,SW5
+Dalgarno,W10
+Earl's Court,SW5
+Golborne,W10
+Holland,SW5
+Norland,W11
+Notting Dale,W11
+Pembridge,W11,
+Queen's Gate,SW7
+Redcliffe,SW10
+Royal Hospital,SW3
+St. Helen's,SW10
+Stanley,SW3
+Alexandra,SW19
+Berrylands,KT5
+Beverley,KT3
+Canbury,KT2
+Chessington North and Hook,KT9
+Chessington South,KT9
+Coombe Hill,KT2
+Coombe Vale,KT3
+Grove,KT1
+Norbiton,KT2
+Old Malden,KT3
+St. James,KT1
+St. Mark's,KT6
+Surbiton Hill,KT6
+Tolworth and Hook Rise,KT6
+Tudor,KT2
+Bishop's,SE1
+Brixton Hill,SW2
+Clapham Common,SW4
+Clapham Town,SW4
+Coldharbour,SE5
+Ferndale,SW9
+Gipsy Hill,SE19
+Herne Hill,SE24
+Knight's Hill,SE27
+Larkhall,SW8
+Oval,SW8
+Prince's,SE11
+St. Leonard's,SW16
+Stockwell,SW9
+Streatham Hill,SW2
+Streatham South,SW16
+Streatham Wells,SW16
+Thornton,SW12
+Thurlow Park,SE21
+Tulse Hill,SE24
+Vassall,SW9
+Bellingham,SE6
+Blackheath,SE3
+Brockley,SE4
+Catford South,SE6
+Crofton Park,SE4
+Downham,SE6
+Evelyn,SE8
+Forest Hill,SE23
+Grove Park,SE12
+Ladywell,SE13
+Lee Green,SE12
+Lewisham Central,SE13
+New Cross,SE14
+Perry Vale,SE23
+Rushey Green,SE6
+Sydenham,SE26
+Telegraph Hill,SE14
+Whitefoot,SE6
+Abbey,SW1
+Cannon Hill,SW20
+Colliers Wood,SW19
+Cricket Green,CR4
+Dundonald,SW19
+Figge's Marsh,CR4
+Graveney,SW17
+Hillside,SW19
+Lavender Fields,SW11
+Longthornton,CR4
+Lower Morden,SM4
+Merton Park,SW19
+Pollards Hill,CR4
+Ravensbury,CR4
+Raynes Park,SW20
+St. Helier,SM4
+Trinity,SW19
+Village,SW19
+West Barnes,SW20
+Wimbledon Park,SW19
+Beckton,E6
+Boleyn,E6
+Canning Town North,E16
+Canning Town South,E16
+Custom House,E16
+East Ham Central,E6
+East Ham North,E6
+East Ham South,E6
+Forest Gate North,E7
+Forest Gate South,E7
+Green Street East,E7
+Green Street West,E7
+Little Ilford,E12
+Manor Park,E12
+Plaistow North,E13
+Plaistow South,E13
+Royal Docks,E16
+Stratford and New Town,E15
+Wall End,E6
+West Ham,E15
+Aldborough,IG2
+Barkingside,IG6
+Bridge,IG8
+Chadwell,IG7
+Churchfields,IG8
+Clayhall,IG5
+Clementswood,IG1
+Cranbrook,IG1
+Fairlop,IG6
+Fullwell,IG5
+Goodmayes,IG3
+Hainault,IG6
+Ilford Town,IG1
+Loxford,IG1
+Mayfield,IG3
+Monkhams,IG8
+Newbury,IG2
+Seven Kings,IG3
+South Woodford, 
+Valentines,IG1
+Wanstead Park,E7
+Wanstead Village,E11 
+Barnes,SW13
+East Sheen,SW14
+Fulwell and Hampton Hill,TW12
+Ham Petersham and Richmond Riverside,TW10
+Hampton,TW12
+Hampton North,TW12
+Hampton Wick,KT1
+Heathfield,SW18
+Kew,TW9
+Mortlake and Barnes Common,SW14
+North Richmond,TW9
+St. Margarets and North Twickenham,TW1
+South Richmond,TW9
+South Twickenham,TW1
+Teddington,TW11
+Twickenham Riverside,TW1
+West Twickenham,TW1
+Whitton,TW2
+Borough & Bankside,SE1
+Camberwell Green,SE5
+Champion Hill,SE5
+Chaucer,SE1
+Dulwich Hill,SE21
+Dulwich Village,SE21
+Dulwich Wood,SE21
+Faraday,SE17
+Goose Green,SE22
+London Bridge & West Bermondsey,SE1
+Newington,SE1
+North Bermondsey,SE16
+North Walworth,SE17
+Nunhead & Queen's Road,SE15
+Old Kent Road,SE1
+Peckham,SE15
+Peckham Rye,SE15
+Rotherhithe,SE16
+Rye Lane,SE15
+St. George's,SE1
+St. Giles,SE5
+South Bermondsey,SE16
+Surrey Docks,SE16
+Beddington North,SM6
+Beddington South,SM6
+Belmont,SM2
+Carshalton Central,SM5
+Carshalton South and Clockhouse,SM5
+Cheam,SM3
+Nonsuch,SM3
+St. Helier,SM4
+Stonecot,SM3
+Sutton Central,SM1
+Sutton North,SM1
+Sutton South,SM2
+Sutton West,SM1
+The Wrythe,SM5
+Wallington North,SM6
+Wallington South,SM6
+Wandle Valley,SM5
+Worcester Park,KT4
+Bethnal Green,E2
+Blackwall & Cubitt Town,E14
+Bow East,E3
+Bow West,E3
+Bromley North,E3
+Bromley South,E3
+Canary Wharf,E14
+Island Gardens,E14
+Lansbury,E14
+Limehouse,E14
+Mile End,E3
+Poplar,E14
+St. Dunstan's,E14
+St. Katharine's & Wapping,E1
+St. Peter's,E14
+Shadwell,E1
+Spitalfields & Banglatown,E1
+Stepney Green,E1
+Weavers,E2
+Whitechapel,E1
+Cann Hall,E11
+Cathall,E11
+Chapel End,E17
+Chingford Green,E4
+Endlebury,E4
+Forest,E17
+Grove Green,E11  
+Hale End and Highams Park,E4
+Hatch Lane,E4
+High Street,E17
+Higham Hill,E17
+Hoe Street,E17
+Larkswood,E4
+Lea Bridge,E10
+Leyton,E10
+Leytonstone,E11
+Markhouse,E17
+Valley,E4
+William Morris,E17
+Wood Street,E17
+Balham,SW12
+Bedford,SW12
+Earlsfield,SW18
+East Putney,SW15
+Fairfield,SW18
+Furzedown,SW17
+Graveney,SW17
+Latchmere,SW11
+Nightingale,SW12
+Northcote,SW11
+Queenstown,SW11
+Roehampton and Putney Heath,SW15
+St. Mary's Park,SW11
+Shaftesbury,SW11
+Southfields,SW18
+Thamesfield,SW15
+Tooting,SW17
+Wandsworth Common,SW11
+West Hill,SW18
+West Putney,SW15

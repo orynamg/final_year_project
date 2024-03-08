@@ -63,6 +63,7 @@ Studio
 New development
 Penthouse
 
+In api_groceryshop, if asked about any specific shop, check either the "retailer" and "type" columns and use %LIKE% instead of equals.
 
 when asked about car parks, look into api_vehiclechargingpoint table, and search for the string "Car Park" in the site_name column.
 

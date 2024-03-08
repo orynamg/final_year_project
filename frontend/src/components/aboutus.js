@@ -14,7 +14,7 @@ function AboutUs() {
           <img
             src={LinkedInPic}
             alt=""
-            className="object-fit h-full opacity-65 min-h-full min-w-[28.5rem]"
+            className="object-fit h-full opacity-[67%] min-h-full min-w-[28.5rem]"
           />
         </div>
         <div className="w-2/3 h-[60vh] bg-slate-800 justify-center items-center"></div>

@@ -112,3 +112,32 @@ code {
 .object-fit {
   object-position: 60% 30%;
 }
+
+.gm-style .gm-style-iw-c {
+  background-color: #0f172a;
+  color: #fff;
+  margin-right: 0.5rem;
+}
+
+.gm-style .gm-style-iw-d {
+  background-color: #0f172a;
+  overflow: hidden !important;
+}
+
+element.style {
+  overflow: hidden;
+  max-height: 613px;
+}
+
+.gm-style .gm-style-iw-tc::after {
+  background-color: #0f172a;
+}
+
+button.gm-ui-hover-effect {
+  opacity: 0.6;
+  color: #fff !important;
+  background-color: #475569 !important;
+  border-radius: 0.5rem;
+  top: 0.5rem !important;
+  right: 0.5rem !important;
+}

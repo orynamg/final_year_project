@@ -6,7 +6,7 @@ function Navbar({ isHome }) {
   return (
     <div className="relative bg-neutral">
       <div
-        className={`navbar w-full bg-neutral text-neutral-content h-11 fixed top-0 right-0 overflow-visible flex justify-between px-10 z-[11] bg-[rgb(43,52,64,0.85)] ${
+        className={`navbar w-full bg-neutral text-neutral-content h-11 fixed top-0 right-0 overflow-visible flex justify-between px-10 z-[10] bg-[rgb(43,52,64,0.85)] ${
           isHome ? "bg-[rgb(43,52,64,0.90)]" : "bg-neutral"
         }`}
       >
