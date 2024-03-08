@@ -8,7 +8,7 @@ RULES TO FOLLOW:
 
 Do  not SELECT "area_code" before defining it, as it is not a column in any table. Area code needs to be calculated
 
-Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC
+Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC.
 
 Safe is when crimes are minimal. 
 
@@ -66,6 +66,9 @@ Penthouse
 In api_groceryshop, if asked about any specific shop, check either the "retailer" and "type" columns and use %LIKE% instead of equals.
 
 when asked about car parks, look into api_vehiclechargingpoint table, and search for the string "Car Park" in the site_name column.
+
+When asked for an area with the most "green area" or "green space" or "blue area" or "most surrounded by water" (or equivalent), look in api_greenbluearea. Add all the green (or blue) area for each area code. an area_code can have multiple ward_names, but each ward_name has one area_code.
+There is no postcode colum in the api_greenbluearea table. In this table only, you do need to calculate area_code as it is already provided, so SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) AS area_code is not necessary.
 
 The column "city" in api_property is always "London". Do not use this as a filter ever.
 

@@ -1,5 +1,4 @@
 ward_name, area_code
-Kilburn,NW6
 Mapesbury,NW2
 Northwick Park,HA1
 Preston,HA9
@@ -42,12 +41,13 @@ Frognal and Fitzjohns,NW3
 Gospel Oak,NW5
 Hampstead Town,NW3
 Haverstock,NW3
-Highgate,N6
+Highgate Haringey,N6
+Highgate Camden,N6
 Holborn and Covent Garden,WC1
 Kentish Town,NW5
-Kilburn,NW6
 King's Cross,WC1
-Regent's Park,NW1
+Regent's Park Camden,NW1
+Regent's Park City of Westminster,WC1
 St. Pancras and Somers Town,NW1
 Swiss Cottage,NW3
 West Hampstead,NW6
@@ -57,7 +57,8 @@ Bassishaw,EC2
 Billingsgate,EC3
 Bishopsgate,EC2
 Bread Street,EC4
-Bridge,EC3
+Bridge City of London,EC3
+Bridge Redbridge,IG8 
 Broad Street,EC2
 Candlewick,EC4
 Castle Baynard,EC4
@@ -102,7 +103,6 @@ Bensham Manor,CR0
 Broad Green,CR0
 Coulsdon Town,CR5
 Crystal Palace & Upper Norwood,SE19
-Fairfield,CR0
 Kenley,CR8
 New Addington North,CR0
 New Addington South,CR0
@@ -123,7 +123,8 @@ South Norwood,SE25
 Thornton Heath,CR7
 Waddon,CR0
 West Thornton,CR0
-Woodside,CR0
+Woodside Croydon,CR0
+Woodside Haringey,N22
 Acton Central,W3
 Cleveland,W13
 Dormers Wells,UB1
@@ -132,7 +133,7 @@ Ealing Common,W5
 East Acton,W3
 Elthorne,W7
 Greenford Broadway,UB6
-Greenford Greenm,UB6
+Greenford Green,UB6
 Hanger Hill,W5
 Hobbayne,W7
 Lady Margaret,W7
@@ -164,7 +165,6 @@ Ponders End,EN3
 Southbury,EN1
 Southgate,EN4
 Southgate Green,N14
-Town,EN1
 Turkey Street,EN3
 Upper Edmonton,N18
 Winchmore Hill,N21
@@ -198,7 +198,6 @@ Homerton,E9
 Hoxton East & Shoreditch,E2
 Hoxton West,E2
 King's Park,E9
-Lea Bridge,E10
 London Fields,E8
 Shacklewell,E8
 Springfield,E5
@@ -220,7 +219,6 @@ Parsons Green and Walham,SW6
 Ravenscourt Park,W6
 Sands End,SW6
 Shepherd's Bush Green,W12
-Town,SW6
 Wormholt and White City,W12
 Alexandra,SW19
 Bounds Green,N11
@@ -240,7 +238,6 @@ Tottenham Hale,N17
 West Green,N15
 White Hart Lane,N17
 Woodside,N22
-Belmont,SM2
 Canons,HA8
 Edgware,HA8
 Greenhill,HA1
@@ -254,7 +251,8 @@ Kenton West,HA3
 Marlborough,HA1
 Pinner,HA5
 Pinner South,HA5
-Queensbury,HA3
+Queensbury Harrow,HA3
+Queensbury Brent,HA7
 Rayners Lane,HA5
 Roxbourne,HA2
 Roxeth,HA2
@@ -333,9 +331,7 @@ Hillrise,N19
 Holloway,N7
 Junction,N19
 Mildmay,N1
-St. George's,N7
 St. Mary's,N1
-St. Peter's,N1
 Tollington,N4
 Abingdon,W8
 Brompton & Hans Town,SW3
@@ -355,7 +351,8 @@ Redcliffe,SW10
 Royal Hospital,SW3
 St. Helen's,SW10
 Stanley,SW3
-Alexandra,SW19
+Alexandra Haringey,N22
+Alexandra Kingston upon Thames,KT2
 Berrylands,KT5
 Beverley,KT3
 Canbury,KT2
@@ -410,13 +407,11 @@ Rushey Green,SE6
 Sydenham,SE26
 Telegraph Hill,SE14
 Whitefoot,SE6
-Abbey,SW1
 Cannon Hill,SW20
 Colliers Wood,SW19
 Cricket Green,CR4
 Dundonald,SW19
 Figge's Marsh,CR4
-Graveney,SW17
 Hillside,SW19
 Lavender Fields,SW11
 Longthornton,CR4
@@ -509,7 +504,6 @@ Peckham,SE15
 Peckham Rye,SE15
 Rotherhithe,SE16
 Rye Lane,SE15
-St. George's,SE1
 St. Giles,SE5
 South Bermondsey,SE16
 Surrey Docks,SE16
@@ -545,7 +539,6 @@ Mile End,E3
 Poplar,E14
 St. Dunstan's,E14
 St. Katharine's & Wapping,E1
-St. Peter's,E14
 Shadwell,E1
 Spitalfields & Banglatown,E1
 Stepney Green,E1
@@ -564,7 +557,6 @@ High Street,E17
 Higham Hill,E17
 Hoe Street,E17
 Larkswood,E4
-Lea Bridge,E10
 Leyton,E10
 Leytonstone,E11
 Markhouse,E17
@@ -575,9 +567,7 @@ Balham,SW12
 Bedford,SW12
 Earlsfield,SW18
 East Putney,SW15
-Fairfield,SW18
 Furzedown,SW17
-Graveney,SW17
 Latchmere,SW11
 Nightingale,SW12
 Northcote,SW11
@@ -591,3 +581,27 @@ Tooting,SW17
 Wandsworth Common,SW11
 West Hill,SW18
 West Putney,SW15
+Hayes and Coney Hall,BR2
+Abbey Merton,SW19
+Abbey Barking and Dagenham,RM9
+Abbey Barnet,N3
+Abbey Bexley,DA5
+Abbey Brent,HA9
+Kilburn Brent,HA0
+Kilburn Camden,NW6
+Town Enfield,EN1
+Town Hammersmith and Fulham,W6
+St. George's Islington,N7
+St. George's Southwark,SE1
+Belmont Harrow,HA3
+Belmont Sutton,SM2
+St. Helier Merton,SM4
+St. Helier Sutton,SM4
+St. Peter's Islington,N1
+St. Peter's Tower Hamlets,E14
+Lea Bridge Waltham Forest,E10
+Lea Bridge Hackney,E5
+Fairfield Wandsworth,SW18
+Fairfield Croydon,CR0
+Graveney Wandsworth,SW17
+Graveney Merton,CR4

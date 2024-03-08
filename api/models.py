@@ -79,14 +79,14 @@ class GroceryShop(models.Model):
     longitude = models.FloatField()
 
 
-# class GreenBlueArea(models.Model):
-#     ward_name = models.CharField(max_length=200)
-#     area_code = models.CharField(max_length=200)
-#     borough = models.CharField(max_length=200)
-#     ward_area_hectares = models.FloatField()
-#     green_area_hectares = models.FloatField()
-#     blue_area_hectares = models.FloatField()
-#     green_and_blue_area_hectare = models.FloatField()
-#     percent_green = models.FloatField()
-#     percent_blue = models.FloatField()
-#     percent_green_and_blue = models.FloatField()
+class GreenBlueArea(models.Model):
+    ward_name = models.CharField(max_length=200)
+    area_code = models.CharField(max_length=200)
+    borough = models.CharField(max_length=200)
+    ward_area_hectares = models.FloatField()
+    green_area_hectares = models.FloatField()
+    blue_area_hectares = models.FloatField()
+    green_and_blue_area_hectare = models.FloatField()
+    percent_green = models.FloatField()
+    percent_blue = models.FloatField()
+    percent_green_and_blue = models.FloatField()
