@@ -5,10 +5,17 @@ import MapView from "../components/map";
 import Dashboard from "../components/dashboard";
 import { useState } from "react";
 import { APIProvider } from "@vis.gl/react-google-maps";
+import { useLocation } from "react-router-dom";
 
 const API_KEY = "";
 
+function useQuery() {
+  const { search: queryParams } = useLocation();
+  return React.useMemo(() => new URLSearchParams(queryParams), [queryParams]);
+}
+
 function Search() {
+  let urlQuery = useQuery().get("query") || "";
   const [selectedCoors, setSelectedCoors] = useState({
     lat: 51.5072,
     lng: -0.1876,
@@ -25,6 +32,7 @@ function Search() {
         setZoom={setZoom}
         setAreaCode={setAreaCode}
         areaCode={areaCode}
+        urlQuery={urlQuery}
       />
       {areaCode.length != 0 ? <Dashboard areaCode={areaCode} /> : <></>}
       <APIProvider apiKey={API_KEY}>

@@ -1,6 +1,6 @@
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import useSWR from "swr";
 
 const base_url = "http://localhost:8000";
@@ -12,6 +12,7 @@ function Sidebar({
   setZoom,
   setAreaCode,
   areaCode,
+  urlQuery,
 }) {
   const colours = [
     "bg-[#1F2936]",
@@ -24,13 +25,22 @@ function Sidebar({
   const [errorMessage, setErrorMessage] = useState("");
   const [warningMessage, setWarningMessage] = useState("");
   const [botPanel, setBotPanel] = useState(false);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(urlQuery);
   const [areas, setAreas] = useState([]);
+  const [drawerOpen, setDrawerOpen] = useState(urlQuery ? true : false);
+  const handleDrawerOpen = () => setDrawerOpen(!drawerOpen);
   const {
     data: areaTable,
     error,
     isLoading,
   } = useSWR(base_url + "/api/areas", fetcher);
+
+  useLayoutEffect(() => {
+    if (urlQuery) {
+      // setQuery(urlQuery);
+      postQuery({ preventDefault: () => {} });
+    }
+  }, []);
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
@@ -40,6 +50,7 @@ function Sidebar({
     setIsSpinning(true);
     setErrorMessage("");
     setWarningMessage("");
+    setBotPanel(true);
     // console.log(`text: ${query}`);
     // const areasForTesting = ["E14", "E5", "E1", "SE1", "N10"];
     // const results = areasForTesting.map((area) =>
@@ -79,7 +90,13 @@ function Sidebar({
   return (
     <div>
       <div className="drawer">
-        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+        <input
+          id="my-drawer"
+          type="checkbox"
+          className="drawer-toggle"
+          onClick={handleDrawerOpen}
+          checked={drawerOpen}
+        />
         <div className="drawer-content z-10">
           <label htmlFor="my-drawer" className="small-label flex">
             <div className="w-5 h-5 z-100">
@@ -90,6 +107,7 @@ function Sidebar({
             </div>
           </label>
         </div>
+
         <div className="drawer-side pt-[5rem] z-[-1] min-w-[65rem]">
           <label
             htmlFor="my-drawer"
@@ -130,9 +148,6 @@ function Sidebar({
                     <button
                       className=" mx-2 items-end justify-between flex outline-none border-none"
                       type="submit"
-                      onClick={() => {
-                        setBotPanel(true);
-                      }}
                     >
                       <FontAwesomeIcon
                         className="text-lg text-slate-400 z-10 bg-slate-900 p-3 rounded-xl btn-paper-plane"

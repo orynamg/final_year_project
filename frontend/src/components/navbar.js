@@ -10,9 +10,13 @@ function Navbar({ isHome }) {
           isHome ? "bg-[rgb(43,52,64,0.90)]" : "bg-neutral"
         }`}
       >
-        <button className="btn btn-ghost text-xl font-light">
-          <FontAwesomeIcon className="text-sm" icon={icon({ name: "HOUSE" })} />
-          Locaite
+        <button className="btn btn-ghost text-xl font-bold">
+          <FontAwesomeIcon
+            className="text-sm"
+            href="/home"
+            icon={icon({ name: "HOUSE" })}
+          />
+          EstateMate
         </button>
         <button className="btn btn-ghost text-xl font-light">
           <FontAwesomeIcon className="text-sm" icon={icon({ name: "gear" })} />
