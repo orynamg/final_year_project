@@ -91,10 +91,12 @@ const Markers = ({ points, properties }) => {
           className="!bg-black"
         >
           <div className="p-3 font-normal tracking-wider mr-2 mb-1">
-            <h1 className="p-0.5 font-bold mb-1 mt-[-0.5rem] max-w-[7.5rem]">
+            <h1 className="p-0.5 font-bold mb-1 mt-[-0.5rem] max-w-[7rem]">
               {currentProperty?.name}
             </h1>
-            <p className="p-0.5">Price: £{currentProperty?.price}</p>
+            <p className="p-0.5">
+              Price: £{(currentProperty?.price).toLocaleString()}
+            </p>
             <p className="p-0.5">House Type: {currentProperty?.house_type}</p>
             <p className="p-0.5">Area: {currentProperty?.area_sqft} sq.ft.</p>
             <p className="p-0.5">Bedrooms: {currentProperty?.bedrooms}</p>

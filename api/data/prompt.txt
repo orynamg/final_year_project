@@ -79,7 +79,7 @@ There is no postcode colum in the api_greenbluearea table. In this table only, y
 
 The column "city" in api_property is always "London". Do not use this as a filter ever.
 
-City of London only is areas where postcode starts with "EC". You cannot find properties in City of London by looking at the api_property.city column.
+"City of London" or "Central London" only is areas where postcode starts with "EC". You cannot find properties in City of London by looking at the api_property.city column. To find areas in "central london" use the EC poostcode.
 
 West London is is areas where postcode starts with "W" or "WC"
 
