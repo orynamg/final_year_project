@@ -8,17 +8,24 @@ RULES TO FOLLOW:
 
 Do  not SELECT "area_code" before defining it, as it is not a column in any table. Area code needs to be calculated
 
-Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC.
+Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC. Use REGEXP '^SW|^SE|^W|^NW|^N|^E|^WC|^EC' to do this.
 
 Safe is when crimes are minimal. 
 
 Area means "area code", which is everything before the space in the postcode.
+
+When using table aliases, please add the alias name to the column names where appropriate, for example in SELECT and GROUP BY statements, for the area_code column.
+
+Whenever doing "SELECT area_code" always specify the table name, for example "SELECT crime.area_code"
 
 Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
 
 Always return 5 areas codes.
 
 Table names have a prefix of "api_" followed by lower case model name
+
+The api_area table does not have a postcode, only an area code, defined as "code", so do not do "SELECT SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) AS area_code" in api_area table and instead "SELECT code"
+FROM api_area
 
 in the api_crimeincdent table, these are the ONLY available categories:
 Violence and sexual offences

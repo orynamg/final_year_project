@@ -16,7 +16,7 @@ function Home() {
   const goToSearch = () =>
     navigate({
       pathname: "/search",
-      search: "?query=" + query,
+      search: "?query",
     });
 
   return (

@@ -6,6 +6,10 @@ import Dashboard from "../components/dashboard";
 import { useState } from "react";
 import { APIProvider } from "@vis.gl/react-google-maps";
 import { useLocation } from "react-router-dom";
+import useSWR from "swr";
+
+const base_url = "http://localhost:8000";
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const API_KEY = "";
 
@@ -23,6 +27,15 @@ function Search() {
   const [zoom, setZoom] = useState(12);
   const [areaCode, setAreaCode] = useState("");
 
+  const {
+    data: areaTable,
+    error,
+    isLoading,
+  } = useSWR(base_url + "/api/area-details", fetcher);
+
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
+
   return (
     <div>
       <Navbar isHome={false} />
@@ -33,8 +46,13 @@ function Search() {
         setAreaCode={setAreaCode}
         areaCode={areaCode}
         urlQuery={urlQuery}
+        areaTable={areaTable}
       />
-      {areaCode.length != 0 ? <Dashboard areaCode={areaCode} /> : <></>}
+      {areaCode.length != 0 ? (
+        <Dashboard areaCode={areaCode} areaTable={areaTable} />
+      ) : (
+        <></>
+      )}
       <APIProvider apiKey={API_KEY}>
         <MapView
           selectedCoors={selectedCoors}

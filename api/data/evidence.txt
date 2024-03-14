@@ -273,3 +273,15 @@ GROUP BY area_code
 HAVING school_count > 0 AND charging_point_count > 0
 ORDER BY school_count DESC, charging_point_count DESC
 LIMIT 5;
+
+{'text': 'give me areas with most schools and least crime'}
+SELECT area_code, COUNT(DISTINCT school_id) AS school_count, COUNT(DISTINCT crime_id) AS crime_count
+FROM (
+    SELECT SUBSTR(api_school.postcode, 1, INSTR(api_school.postcode, ' ')-1) AS area_code, api_school.id AS school_id, api_crimeincident.id AS crime_id
+    FROM api_school
+    LEFT JOIN api_crimeincident ON SUBSTR(api_school.postcode, 1, INSTR(api_school.postcode, ' ')-1) = SUBSTR(api_crimeincident.postcode, 1, INSTR(api_crimeincident.postcode, ' ')-1)
+    WHERE area_code LIKE 'SW%' OR area_code LIKE 'SE%' OR area_code LIKE 'W%' OR area_code LIKE 'NW%' OR area_code LIKE 'N%' OR area_code LIKE 'E%' OR area_code LIKE 'WC%' OR area_code LIKE 'EC%'
+) AS subquery
+GROUP BY area_code
+ORDER BY school_count DESC, crime_count ASC
+LIMIT 5;

@@ -12,6 +12,7 @@ router.register(r"areas", views.AreaViewSet)
 urlpatterns = [
     path("hello-world/", views.hello_world, name="hello_world"),
     path("search", views.search, name="search"),
+    path("area-details", views.area_details, name="area_details"),
     path("properties", views.PropertyList.as_view()),
 ]
 

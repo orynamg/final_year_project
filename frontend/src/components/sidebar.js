@@ -1,10 +1,6 @@
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState, useLayoutEffect } from "react";
-import useSWR from "swr";
-
-const base_url = "http://localhost:8000";
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function Sidebar({
   selectedCoors,
@@ -13,6 +9,7 @@ function Sidebar({
   setAreaCode,
   areaCode,
   urlQuery,
+  areaTable,
 }) {
   const colours = [
     "bg-[#1F2936]",
@@ -29,11 +26,7 @@ function Sidebar({
   const [areas, setAreas] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(urlQuery ? true : false);
   const handleDrawerOpen = () => setDrawerOpen(!drawerOpen);
-  const {
-    data: areaTable,
-    error,
-    isLoading,
-  } = useSWR(base_url + "/api/areas", fetcher);
+  const base_url = "http://localhost:8000";
 
   useLayoutEffect(() => {
     if (urlQuery) {
@@ -41,9 +34,6 @@ function Sidebar({
       postQuery({ preventDefault: () => {} });
     }
   }, []);
-
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
 
   const postQuery = (event) => {
     event.preventDefault();
@@ -201,7 +191,11 @@ function Sidebar({
                     d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>{errorMessage}</span>
+                {/* <span>{errorMessage}</span> */}
+                <span>
+                  Oops... :/ Seems like our bot is having troubles with your
+                  request. Try amending your query!
+                </span>
               </div>
             )}
 
