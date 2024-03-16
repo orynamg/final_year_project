@@ -40,8 +40,8 @@ function Dashboard({ areaCode, areaTable }) {
           </div>
           <div>
             <span className="font-bold text-slate-300 ">Common Crime:</span>{" "}
-            <span className="bg-[#322fe1] w-[7rem] text-center inline-block p-1 rounded-full ">
-              Other Theft
+            <span className="bg-[#322fe1] w-[7rem] text-center inline-block p-1 rounded-full text-[0.6rem]">
+              {selectedArea.crime_category || "N/A"}
             </span>
           </div>
           <div>
@@ -75,14 +75,14 @@ function Dashboard({ areaCode, areaTable }) {
             </span>
             <span className="bg-blue-700 w-[7rem] text-center inline-block p-1 rounded-full ">
               <FontAwesomeIcon icon={faSchool} />{" "}
-              {selectedArea.schools_count || "N/A"}
+              {selectedArea.school_count || "N/A"}
             </span>
           </div>
           <div>
             <span className="font-bold text-slate-300 ">Vehicle Charging:</span>{" "}
             <span className="bg-blue-600 w-[7rem] text-center inline-block p-1 rounded-full ">
               <FontAwesomeIcon icon={faChargingStation} />{" "}
-              {selectedArea.vehicle_charging_count || "N/A"}
+              {selectedArea.vehicle_charging_count || "0"}
             </span>
           </div>
           <div>
@@ -99,7 +99,8 @@ function Dashboard({ areaCode, areaTable }) {
               Popular Grocery Store:{" "}
             </span>
             <span className="bg-blue-600 w-[7rem] text-center inline-block p-1 rounded-full ">
-              <FontAwesomeIcon icon={faCartShopping} /> Waitrose
+              <FontAwesomeIcon icon={faCartShopping} />{" "}
+              {selectedArea.retailer || "N/A"}
             </span>
           </div>
           <div className="col-span-3 text-center text-sm my-auto mt-1 flex m-auto items-center justify-center">

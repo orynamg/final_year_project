@@ -41,6 +41,7 @@ function Sidebar({
     setErrorMessage("");
     setWarningMessage("");
     setBotPanel(true);
+    setAreas([]);
     // console.log(`text: ${query}`);
     // const areasForTesting = ["E14", "E5", "E1", "SE1", "N10"];
     // const results = areasForTesting.map((area) =>

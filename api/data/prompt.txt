@@ -4,11 +4,12 @@
 
 Generate SQL query for a sqlite database to answer the question: {} 
 
-RULES TO FOLLOW:
+
+######### RULES TO FOLLOW ###########
 
 Do  not SELECT "area_code" before defining it, as it is not a column in any table. Area code needs to be calculated
 
-Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC. Use REGEXP '^SW|^SE|^W|^NW|^N|^E|^WC|^EC' to do this.
+Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC. Use REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d' to do this.
 
 Safe is when crimes are minimal. 
 
@@ -16,7 +17,7 @@ Area means "area code", which is everything before the space in the postcode.
 
 When using table aliases, please add the alias name to the column names where appropriate, for example in SELECT and GROUP BY statements, for the area_code column.
 
-Whenever doing "SELECT area_code" always specify the table name, for example "SELECT crime.area_code"
+Whenever doing "SELECT area_code" always specify the table name, for example "SELECT crime.area_code". NEVER JUST WRITE "SELECT area_code" without specifying the table you want to use. At the top-most level of the SQL query, always use table alias for area_code, for example "SELECT table_name.area_code"
 
 Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
 

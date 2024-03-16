@@ -285,3 +285,26 @@ FROM (
 GROUP BY area_code
 ORDER BY school_count DESC, crime_count ASC
 LIMIT 5;
+
+{'text': 'Give me an area with most schools, least crime and the most common store is tesco'}
+SELECT area_code, COUNT(*) as school_count, crime_count, retailer
+FROM (
+    SELECT school.area_code, COUNT(*) as school_count
+    FROM api_school AS school
+    WHERE school.area_code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d'
+    GROUP BY school.area_code
+) AS school_count
+JOIN (
+    SELECT crime.area_code, COUNT(*) as crime_count
+    FROM api_crimeincident AS crime
+    WHERE crime.area_code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d'
+    GROUP BY crime.area_code
+) AS crime_count ON school_count.area_code = crime_count.area_code
+JOIN (
+    SELECT grocery.area_code, grocery.retailer, COUNT(*) as retailer_count
+    FROM api_groceryshop AS grocery
+    WHERE grocery.area_code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d' AND grocery.retailer LIKE '%tesco%'
+    GROUP BY grocery.area_code, grocery.retailer
+) AS grocery_count ON school_count.area_code = grocery_count.area_code
+ORDER BY school_count DESC, crime_count ASC, retailer_count DESC
+LIMIT 5;

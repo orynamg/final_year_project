@@ -250,7 +250,7 @@ class GroceryShopViewSet(viewsets.ModelViewSet):
 def area_details(request):
     try:
         sql = """
-            SELECT code, name, centre_lat, centre_long, crime_count, school_count, green_area_total, blue_area_total, vehicle_charging_count, grocery_count, price_avg, stations
+            SELECT code, name, centre_lat, centre_long, crime_count, school_count, green_area_total, blue_area_total, vehicle_charging_count, grocery_count, price_avg, stations, crime_category, retailer
             FROM api_area aa
             LEFT JOIN (
                 SELECT 
@@ -258,6 +258,17 @@ def area_details(request):
                 FROM api_crimeincident
                 GROUP BY area_code
             ) ac ON aa.code = ac.area_code
+            INNER JOIN (
+                SELECT *
+                FROM
+                    (SELECT *, ROW_NUMBER() OVER(PARTITION BY area_code ORDER BY area_code, category_count DESC) as rn
+                    FROM 
+                        (SELECT 
+                            SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, category as crime_category, COUNT(category) as category_count
+                        FROM api_crimeincident
+                        GROUP BY area_code, category))  
+                WHERE rn = 1
+            ) ac2 ON aa.code = ac2.area_code
             LEFT JOIN (
                 SELECT 
                     SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, COUNT(*) as school_count
@@ -282,6 +293,17 @@ def area_details(request):
                 FROM api_groceryshop 
                 GROUP BY area_code
             ) agc ON aa.code = agc.area_code
+            INNER JOIN (
+                SELECT *
+                FROM
+                    (SELECT *, ROW_NUMBER() OVER(PARTITION BY area_code ORDER BY area_code, retailer_count DESC) as rn
+                    FROM 
+                        (SELECT 
+                            SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, retailer, COUNT(retailer) as retailer_count
+                        FROM api_groceryshop
+                        GROUP BY area_code, retailer))  
+                WHERE rn = 1
+            ) agc2 ON aa.code = agc2.area_code
             LEFT JOIN (
                 SELECT 
                     SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, AVG(price) as price_avg

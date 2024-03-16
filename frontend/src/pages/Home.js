@@ -16,14 +16,14 @@ function Home() {
   const goToSearch = () =>
     navigate({
       pathname: "/search",
-      search: "?query",
+      search: "?query=" + query,
     });
 
   return (
     <div>
       <div className="bg-slate-700 h-[90vh] w-screen flex ">
         <Navbar isHome={true} />
-        <div className="w-7/12 px-4 h-18 z-10 flex items-center justify-between mt-[45vh] relative m-auto border-2 border-slate-700 bg-[#e5e5e5] p-1 rounded-full">
+        <div className="w-7/12 px-4 h-18 z-10 flex items-center justify-between mt-[46vh] relative m-auto border-2 border-slate-700 bg-[#e5e5e5] p-1 rounded-full">
           <input
             type="text"
             className="pl-4 h-14 w-full bg-transparent text-xl text-start outline-none"
