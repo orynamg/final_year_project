@@ -39,10 +39,17 @@ function Dashboard({ areaCode, areaTable }) {
             </span>
           </div>
           <div>
-            <span className="font-bold text-slate-300 ">Common Crime:</span>{" "}
-            <span className="bg-[#322fe1] w-[7rem] text-center inline-block p-1 rounded-full text-[0.6rem]">
-              {selectedArea.crime_category || "N/A"}
-            </span>
+            <div class="relative group inline-block">
+              <span className="font-bold text-slate-300 ">Common Crime:</span>{" "}
+              <button className="bg-[#322fe1] w-[7rem] p-1 text-center inline-block rounded-full hover:opacity-80 transition duration-300 ease-in-out transform hover:scale-105">
+                {selectedArea.crime_category.substring(0, 11) + "..." || "N/A"}
+              </button>
+              <div class="opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute w-56 ml-[3.1rem] mt-[-4.6rem] bg-slate-900 text-white border border-slate-700 rounded-full shadow-lg py-2 z-10">
+                <p class="px-4 py-0.5 text-center">
+                  {selectedArea.crime_category || "N/A"}
+                </p>
+              </div>
+            </div>
           </div>
           <div>
             <span className="font-bold text-slate-300 ">
