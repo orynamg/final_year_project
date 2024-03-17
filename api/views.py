@@ -1,3 +1,4 @@
+import sqlite3
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -29,20 +30,28 @@ def search(request):
         llm = LLMQueryGenerator("api/data/prompt.txt", "api/models.py")
         sql = llm.generate_sql(request.data["text"])
         print(sql)
-        with connection.cursor() as cursor:
-            cursor.execute(sql)
-            areas = []
-            for row in cursor.fetchall():
-                area = row[0].strip()
-                area = area.rstrip(
-                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                )
-                if area not in areas:
-                    areas.append(area)
+        conn = sqlite3.connect(
+            "/Users/oryna/Documents/dev/Project/final_year_project/db.sqlite3"
+        )
+        conn.enable_load_extension(True)
+        conn.load_extension(
+            "/Users/oryna/Documents/dev/Project/final_year_project/regex02"
+        )
+        conn.enable_load_extension(False)
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        areas = []
+        for row in cursor.fetchall():
+            area = row[0].strip()
+            area = area.rstrip("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+            if area not in areas:
+                areas.append(area)
         return Response({"areas": areas})
     except Exception as e:
         print(e)
         return Response(status=500)
+    finally:
+        conn.close()
 
 
 class PropertySerializer(serializers.ModelSerializer):
@@ -258,7 +267,7 @@ def area_details(request):
                 FROM api_crimeincident
                 GROUP BY area_code
             ) ac ON aa.code = ac.area_code
-            INNER JOIN (
+            LEFT JOIN (
                 SELECT *
                 FROM
                     (SELECT *, ROW_NUMBER() OVER(PARTITION BY area_code ORDER BY area_code, category_count DESC) as rn
@@ -293,7 +302,7 @@ def area_details(request):
                 FROM api_groceryshop 
                 GROUP BY area_code
             ) agc ON aa.code = agc.area_code
-            INNER JOIN (
+            LEFT JOIN (
                 SELECT *
                 FROM
                     (SELECT *, ROW_NUMBER() OVER(PARTITION BY area_code ORDER BY area_code, retailer_count DESC) as rn

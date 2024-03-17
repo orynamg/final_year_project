@@ -308,3 +308,14 @@ JOIN (
 ) AS grocery_count ON school_count.area_code = grocery_count.area_code
 ORDER BY school_count DESC, crime_count ASC, retailer_count DESC
 LIMIT 5;
+
+{'text': 'most affluent places'}
+SELECT area_code, AVG(price) as avg_price
+FROM (
+    SELECT SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ')-1) AS area_code, api_property.price
+    FROM api_property
+    WHERE SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ')-1) REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d'
+) as property
+GROUP BY area_code
+ORDER BY avg_price DESC
+LIMIT 5;

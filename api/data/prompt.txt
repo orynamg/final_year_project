@@ -7,7 +7,7 @@ Generate SQL query for a sqlite database to answer the question: {}
 
 ######### RULES TO FOLLOW ###########
 
-Do  not SELECT "area_code" before defining it, as it is not a column in any table. Area code needs to be calculated
+Do  not SELECT "area_code" before defining it, as it is not a column in any table. Area code needs to be calculated. Use "regex_find('^\w+\d+', postcode) as area_code" to calculate the area_code from postcode, instead of using "SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ')-1)". Do not use "SUBSTR(api_property.postcode, 1, INSTR(api_property.postcode, ' ')-1)"
 
 Only return area_codes that begin with SW|SE|W|NW|N|E|WC|EC. Use REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d' to do this.
 
@@ -25,7 +25,7 @@ Always return 5 areas codes.
 
 Table names have a prefix of "api_" followed by lower case model name
 
-The api_area table does not have a postcode, only an area code, defined as "code", so do not do "SELECT SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) AS area_code" in api_area table and instead "SELECT code"
+The api_area table does not have a postcode, only an area code, defined as "code", so do not calculate area_code from postcode in api_area table and instead "SELECT code"
 FROM api_area
 
 in the api_crimeincdent table, these are the ONLY available categories:
@@ -78,7 +78,7 @@ In api_groceryshop, if asked about any specific shop, check either the "retailer
 when asked about car parks, look into api_vehiclechargingpoint table, and search for the string "Car Park" in the site_name column.
 
 When asked for an area with the most "green area" or "green space" or "blue area" or "most surrounded by water" (or equivalent), look in api_greenbluearea. Add all the green (or blue) area for each area code. an area_code can have multiple ward_names, but each ward_name has one area_code.
-There is no postcode colum in the api_greenbluearea table. In this table only, you do need to calculate area_code as it is already provided, so SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) AS area_code is not necessary.
+There is no postcode colum in the api_greenbluearea table. In this table only, you do not need to calculate area_code as it is already provided.
 
 The column "city" in api_property is always "London". Do not use this as a filter ever.
 
