@@ -319,3 +319,27 @@ FROM (
 GROUP BY area_code
 ORDER BY avg_price DESC
 LIMIT 5;
+
+{'text': 'areas with a lot of water'}
+SELECT area_code, SUM(blue_area_hectares) as total_blue_area
+FROM (
+    SELECT REGEXP_REPLACE(postcode, '^\w+\d+', '') as area_code, blue_area_hectares
+    FROM api_greenbluearea
+    WHERE area_code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d'
+) as subquery
+GROUP BY area_code
+ORDER BY total_blue_area DESC
+LIMIT 5;
+
+{'text': 'give me areas next to buckingam palace'}
+SELECT area_code 
+FROM (
+    SELECT regex_find('^\w+\d+', api_property.postcode) as area_code, COUNT(*) as count
+    FROM api_property
+    WHERE api_property.latitude BETWEEN 51.4980 AND 51.5020
+    AND api_property.longitude BETWEEN -0.1425 AND -0.1385
+    AND area_code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d'
+    GROUP BY area_code
+    ORDER BY count DESC
+) as subquery
+LIMIT 5

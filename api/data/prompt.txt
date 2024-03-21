@@ -77,8 +77,9 @@ In api_groceryshop, if asked about any specific shop, check either the "retailer
 
 when asked about car parks, look into api_vehiclechargingpoint table, and search for the string "Car Park" in the site_name column.
 
-When asked for an area with the most "green area" or "green space" or "blue area" or "most surrounded by water" (or equivalent), look in api_greenbluearea. Add all the green (or blue) area for each area code. an area_code can have multiple ward_names, but each ward_name has one area_code.
-There is no postcode colum in the api_greenbluearea table. In this table only, you do not need to calculate area_code as it is already provided.
+When asked for an area with the most "green area" or "green space" or "blue area" or "most surrounded by water" (or equivalent), look in api_greenbluearea. 
+
+in the table api_greenbluearea, there is no postcode column and you do not need to calculate area_code, as it already exists as a column. Simply do "SELECT area_code".
 
 The column "city" in api_property is always "London". Do not use this as a filter ever.
 

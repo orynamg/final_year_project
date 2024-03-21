@@ -61,9 +61,11 @@ function Sidebar({
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        const results = data.areas.map((area) =>
-          areaTable.find((item) => item.code === area)
-        );
+        const results = data.areas.map((area) => {
+          let x = areaTable.find((item) => item.code === area);
+          console.log(area, x);
+          return x;
+        });
         if (results.length === 0) {
           setWarningMessage("No results found");
         }
@@ -221,6 +223,7 @@ function Sidebar({
 
             {areas.map((area, i) => (
               <div
+                tabIndex={0}
                 class="collapse !rounded-none"
                 value={selectedCoors}
                 onClick={() => {
@@ -233,7 +236,7 @@ function Sidebar({
                 }}
                 key={area.code}
               >
-                <input type="checkbox" class="peer" />
+                {/* <input type="checkbox" class="peer" /> */}
                 <div
                   className={` hovering hover:bg-gray-700 hover:border-gray-400 collapse-title border-2 border-t-gray-700 border-b-transparent border-r-transparent h-[4rem] border-l-transparent tracking-wider font-light peer-checked:text-secondary-content text-center text-lg shadow-transparent ${
                     colours[i % colours.length]
@@ -250,7 +253,7 @@ function Sidebar({
                     target="_blank"
                     href={`https://www.zoopla.co.uk/for-sale/property/london/${areaCode}/`}
                   >
-                    <p className="flex btn text-center font-light tracking-wider justify-center w-11/12 m-auto bg-[#3533b5b3] text-white border-none hover:bg-[#322fe1]  btn-paper-plane ">
+                    <p className="flex btn text-center font-light tracking-wider justify-center w-11/12 m-auto bg-[#3533b5b3] text-white border-none hover:bg-[#322fe1]  btn-paper-plane z-100">
                       View On Zoopla!
                     </p>
                   </a>

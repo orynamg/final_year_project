@@ -222,3 +222,8 @@ section:nth-child(3) {
   --widthCh: 60;
   --timePerLine: 3s;
 }
+
+.collapse-content {
+  pointer-events: all;
+  z-index: 100;
+}

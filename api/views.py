@@ -43,7 +43,6 @@ def search(request):
         areas = []
         for row in cursor.fetchall():
             area = row[0].strip()
-            area = area.rstrip("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
             if area not in areas:
                 areas.append(area)
         return Response({"areas": areas})
