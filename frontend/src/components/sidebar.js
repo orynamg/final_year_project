@@ -61,10 +61,10 @@ function Sidebar({
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        const results = data.areas.map((area) => {
-          let x = areaTable.find((item) => item.code === area);
-          console.log(area, x);
-          return x;
+        const results = data.areas.map((areaCode) => {
+          let area = areaTable.find((item) => item.code === areaCode);
+          console.log(areaCode, area);
+          return area;
         });
         if (results.length === 0) {
           setWarningMessage("No results found");
@@ -223,7 +223,6 @@ function Sidebar({
 
             {areas.map((area, i) => (
               <div
-                tabIndex={0}
                 class="collapse !rounded-none"
                 value={selectedCoors}
                 onClick={() => {
@@ -236,7 +235,12 @@ function Sidebar({
                 }}
                 key={area.code}
               >
-                {/* <input type="checkbox" class="peer" /> */}
+                <input
+                  checked={area.code === areaCode}
+                  type="checkbox"
+                  class="peer"
+                  className="w-full h-full hover:bg-gray-700 hover:border-gray-400 "
+                ></input>
                 <div
                   className={` hovering hover:bg-gray-700 hover:border-gray-400 collapse-title border-2 border-t-gray-700 border-b-transparent border-r-transparent h-[4rem] border-l-transparent tracking-wider font-light peer-checked:text-secondary-content text-center text-lg shadow-transparent ${
                     colours[i % colours.length]
