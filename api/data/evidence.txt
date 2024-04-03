@@ -70,8 +70,7 @@ FROM (
 GROUP BY area_code
 ORDER BY avg_price DESC
 LIMIT 5;
-[18/Feb/2024 18:01:21] "POST /api/search HTTP/1.1" 200 22
-{'text': 'gime the areas with highest property prices'}
+[18/Ft': 'gime the areas with highest property prices'}
 SELECT area_code, AVG(price) as avg_price
 FROM (
     SELECT SUBSTR(postcode, 1, INSTR(postcode, ' ') - 1) as area_code, price
@@ -84,6 +83,8 @@ WHERE area_code NOT IN (
 GROUP BY area_code
 ORDER BY avg_price DESC
 LIMIT 5;
+eb/2024 18:01:21] "POST /api/search HTTP/1.1" 200 22
+{'tex
 [18/Feb/2024 18:01:25] "POST /api/search HTTP/1.1" 200 22
 [18/Feb/2024 18:01:50] "GET /api/areas/ HTTP/1.1" 200 10765
 [18/Feb/2024 18:02:04] "GET /api/areas/ HTTP/1.1" 200 10765
@@ -343,3 +344,23 @@ FROM (
     ORDER BY count DESC
 ) as subquery
 LIMIT 5
+
+
+{'text': 'where can i buy a cheap property in a safe place in London'}
+SELECT property.area_code, COUNT(crime.category) as crime_count, AVG(property.price) as avg_price
+FROM (
+    SELECT api_property.*, regex_find('^\w+\d+', api_property.postcode) as area_code
+    FROM api_property
+    WHERE api_property.city = 'London'
+) as property
+LEFT JOIN (
+    SELECT api_crimeincident.*, regex_find('^\w+\d+', api_crimeincident.postcode) as area_code
+    FROM api_crimeincident
+) as crime
+ON property.area_code = crime.area_code
+WHERE property.area_code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d'
+GROUP BY property.area_code
+HAVING crime_count = MIN(crime_count)
+ORDER BY avg_price ASC
+LIMIT 5;
+misuse of aliased aggregate crime_count

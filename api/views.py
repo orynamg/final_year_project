@@ -3,40 +3,34 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import permissions, viewsets, serializers, generics
-from .models import (
-    Property,
-    CrimeIncident,
-    Station,
-    StationUnit,
-    UserQuery,
-    Area,
-    School,
-    VehicleChargingPoint,
-    GroceryShop,
-)
+from .models import Property
 from .llm import LLMQueryGenerator
 from django.db import connection
+import logging
 
-
-@api_view(["GET"])
-def hello_world(request):
-    return Response({"message": "Hello, Oryna!"})
+logger = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(name)s %(levelname)s %(message)s",
+    handlers=[logging.StreamHandler()],
+)
 
 
 @api_view(["POST"])
-def search(request):
+def search(request, conn=None, llm=None):
     try:
-        print(request.data)
-        llm = LLMQueryGenerator("api/data/prompt.txt", "api/models.py")
+        # Logging user query
+        logger.info(request.data)
+        if not llm:
+            llm = LLMQueryGenerator("api/data/prompt.txt", "api/models.py")
         sql = llm.generate_sql(request.data["text"])
-        print(sql)
-        conn = sqlite3.connect(
-            "/Users/oryna/Documents/dev/Project/final_year_project/db.sqlite3"
-        )
+
+        # Logging generated SQL
+        logger.info(sql)
+        if not conn:
+            conn = sqlite3.connect("db.sqlite3")
         conn.enable_load_extension(True)
-        conn.load_extension(
-            "/Users/oryna/Documents/dev/Project/final_year_project/regex02"
-        )
+        conn.load_extension("regex02")
         conn.enable_load_extension(False)
         cursor = conn.cursor()
         cursor.execute(sql)
@@ -63,96 +57,6 @@ class PropertySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class PropertyViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows properties to be viewed or edited.
-    """
-
-    queryset = Property.objects.all()
-    serializer_class = PropertySerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
-class CrimeIncidentSerializer(serializers.ModelSerializer):
-    """
-    Transforms Django model into API representation
-    """
-
-    class Meta:
-        model = CrimeIncident
-        fields = "__all__"
-
-
-class CrimeIncidentViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows crimes to be viewed or edited.
-    """
-
-    queryset = CrimeIncident.objects.all()
-    serializer_class = CrimeIncidentSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
-class StationSerializer(serializers.ModelSerializer):
-    """
-    Transforms Django model into API representation
-    """
-
-    class Meta:
-        model = Station
-        fields = "__all__"
-
-
-class StationViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows stations to be viewed or edited.
-    """
-
-    queryset = Station.objects.all()
-    serializer_class = StationSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
-class StationUnitSerializer(serializers.ModelSerializer):
-    """
-    Transforms Django model into API representation
-    """
-
-    class Meta:
-        model = StationUnit
-        fields = "__all__"
-
-
-class StationUnitViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows station units to be viewed or edited.
-    """
-
-    queryset = StationUnit.objects.all()
-    serializer_class = StationUnitSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
-class UserQuerySerializer(serializers.ModelSerializer):
-    """
-    Transforms Django model into API representation
-    """
-
-    class Meta:
-        model = UserQuery
-        fields = "__all__"
-
-
-class UserQueryViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows user queries to be viewed or edited.
-    """
-
-    queryset = UserQuery.objects.all()
-    serializer_class = UserQuerySerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
 class PropertyList(generics.ListAPIView):
     serializer_class = PropertySerializer
 
@@ -172,86 +76,6 @@ class PropertyList(generics.ListAPIView):
             queryset = Property.objects.raw(query)
             # queryset = Property.objects.raw(query, areas)
         return queryset
-
-
-class AreaSerializer(serializers.ModelSerializer):
-    """
-    Transforms Django model into API representation
-    """
-
-    class Meta:
-        model = Area
-        fields = "__all__"
-
-
-class AreaViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows areas to be viewed or edited.
-    """
-
-    queryset = Area.objects.all()
-    serializer_class = AreaSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
-class SchoolSerializer(serializers.ModelSerializer):
-    """
-    Transforms Django model into API representation
-    """
-
-    class Meta:
-        model = School
-        fields = "__all__"
-
-
-class SchoolViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows schools to be viewed or edited.
-    """
-
-    queryset = School.objects.all()
-    serializer_class = SchoolSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
-class VehicleChargingPointSerializer(serializers.ModelSerializer):
-    """
-    Transforms Django model into API representation
-    """
-
-    class Meta:
-        model = VehicleChargingPoint
-        fields = "__all__"
-
-
-class VehicleChargingPointViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows vehicle charging points to be viewed or edited.
-    """
-
-    queryset = VehicleChargingPoint.objects.all()
-    serializer_class = VehicleChargingPointSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
-class GroceryShopSerializer(serializers.ModelSerializer):
-    """
-    Transforms Django model into API representation
-    """
-
-    class Meta:
-        model = GroceryShop
-        fields = "__all__"
-
-
-class GroceryShopViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows grocery shops to be viewed or edited.
-    """
-
-    queryset = GroceryShop.objects.all()
-    serializer_class = GroceryShopSerializer
-    # permission_classes = [permissions.IsAuthenticated]
 
 
 @api_view(["GET"])

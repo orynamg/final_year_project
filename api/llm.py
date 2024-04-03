@@ -1,6 +1,5 @@
 import os
 from openai import OpenAI
-import sqlite3
 
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
@@ -26,49 +25,3 @@ class LLMQueryGenerator:
         )
         llm_response = completion.choices[0].message.content
         return llm_response
-
-
-# def print_query_results(sql: str) -> None:
-#     connection = sqlite3.connect("db.sqlite3")
-#     cursor = connection.cursor()
-#     cursor.execute(sql)
-#     results = cursor.fetchall()
-
-#     for row in results:
-#         print(row)
-
-#     cursor.close()
-#     connection.close()
-
-
-# def run(llm_query_generator: LLMQueryGenerator, user_query: str) -> None:
-#     sql = llm_query_generator.generate_sql(user_query)
-#     print(sql)
-#     print_query_results(sql)
-
-
-# def main() -> None:
-#     llm_query_generator = LLMQueryGenerator("api/data/prompt.txt", "api/models.py")
-
-#     tests = [
-#         "What are the top 5 safest areas",
-#         # "Give me the area with the least amount of burglaries",
-#         # "Give me the area with the least amount of illegal entry of a building with intent to commit a crime, especially theft.",
-#         # "Give me the area with the least amount of theft from the person",
-#         # "Give me the area with the least amount of theft from a vehicle",
-#         # "Give me the area with the least amount of theft or unauthorised taking of a pedal cycle",
-#         # "Give me the area with the least amount of theft in a dwelling",
-#         # "Give me the area with the least amount of theft from a shop",
-#         # "Give me the area with the least amount of criminal damage and arson",
-#         # "Give me the area with the least amount of violence and sexual offences",
-#         # "Give me the area with the least amount of violence without injury",
-#         # "Give me the area with the least amount of violence with injury",
-#         # "Give me the area with the least amount of stalking and harassment",
-#     ]
-
-#     for test in tests:
-#         run(llm_query_generator, test)
-
-
-# if __name__ == "__main__":
-#     main()
