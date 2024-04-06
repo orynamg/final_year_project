@@ -76,7 +76,9 @@ function Sidebar({
       .catch((error) => {
         console.error("Error:", error);
         setIsSpinning(false);
-        setErrorMessage(error.message);
+        setErrorMessage(
+          "Oops... :/ Seems like our bot is having troubles with your request. Try amending your query!"
+        );
       });
   };
 
@@ -85,6 +87,7 @@ function Sidebar({
       <div className="drawer">
         <input
           id="my-drawer"
+          data-testid="my-drawer"
           type="checkbox"
           className="drawer-toggle"
           onClick={handleDrawerOpen}
@@ -141,6 +144,7 @@ function Sidebar({
                     <button
                       className=" mx-2 items-end justify-between flex outline-none border-none"
                       type="submit"
+                      data-testid="submit-button"
                     >
                       <FontAwesomeIcon
                         className="text-lg text-slate-400 z-10 bg-slate-900 p-3 rounded-xl btn-paper-plane"
@@ -195,10 +199,7 @@ function Sidebar({
                   />
                 </svg>
                 {/* <span>{errorMessage}</span> */}
-                <span>
-                  Oops... :/ Seems like our bot is having troubles with your
-                  request. Try amending your query!
-                </span>
+                <span>{errorMessage}</span>
               </div>
             )}
 

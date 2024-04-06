@@ -364,3 +364,23 @@ HAVING crime_count = MIN(crime_count)
 ORDER BY avg_price ASC
 LIMIT 5;
 misuse of aliased aggregate crime_count
+
+2024-04-04 14:19:48,368 api.views INFO {'text': 'give me safe areas with schools'}
+2024-04-04 14:20:00,950 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-04-04 14:20:00,958 api.views INFO SELECT area_code, COUNT(*) as school_count, COUNT(crime.category) as crime_count
+FROM (
+    SELECT regex_find('^\w+\d+', school.postcode) as area_code, school.name
+    FROM api_school as school
+    WHERE area_code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d'
+) as school
+LEFT JOIN (
+    SELECT regex_find('^\w+\d+', crime.postcode) as area_code, crime.category
+    FROM api_crimeincident as crime
+    WHERE area_code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d'
+) as crime
+ON school.area_code = crime.area_code
+GROUP BY school.area_code
+HAVING COUNT(crime.category) < 5
+ORDER BY school_count DESC, crime_count ASC
+LIMIT 5;
+ambiguous column name: area_code

@@ -56,16 +56,16 @@ function Dashboard({ areaCode, areaTable }) {
             <span className="font-bold text-slate-300 ">
               Total Green Area:{" "}
             </span>
-            <span className="bg-[#322fe1] w-[7rem] text-center inline-block p-1 rounded-full ">
+            <span className="bg-[#322fe1] w-[7rem] text-center inline-block p-1 rounded-full">
               <FontAwesomeIcon icon={faTree} />{" "}
-              {Math.round(selectedArea.green_area_total || "N/A")} sqft
+              {Math.round(selectedArea.green_area_total) || "N/A"} sqft
             </span>
           </div>
           <div>
             <span className="font-bold text-slate-300 ">Waterfront Area:</span>{" "}
             <span className="bg-blue-700 w-[7rem] text-center inline-block p-1 rounded-full">
               <FontAwesomeIcon icon={faWater} />{" "}
-              {Math.round(selectedArea.blue_area_total || "N/A")} sqft
+              {Math.round(selectedArea.blue_area_total) || "N/A"} sqft
             </span>
           </div>
           <div>
@@ -108,7 +108,9 @@ function Dashboard({ areaCode, areaTable }) {
             </span>
             <span className="bg-blue-600 w-[7rem] text-center inline-block p-1 rounded-full ">
               <FontAwesomeIcon icon={faCartShopping} />{" "}
-              {selectedArea.retailer || "N/A"}
+              {(selectedArea.retailer == "Marks and Spencer"
+                ? "M&S"
+                : selectedArea.retailer) || "N/A"}
             </span>
           </div>
           <div className="col-span-3 text-center text-sm my-auto mt-1 flex m-auto items-center justify-center">

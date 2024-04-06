@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.test.client import RequestFactory
-from api.models import Property, Area
+from api.models import Property, Area, CrimeIncident, Station, School
 from api.views import search, PropertyList, area_details
 from django.http import HttpRequest
 from unittest.mock import MagicMock
@@ -48,6 +48,132 @@ class PropertyTestCase(TestCase):
         kings_road = Property.objects.get(name="Kings Road")
         self.assertEqual(queens_road.price, 1675000)
         self.assertEqual(kings_road.price, 1500000)
+
+
+class AreaTestCase(TestCase):
+
+    def setUp(self):
+        Area.objects.create(
+            name="Aldgate", code="E1", centre_lat=51.514248, centre_long=-0.075714
+        )
+        Area.objects.create(
+            name="Canary Wharf", code="E14", centre_lat=51.5049, centre_long=-0.0195
+        )
+
+    def test_area_name(self):
+        """Area names are correctly identified"""
+        aldgate = Area.objects.get(name="Aldgate")
+        canary_wharf = Area.objects.get(name="Canary Wharf")
+        self.assertEqual(aldgate.name, "Aldgate")
+        self.assertEqual(canary_wharf.name, "Canary Wharf")
+
+    def test_area_code(self):
+        """Area codes are correctly identified"""
+        aldgate = Area.objects.get(name="Aldgate")
+        canary_wharf = Area.objects.get(name="Canary Wharf")
+        self.assertEqual(aldgate.code, "E1")
+        self.assertEqual(canary_wharf.code, "E14")
+
+
+class CrimeIncidentTestCase(TestCase):
+
+    def setUp(self):
+        CrimeIncident.objects.create(
+            category="Burglary",
+            latitude=51.514248,
+            longitude=-0.075714,
+            postcode="E1 7AA",
+            street_name="Aldgate High Street",
+            month=1,
+            year=2022,
+        )
+        CrimeIncident.objects.create(
+            category="Robbery",
+            latitude=51.5049,
+            longitude=-0.0195,
+            postcode="E14 5AB",
+            street_name="Canary Wharf",
+            month=2,
+            year=2022,
+        )
+
+    def test_crime_incident_category(self):
+        """Crime incident categories are correctly identified"""
+        burglary = CrimeIncident.objects.get(category="Burglary")
+        robbery = CrimeIncident.objects.get(category="Robbery")
+        self.assertEqual(burglary.category, "Burglary")
+        self.assertEqual(robbery.category, "Robbery")
+
+    def test_crime_incident_postcode(self):
+        """Crime incident postcodes are correctly identified"""
+        burglary = CrimeIncident.objects.get(category="Burglary")
+        robbery = CrimeIncident.objects.get(category="Robbery")
+        self.assertEqual(burglary.postcode, "E1 7AA")
+        self.assertEqual(robbery.postcode, "E14 5AB")
+
+
+class StationTestCase(TestCase):
+
+    def setUp(self):
+        Station.objects.create(
+            station_code="EUS",
+            name="Euston",
+            fare_zone="1",
+        )
+        Station.objects.create(
+            station_code="VIC",
+            name="Victoria",
+            fare_zone="1",
+        )
+
+    def test_station_name(self):
+        """Station names are correctly identified"""
+        euston = Station.objects.get(name="Euston")
+        victoria = Station.objects.get(name="Victoria")
+        self.assertEqual(euston.name, "Euston")
+        self.assertEqual(victoria.name, "Victoria")
+
+    def test_station_fare_zone(self):
+        """Station fare zones are correctly identified"""
+        euston = Station.objects.get(name="Euston")
+        victoria = Station.objects.get(name="Victoria")
+        self.assertEqual(euston.fare_zone, "1")
+        self.assertEqual(victoria.fare_zone, "1")
+
+
+class SchoolTestCase(TestCase):
+
+    def setUp(self):
+        School.objects.create(
+            name="St Mary's",
+            address="123 High Street",
+            postcode="E1 7AA",
+            latitude=51.514248,
+            longitude=-0.075714,
+            type="Primary",
+        )
+        School.objects.create(
+            name="St John's",
+            address="456 Low Street",
+            postcode="E14 5AB",
+            latitude=51.5049,
+            longitude=-0.0195,
+            type="Secondary",
+        )
+
+    def test_school_name(self):
+        """School names are correctly identified"""
+        st_marys = School.objects.get(name="St Mary's")
+        st_johns = School.objects.get(name="St John's")
+        self.assertEqual(st_marys.name, "St Mary's")
+        self.assertEqual(st_johns.name, "St John's")
+
+    def test_school_type(self):
+        """School types are correctly identified"""
+        st_marys = School.objects.get(name="St Mary's")
+        st_johns = School.objects.get(name="St John's")
+        self.assertEqual(st_marys.type, "Primary")
+        self.assertEqual(st_johns.type, "Secondary")
 
 
 class ViewsTestCase(TestCase):
@@ -123,18 +249,18 @@ class ViewsTestCase(TestCase):
         self.assertEqual(response.data[1]["name"], "Kings Road")
 
     def test_search(self):
+        user_query = "What are the top 5 safest areas"
+        mock_sql = "SELECT * FROM api_property"
         mock_llm = MagicMock()
-        mock_llm.generate_sql.return_value = "SELECT * FROM api_property"
+        mock_llm.generate_sql.return_value = mock_sql
         mock_conn = MagicMock()
         mock_conn.cursor().fetchall.return_value = [("SW19 8NY",)]
 
-        request = self.factory.post(
-            "/search/", {"text": "What are the top 5 safest areas"}
-        )
+        request = self.factory.post("/search/", {"text": user_query})
         response = search(request=request, conn=mock_conn, llm=mock_llm)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 1)
         self.assertEqual(response.data, {"areas": ["SW19 8NY"]})
         mock_conn.close.assert_called_once()
-        mock_llm.generate_sql.assert_called_once()
-        mock_conn.cursor().execute.assert_called_once_with("SELECT * FROM api_property")
+        mock_llm.generate_sql.assert_called_once_with(user_query)
+        mock_conn.cursor().execute.assert_called_once_with(mock_sql)

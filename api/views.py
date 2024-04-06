@@ -27,6 +27,9 @@ def search(request, conn=None, llm=None):
 
         # Logging generated SQL
         logger.info(sql)
+        if any(word in sql.upper() for word in ("DROP", "DELETE", "UPDATE", "INSERT")):
+            logger.error("SQL Injection detected")
+            return Response(status=400)
         if not conn:
             conn = sqlite3.connect("db.sqlite3")
         conn.enable_load_extension(True)
@@ -61,10 +64,6 @@ class PropertyList(generics.ListAPIView):
     serializer_class = PropertySerializer
 
     def get_queryset(self):
-        """
-        Optionally restricts the returned purchases to a given user,
-        by filtering against a `username` query parameter in the URL.
-        """
         queryset = Property.objects.all()
         areas = self.request.query_params.get("areas", None)
         if areas is not None:
@@ -74,7 +73,6 @@ class PropertyList(generics.ListAPIView):
             query = f"SELECT * FROM api_property WHERE postcode REGEXP '^({area_placeholders})\D* '"
             query = query % tuple(areas)
             queryset = Property.objects.raw(query)
-            # queryset = Property.objects.raw(query, areas)
         return queryset
 
 
