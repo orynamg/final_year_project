@@ -384,3 +384,24 @@ HAVING COUNT(crime.category) < 5
 ORDER BY school_count DESC, crime_count ASC
 LIMIT 5;
 ambiguous column name: area_code
+
+
+SELECT area.code, AVG(property.price) as avg_price, COUNT(station.station_code) as station_count
+FROM api_area as area
+JOIN api_property as property ON regex_find('^\w+\d+', property.postcode) = area.code
+JOIN api_stationunit as station_unit ON regex_find('^\w+\d+', station_unit.postcode) = area.code
+JOIN api_station as station ON station.station_code = SUBSTR(station_unit.unit_code, 1, LENGTH(station.station_code))
+WHERE area.code REGEXP '(^NW|^N)\d'
+GROUP BY area.code
+ORDER BY avg_price ASC, station_count DESC
+LIMIT 5;
+
+
+.Which areas are closest to the city of london
+2024-04-12 15:24:14,451 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+SELECT area.code AS area_code, 
+       ( 3959 * acos( cos( radians(51.5074) ) * cos( radians( area.centre_lat ) ) * cos( radians( area.centre_long ) - radians(-0.1278) ) + sin( radians(51.5074) ) * sin( radians( area.centre_lat ) ) ) ) AS distance 
+FROM api_area AS area 
+WHERE area.code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d' 
+ORDER BY distance 
+LIMIT 5;

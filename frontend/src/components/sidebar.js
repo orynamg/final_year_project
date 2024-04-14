@@ -255,12 +255,11 @@ function Sidebar({
                   }`}
                 >
                   <a
+                    className="flex btn text-center font-light tracking-wider justify-center w-11/12 m-auto bg-[#3533b5b3] text-white border-none hover:bg-[#322fe1]  btn-paper-plane z-100"
                     target="_blank"
                     href={`https://www.zoopla.co.uk/for-sale/property/london/${areaCode}/`}
                   >
-                    <p className="flex btn text-center font-light tracking-wider justify-center w-11/12 m-auto bg-[#3533b5b3] text-white border-none hover:bg-[#322fe1]  btn-paper-plane z-100">
-                      View On Zoopla!
-                    </p>
+                    View On Zoopla!
                   </a>
                 </div>
               </div>

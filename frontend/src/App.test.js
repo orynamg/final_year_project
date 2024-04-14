@@ -124,3 +124,34 @@ test("search page shows warning message if no results are found", async () => {
 
   expect(screen.getByText(/No results found/i)).toBeInTheDocument();
 });
+
+test("zoopla link works", async () => {
+  const app = render(
+    <MemoryRouter initialEntries={["/search"]} initialIndex={0}>
+      <App />
+    </MemoryRouter>
+  );
+  await nextTick();
+  fireEvent.click(screen.getAllByTestId("my-drawer")[0]);
+  const textAreaBox = screen.getByPlaceholderText(
+    /Give me the area with the most amount of transport links and green spaces!/i
+  );
+  expect(textAreaBox).toBeInTheDocument();
+  fireEvent.change(textAreaBox, {
+    target: { value: "Give me areas with green spaces and transport links" },
+  });
+  jest.restoreAllMocks();
+  jest.spyOn(global, "fetch").mockResolvedValue({
+    status: 200,
+    json: jest.fn().mockResolvedValue(searchMockResponse),
+  });
+  fireEvent.click(screen.getByTestId("submit-button"));
+  await nextTick();
+
+  const canaryWharfArea = screen.getByText(/Canary Wharf/i);
+  fireEvent.click(canaryWharfArea);
+  const zooplaLink = screen.getAllByText(/View On Zoopla/i)[0];
+  fireEvent.click(zooplaLink);
+  expect(zooplaLink).toHaveAttribute("target", "_blank");
+  expect(zooplaLink).toHaveAttribute("href", expect.stringContaining("E14"));
+});
