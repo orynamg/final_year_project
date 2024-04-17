@@ -5,6 +5,9 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import ZooplaImg from "../images/zlogo.jpeg";
 
 function Stats() {
+  /**
+   * This component renders the stats on the dashboard page. Utilised components from https://daisyui.com/components/stat/
+   */
   return (
     <div>
       <div className="stats absolute right-20 bottom-40 bg-transparent">

@@ -1,4 +1,7 @@
 function Footer() {
+  /**
+   * Footer component at the bottom of the page. Inspired by https://daisyui.com/components/footer/
+   */
   return (
     <footer className="footer flex justify-around p-10 bg-[#181818] text-gray-300 fixed bottom-0">
       <nav className="grid grid-flow-col gap-4">

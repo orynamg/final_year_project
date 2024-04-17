@@ -11,6 +11,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+  /**
+   * This component renders the home page. This is the page that the user sees when they first visit the website.
+   */
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const goToSearch = () =>

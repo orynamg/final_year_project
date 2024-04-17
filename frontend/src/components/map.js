@@ -46,6 +46,7 @@ const createPolygonMap = () => {
 };
 
 const MapStyle = [
+  /** Map customisation following the boiler plate at https://developers.google.com/maps/documentation/javascript/examples/style-array */
   { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
   { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
   { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
@@ -127,6 +128,9 @@ const MapStyle = [
 ];
 
 function MapView({ selectedCoors, zoom, areaCode }) {
+  /**
+   * This component renders the map view with the polygon overlay and markers. Inspired by the example at https://developers.google.com/maps/documentation/javascript/examples/polygon-simple and https://github.com/visgl/react-google-maps/tree/main/examples
+   */
   const polygonMap = createPolygonMap();
   const isLoaded = useApiIsLoaded();
   const map = useMap();
@@ -178,16 +182,9 @@ function MapView({ selectedCoors, zoom, areaCode }) {
     map.panTo({ lat: selectedCoors.lat, lng: selectedCoors.lng - 0.04 });
   }, [areaCode]);
 
-  // const p = [
-  //   { key: "Ash, green", lat: 51.521476, lng: -0.076306 },
-  //   { key: "Birch, white", lat: 51.512211, lng: -0.069058 },
-  //   { key: "Maple, Manitoba", lat: 51.520947, lng: -0.074772 },
-  // ];
-
   return (
     <div className="z-[-100] !fixed top-0 right-0 left-0">
       <GoogleMap
-        // mapId={"bf51a910020fa25a"}
         zoom={zoom}
         center={{ lat: 51.5072, lng: -0.1876 }}
         styles={MapStyle}

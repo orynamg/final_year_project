@@ -3,6 +3,9 @@ import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Navbar({ isHome }) {
+  /**
+   * This component renders the navbar on the top of the page.
+   */
   return (
     <div className="relative bg-neutral">
       <div

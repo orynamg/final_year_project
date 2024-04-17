@@ -1,7 +1,7 @@
+""" This script reads a CSV file and imports its data into a SQLite database. This is used for the green and blue areas data."""
+
 import csv
 import sqlite3
-from postcode_generator import get_postcode
-
 
 csv_ward_area_code = "api/data/ward_to_areacode.csv"
 
@@ -28,7 +28,6 @@ with open(csv_file_path, "r") as csv_file:
     headers = next(reader)
     inserted_wards = set()
 
-    # Insert rows from CSV into the table
     for row in reader:
         if row[3] in inserted_wards:
             print(row[3] + " already inserted")
@@ -51,7 +50,5 @@ with open(csv_file_path, "r") as csv_file:
         cursor.execute(insert_query, db_row)
         inserted_wards.add(row[3])
 
-
-# Commit changes and close the connection
 conn.commit()
 conn.close()

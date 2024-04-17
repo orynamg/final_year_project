@@ -1,3 +1,5 @@
+""" This script cleans the postcodes.csv file and creates a new file with only the postcode, latitude and longitude columns."""
+
 import csv
 
 input_file = "api/data/postcodes.csv"

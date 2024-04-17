@@ -10,14 +10,14 @@ import {
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 
 const Markers = ({ points, properties }) => {
+  /** This component renders the markers on the map and the info window when a marker is clicked. Inspired by the example at https://github.com/visgl/react-google-maps/blob/main/examples/marker-clustering/src/app.tsx
+   * */
   const map = useMap();
   const [markers, setMarkers] = useState({});
   const clusterer = useRef(null);
   const [currentProperty, setCurrentProperty] = useState(null);
   const [infowindowOpen, setInfowindowOpen] = useState(false);
-  //   const [activeMarker, setActiveMarker] = useState(null);
 
-  // Initialize MarkerClusterer
   useEffect(() => {
     if (!map) return;
     if (!clusterer.current) {
@@ -25,7 +25,6 @@ const Markers = ({ points, properties }) => {
     }
   }, [map]);
 
-  // Update markers
   useEffect(() => {
     clusterer.current?.clearMarkers();
     clusterer.current?.addMarkers(Object.values(markers));

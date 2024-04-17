@@ -1,9 +1,3 @@
-# python services/copy_table_content.py --source_table station_names --target_table api_station --source_db ../test-project/data/database.sqlite --target_db db.sqlite3 --target_fields station_code,name,fare_zone
-
-# python services/copy_table_content.py --source_table station_postcodes --target_table api_stationunit --source_db ../test-project/data/database.sqlite --target_db db.sqlite3 --target_fields unit_code,latitude,longitude,postcode
-
-# python services/copy_table_content.py --source_table street_crime --target_table api_crimeincident --source_db ../test-project/data/database.sqlite --target_db db.sqlite3 --target_fields category,latitude,longitude,postcode,street_name,month,year --source_fields category,latitude,longitude,postcode,street_name,month,year
-
 import sqlite3
 import argparse
 
@@ -11,7 +5,7 @@ import argparse
 def copy_content(
     source_table, target_table, source_fields, target_fields, source_conn, target_conn
 ):
-    """Copy the content of a table from one database to another"""
+    """Copy the content of a table from one database to another. This was inspired by ChatGPT's code snippet service."""
 
     # Get the data from the source table
     source_cursor = source_conn.cursor()

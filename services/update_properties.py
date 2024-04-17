@@ -1,3 +1,5 @@
+"""" This script updates the latitude and longitude of properties in the database using the postcodes_clean.csv file. The postcodes_clean.csv file contains the postcodes and their corresponding latitude and longitude, whilst the original properties table in the database only contained the postcodes."""
+
 import csv
 import sqlite3
 

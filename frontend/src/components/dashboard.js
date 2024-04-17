@@ -14,6 +14,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Dashboard({ areaCode, areaTable }) {
+  /**
+   * This component renders the dashboard displaying information about the selected area.
+   */
   const [selectedArea, setSelectedArea] = useState(
     areaTable.find((item) => item.code === areaCode)
   );

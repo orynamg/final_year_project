@@ -11,6 +11,9 @@ function Sidebar({
   urlQuery,
   areaTable,
 }) {
+  /**
+   * This component renders the sidebar with the search bar and the results. It handles the frontend logic for the search functionality.
+   */
   const colours = [
     "bg-[#1F2936]",
     "bg-[#111827ac]",
@@ -30,7 +33,6 @@ function Sidebar({
 
   useLayoutEffect(() => {
     if (urlQuery) {
-      // setQuery(urlQuery);
       postQuery({ preventDefault: () => {} });
     }
   }, []);
@@ -198,7 +200,6 @@ function Sidebar({
                     d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                {/* <span>{errorMessage}</span> */}
                 <span>{errorMessage}</span>
               </div>
             )}

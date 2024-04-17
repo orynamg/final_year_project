@@ -1,3 +1,5 @@
+""" This script merges the polygons of the areas in the geojson file and updates the centre_lat and centre_long of the areas in the database. This was used with the shapely library (https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.unary_union.html) and ChatGPT to merge the polygons of the areas in the geojson file."""
+
 from shapely.geometry import shape, Polygon
 from shapely.ops import unary_union
 from collections import defaultdict
@@ -5,7 +7,6 @@ import json
 import sqlite3
 import re
 
-# Sample GeoJSON data with multiple polygons
 geojson_input = "api/data/area_code_polygons/WC.json"
 geojson_output = "frontend/src/area_code_polygons/WC.json"
 
@@ -48,22 +49,3 @@ with open(geojson_output, "w") as f:
 
 conn.commit()
 conn.close()
-
-
-# Convert GeoJSON features to Shapely polygons
-# polygons = [
-#     shape(feature["geometry"])
-#     for feature in geojson_data["features"]
-#     if feature["properties"]["name"]
-# ]
-
-# print(len(polygons))
-
-# # Merge polygons into a single polygon
-# merged_polygon = unary_union(polygons)
-
-# # Calculate the centroid of the merged polygon
-# centroid = merged_polygon.centroid
-
-# print(f"Merged Polygon: {merged_polygon}")
-# print(f"Centroid: {centroid.x}, {centroid.y}")
