@@ -80,7 +80,7 @@ def area_details(request):
             FROM api_area aa
             LEFT JOIN (
                 SELECT 
-                    SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, COUNT(*) as crime_count
+                    regex_find('^\w+\d+', api_crimeincident.postcode) as area_code, COUNT(*) as crime_count
                 FROM api_crimeincident
                 GROUP BY area_code
             ) ac ON aa.code = ac.area_code
@@ -90,14 +90,14 @@ def area_details(request):
                     (SELECT *, ROW_NUMBER() OVER(PARTITION BY area_code ORDER BY area_code, category_count DESC) as rn
                     FROM 
                         (SELECT 
-                            SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, category as crime_category, COUNT(category) as category_count
+                            regex_find('^\w+\d+', api_crimeincident.postcode) as area_code, category as crime_category, COUNT(category) as category_count
                         FROM api_crimeincident
                         GROUP BY area_code, category))  
                 WHERE rn = 1
             ) ac2 ON aa.code = ac2.area_code
             LEFT JOIN (
                 SELECT 
-                    SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, COUNT(*) as school_count
+                    regex_find('^\w+\d+', api_school.postcode) as area_code, COUNT(*) as school_count
                 FROM api_school
                 GROUP BY area_code
             ) sc ON aa.code = sc.area_code
@@ -109,13 +109,13 @@ def area_details(request):
             ) ag ON aa.code = ag.area_code
             LEFT JOIN (
                 SELECT 
-                    SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, COUNT(*) as vehicle_charging_count
+                    regex_find('^\w+\d+', api_vehiclechargingpoint.postcode) as area_code, COUNT(*) as vehicle_charging_count
                 FROM api_vehiclechargingpoint
                 GROUP BY area_code
             ) av ON aa.code = av.area_code
             LEFT JOIN (
                 SELECT 
-                    SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, COUNT(*) as grocery_count
+                    regex_find('^\w+\d+', api_groceryshop.postcode) as area_code, COUNT(*) as grocery_count
                 FROM api_groceryshop 
                 GROUP BY area_code
             ) agc ON aa.code = agc.area_code
@@ -125,14 +125,14 @@ def area_details(request):
                     (SELECT *, ROW_NUMBER() OVER(PARTITION BY area_code ORDER BY area_code, retailer_count DESC) as rn
                     FROM 
                         (SELECT 
-                            SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, retailer, COUNT(retailer) as retailer_count
+                            regex_find('^\w+\d+', api_groceryshop.postcode) as area_code, retailer, COUNT(retailer) as retailer_count
                         FROM api_groceryshop
                         GROUP BY area_code, retailer))  
                 WHERE rn = 1
             ) agc2 ON aa.code = agc2.area_code
             LEFT JOIN (
                 SELECT 
-                    SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, AVG(price) as price_avg
+                    regex_find('^\w+\d+', api_property.postcode) as area_code, AVG(price) as price_avg
                 FROM api_property
                 GROUP BY area_code
             ) ap ON aa.code = ap.area_code
@@ -140,7 +140,7 @@ def area_details(request):
                 SELECT area_code, GROUP_CONCAT(' ' || name) as stations
                 FROM 
                     (SELECT DISTINCT  
-                        SUBSTR(postcode, 1, INSTR(postcode, ' ')-1) as area_code, api_station.name as name
+                        regex_find('^\w+\d+', api_stationunit.postcode) as area_code, api_station.name as name
                     FROM api_stationunit 
                     INNER JOIN  api_station 
                         ON api_station.station_code=SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))
@@ -149,17 +149,23 @@ def area_details(request):
                 GROUP BY area_code
             ) s ON aa.code = s.area_code
             """
-        with connection.cursor() as cursor:
-            cursor.execute(sql)
-            area_details = []
-            col_names = [desc[0] for desc in cursor.description]
-            for row in cursor.fetchall():
-                area = {}
-                for i in range(len(col_names)):
-                    area[col_names[i]] = row[i]
-                area_details.append(area)
+        conn = sqlite3.connect("db.sqlite3")
+        conn.enable_load_extension(True)
+        conn.load_extension("regex02")
+        conn.enable_load_extension(False)
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        area_details = []
+        col_names = [desc[0] for desc in cursor.description]
+        for row in cursor.fetchall():
+            area = {}
+            for i in range(len(col_names)):
+                area[col_names[i]] = row[i]
+            area_details.append(area)
 
         return Response(area_details)
     except Exception as e:
         print(e)
         return Response(status=500)
+    finally:
+        conn.close()

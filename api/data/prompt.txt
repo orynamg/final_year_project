@@ -17,7 +17,7 @@ Generate SQL query for a sqlite database to answer the question: {}
 
 5) When using table aliases, please add the alias name to the column names where appropriate, for example in SELECT and GROUP BY statements, for the area_code column.
 
-6)Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
+6) Do not explain the code or add comments. Do not return anything apart from actual sql query. Only respond is sql language.
 
 7) do not make the area_code column ambiguous in GROUP BY and SELECT statements, by specifying the table, such as: table_name.area_code
 
@@ -28,7 +28,9 @@ Generate SQL query for a sqlite database to answer the question: {}
 10) The api_area table does not have a postcode, only an area code, defined as "code", so do not calculate area_code from postcode in api_area table and instead "SELECT code"
 FROM api_area
 
-11) in the api_crimeincdent table, these are the ONLY available categories:
+11) If a value in any table that you are filtering by is NUll or empty, skip it.
+
+12) in the api_crimeincdent table, these are the ONLY available categories:
 Violence and sexual offences
 Anti-social behaviour
 Criminal damage and arson
@@ -46,54 +48,54 @@ Bicycle theft
 
 Interpret/filter only using these categories.
 
-12) Safe is when crimes are minimal. 
+13) Safe is when crimes are minimal. 
 
-13) When asked for crime instances without specifying "most" or "least" display them in descending order.
+14) When asked for crime instances without specifying "most" or "least" display them in descending order.
 
-14) Ignore the api_crimeincdent table if crime (or any reference to crime) is not mentioned in the user prompt.
+15) Ignore the api_crimeincdent table if crime (or any reference to crime) is not mentioned in the user prompt.
 
-15) Transport links refers to stations.
+16) Transport links refers to stations.
 
-16) If a query asks about transport_links, GROUP BY station_count 
+17) If a query asks about transport_links, GROUP BY station_count 
 
-17) The station name is the "name" column in the api_station table.
+18) The station name is the "name" column in the api_station table.
 The station postcode can be found through the api_stationunit table. The station_code in the api_stations table can be mapped onto unit_code in the api_stationunit table. It is not an exact match but contains the same character sequence inside both codes.
 
 There are multiple station units ("unit_code"s) in the api_stationunit table for each "station_code" in the api_station table. The area code for the station is the area code for all its station units (unit_codes).
 
 use this: "ON api_station.station_code=SUBSTR(api_stationunit.unit_code, 1, LENGTH(api_station.station_code))" to match station_units to stations in the two tables.
 
-16) Any unit_code that has the string "Bus" within it, is a bus stop. Use this information when queried about bus stops.
+19) Any unit_code that has the string "Bus" within it, is a bus stop. Use this information when queried about bus stops.
 
-17) "transport_links" is not a column in api_station or api_stationunit, therefore, you CANNOT "GROUP BY" or "ORDER BY" that column. 
+20) "transport_links" is not a column in api_station or api_stationunit, therefore, you CANNOT "GROUP BY" or "ORDER BY" that column. 
 
-18) in api_property, house_type categories are:
+21) in api_property, house_type categories are:
 House 
 Flat / Apartment
 Studio
 New development
 Penthouse
 
-19) In api_groceryshop, if asked about any specific shop, check either the "retailer" and "type" columns and use %LIKE% instead of equals. Compare the shop name to an all lowercase "retailer" and "type" columns.
+22) In api_groceryshop, if asked about any specific shop, check either the "retailer" and "type" columns and use %LIKE% instead of equals. Compare the shop name to an all lowercase "retailer" and "type" columns.
 
-20) supermarkets are the same as grocery shops. 
+23) supermarkets are the same as grocery shops. 
 
-21) "marks and spencer" is the same as "marks and spencers"
+24) "marks and spencer" is the same as "marks and spencers"
 
-22) When asked about car parks, look into api_vehiclechargingpoint table, and search for the string "Car Park" in the site_name column.
+25) When asked about car parks, look into api_vehiclechargingpoint table, and search for the string "Car Park" in the site_name column.
 
-23) When asked for an area with the most "green area" or "green space" or "blue area" or "most surrounded by water" (or equivalent), look in api_greenbluearea. 
+26) When asked for an area with the most "green area" or "green space" or "blue area" or "most surrounded by water" (or equivalent), look in api_greenbluearea. 
 
-24) In the table api_greenbluearea, there is no postcode column and you do not need to calculate area_code, as it already exists as a column. Simply do "SELECT area_code".
+27) In the table api_greenbluearea, there is no postcode column and you do not need to calculate area_code, as it already exists as a column. Simply do "SELECT area_code".
 
-25) The column "city" in api_property is always "London". Do not use this as a filter ever.
+28) The column "city" in api_property is always "London". Do not use this as a filter ever.
 
-26) "City of London" or "Central London" only is areas where postcode starts with "EC". You cannot find properties in City of London by looking at the api_property.city column. To find areas in "central london" use the EC postcode.
+29) "City of London" or "Central London" only is areas where postcode starts with "EC". You cannot find properties in City of London by looking at the api_property.city column. To find areas in "central london" use the EC postcode.
 
-27) West London is is areas where postcode starts with "W" or "WC"
+30) West London is is areas where postcode starts with "W" or "WC"
 
-28) East London is is areas where postcode starts with "E"
+31) East London is is areas where postcode starts with "E"
 
-29) North London is is areas where postcode starts with "N" or "NW"
+32) North London is is areas where postcode starts with "N" or "NW"
 
-30) South London is is areas where postcode starts with "SE" or "SW"
+33) South London is is areas where postcode starts with "SE" or "SW"
