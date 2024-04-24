@@ -75,7 +75,7 @@ function AboutUs() {
           href="https://data.police.uk/docs/method/crime-street/."
           className="btn w-44 rounded-full bg-[#01B57A] text-white border-none hover:bg-[#01B57A] hover:opacity-80 text-xs"
         >
-          Street-level crimes - data.police.uk (2024) 
+          Street-level crimes - data.police.uk (2023) 
         </a>
         <a
           href="https://geolytix.com/blog/supermarket-retail-points/."
@@ -108,13 +108,13 @@ function AboutUs() {
           London Schools Atlas – London Datastore (2016)
         </a>
         <a
-          href="https://tfl.gov.uk/info-for/open-data-users/our-open-data."
+          href="https://tfl.gov.uk/info-for/open-data-users/our-open-data"
           className="btn w-44 rounded-full bg-[#01B57A] text-white border-none hover:bg-[#01B57A] hover:opacity-80 text-xs"
         >
-          Our open data - Transport for London (2024) 
+          Our open data - Transport for London (2023) 
         </a>
       </div>
-      <div className="bg-slate-700 w-full h-[12rem] "></div>
+      <div className="bg-slate-700 w-full h-[6.5rem] "></div>
     </div>
   );
 }

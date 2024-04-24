@@ -64,16 +64,12 @@ class PropertyList(generics.ListAPIView):
     serializer_class = PropertySerializer
 
     def get_queryset(self):
-        queryset = Property.objects.all()
-        areas = self.request.query_params.get("areas", None)
-        if areas is not None:
-            areas = areas.split(",")
-            area_placeholders = "|".join(["%s"] * len(areas))
-            print(area_placeholders, areas)
-            query = f"SELECT * FROM api_property WHERE postcode REGEXP '^({area_placeholders})\D* '"
-            query = query % tuple(areas)
-            queryset = Property.objects.raw(query)
-        return queryset
+        properties = Property.objects.all()
+        area = self.request.query_params.get("area", None)
+        if area is not None:
+            query = f"SELECT * FROM api_property WHERE postcode REGEXP '^{area}\D* '"
+            properties = Property.objects.raw(query)
+        return properties
 
 
 @api_view(["GET"])

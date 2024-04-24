@@ -53,9 +53,9 @@ function Home() {
         <div className="bottom-36 left-20 absolute">
           <img src={TrustpilotImg} alt="" className="w-72 h-auto py-2" />
           <p className="w-2/5 text-gray-300 italic text-sm tracking-wide text-lighter">
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            ad provident a similique officiis aspernatur fuga iste totam
-            recusandae unde consequatur qui quisquam."
+            "This AI property finder app is awesome! It understands what you're
+            looking for and finds good locations and properties. It's like
+            having a real estate guru, defo a game-changer in house hunting"
           </p>
           <h4 className="text-[#01B57A] font-bold text-sm tracking-wide py-2 flex items-center">
             Verified user{" "}
