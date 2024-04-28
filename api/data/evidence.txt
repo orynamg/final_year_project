@@ -405,3 +405,17 @@ FROM api_area AS area
 WHERE area.code REGEXP '(^SW|^SE|^W|^NW|^N|^E|^WC|^EC)\d' 
 ORDER BY distance 
 LIMIT 5;
+
+{'text': 'give me areas in west london with avergae house prices over a million'}
+SELECT api_area.code
+FROM api_area
+INNER JOIN (
+    SELECT regex_find('^\w+\d+', postcode) as area_code, AVG(price) as avg_price
+    FROM api_property
+    WHERE price IS NOT NULL AND postcode IS NOT NULL AND (postcode REGEXP '(^W|^WC)\d')
+    GROUP BY area_code
+    HAVING avg_price > 1000000
+) AS subquery
+ON api_area.code = subquery.area_code
+ORDER BY subquery.avg_price DESC
+LIMIT 5

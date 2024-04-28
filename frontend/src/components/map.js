@@ -162,7 +162,7 @@ function MapView({ selectedCoors, zoom, areaCode }) {
       fillOpacity: 0.25,
     });
 
-    fetch("http://localhost:8000/api/properties?areas=" + areaCode)
+    fetch("http://localhost:8000/api/properties?area=" + areaCode)
       .then((response) => response.json())
       .then((data) => {
         setMarkers(
