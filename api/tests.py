@@ -182,27 +182,68 @@ class ViewsTestCase(TestCase):
         self.factory = RequestFactory()
 
     def test_area_details(self):
-        request = self.factory.get("/area-details/")
-        response = area_details(request=request)
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data, [])
+        mock_conn = MagicMock()
+        mock_conn.cursor().description = [
+            ("code",),
+            ("name",),
+            ("centre_lat",),
+            ("centre_long",),
+            ("crime_count",),
+            ("school_count",),
+            ("green_area_total",),
+            ("blue_area_total",),
+            ("vehicle_charging_count",),
+            ("grocery_count",),
+            ("price_avg",),
+            ("stations",),
+            ("crime_category",),
+            ("retailer",),
+        ]
+        mock_conn.cursor().fetchall.return_value = [
+            (
+                "E10",
+                "Leyton",
+                51.56633843576615,
+                -0.020374095029198812,
+                789,
+                15,
+                185.3,
+                10.32,
+                "null",
+                9,
+                "null",
+                "Leyton Midland Road",
+                "Anti-social behaviour",
+                "Tesco",
+            )
+        ]
 
-    def test_area_details_with_areas(self):
-        """Test instances of Area model are created and returned"""
-        Area.objects.create(
-            name="Aldgate", code="E1", centre_lat=51.514248, centre_long=-0.075714
-        )
-        Area.objects.create(
-            name="Canary Wharf", code="E14", centre_lat=51.5049, centre_long=-0.0195
-        )
-
         request = self.factory.get("/area-details/")
-        response = area_details(request=request)
+        response = area_details(request=request, conn=mock_conn)
         self.assertEqual(response.status_code, 200)
-        self.assertNotEqual(response.data, [])
-        self.assertEqual(len(response.data), 2)
-        self.assertEqual(response.data[0]["name"], "Aldgate")
-        self.assertEqual(response.data[1]["name"], "Canary Wharf")
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(
+            response.data,
+            [
+                {
+                    "code": "E10",
+                    "name": "Leyton",
+                    "centre_lat": 51.56633843576615,
+                    "centre_long": -0.020374095029198812,
+                    "crime_count": 789,
+                    "school_count": 15,
+                    "green_area_total": 185.3,
+                    "blue_area_total": 10.32,
+                    "vehicle_charging_count": "null",
+                    "grocery_count": 9,
+                    "price_avg": "null",
+                    "stations": "Leyton Midland Road",
+                    "crime_category": "Anti-social behaviour",
+                    "retailer": "Tesco",
+                },
+            ],
+        )
+        mock_conn.close.assert_called_once()
 
     def test_property_list(self):
         request = self.factory.get("/properties/")

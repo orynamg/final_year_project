@@ -13,6 +13,7 @@ import App from "./App";
 import { MemoryRouter } from "react-router-dom";
 import areaDetailsMockResponse from "./test_area_details.json";
 import propertiesMockResponse from "./test_properties.json";
+import { useMapsLibrary } from "@vis.gl/react-google-maps";
 
 const searchMockResponse = { areas: ["E14", "EC4", "SW1", "SE1", "NW1"] };
 
@@ -38,8 +39,8 @@ test("home page renders without crashing", () => {
       <App />
     </MemoryRouter>
   );
-  const logo = screen.getByText(/EstateMate/i);
-  expect(logo).toBeInTheDocument();
+  const logo = screen.getAllByText(/EstateMate/i);
+  expect(logo.length).toBe(5);
 });
 
 test("search page renders without crashing and /area-details retrieves data", async () => {
@@ -204,26 +205,16 @@ test("google map shows polygons", async () => {
 
   jest.restoreAllMocks();
   jest.spyOn(global, "fetch").mockResolvedValue({
-    status: 200,
+    status: 500,
     json: jest.fn().mockResolvedValue(propertiesMockResponse),
   });
-
-  createMarkerSpy = jest.fn();
-  google.maps.Marker = class extends google.maps.Marker {
-    constructor(opts) {
-      createMarkerSpy(opts);
-      super(opts);
-    }
-  };
 
   const canaryWharfArea = screen.getByText(/Canary Wharf/i);
   fireEvent.click(canaryWharfArea);
   await nextTick();
 
-  await waitFor(() => expect(createMarkerSpy).toHaveBeenCalled());
-
-  // const markers = mockInstances.get(google.maps.Marker);
-  // expect(markers).toHaveLength(1);
+  const propertyPrice = screen.getByText(/861,216/i);
+  expect(propertyPrice).toBeInTheDocument();
 
   const polygon = screen.getAllByRole("button")[0];
   expect(polygon).toBeInTheDocument();

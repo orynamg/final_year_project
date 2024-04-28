@@ -73,7 +73,7 @@ class PropertyList(generics.ListAPIView):
 
 
 @api_view(["GET"])
-def area_details(request):
+def area_details(request, conn=None):
     try:
         sql = """
             SELECT code, name, centre_lat, centre_long, crime_count, school_count, green_area_total, blue_area_total, vehicle_charging_count, grocery_count, price_avg, stations, crime_category, retailer
@@ -149,10 +149,11 @@ def area_details(request):
                 GROUP BY area_code
             ) s ON aa.code = s.area_code
             """
-        conn = sqlite3.connect("db.sqlite3")
-        conn.enable_load_extension(True)
-        conn.load_extension("regex02")
-        conn.enable_load_extension(False)
+        if conn is None:
+            conn = sqlite3.connect("db.sqlite3")
+            conn.enable_load_extension(True)
+            conn.load_extension("regex02")
+            conn.enable_load_extension(False)
         cursor = conn.cursor()
         cursor.execute(sql)
         area_details = []

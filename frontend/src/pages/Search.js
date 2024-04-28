@@ -19,6 +19,9 @@ function useQuery() {
 }
 
 function Search() {
+  /**
+   * This component renders the search page with the map view, sidebar, and dashboard.
+   */
   let urlQuery = useQuery().get("query") || "";
   const [selectedCoors, setSelectedCoors] = useState({
     lat: 51.5072,
@@ -57,6 +60,7 @@ function Search() {
         <MapView
           selectedCoors={selectedCoors}
           zoom={zoom}
+          setZoom={setZoom}
           areaCode={areaCode}
         />
       </APIProvider>
